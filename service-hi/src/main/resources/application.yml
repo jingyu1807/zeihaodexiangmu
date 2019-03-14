@@ -1,0 +1,67 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: service-hi
+    rabbitmq:
+      host: 127.0.0.1
+      port: 5672
+      username: guest
+      password: guest
+
+    #  配置jpa自动生成表
+    jpa:
+      database: mysql
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+
+    #  mongodb 配置
+    data:
+      mongodb:
+        uri: mongodb://localhost:27017/hell
+  # 时间格式
+  jackson:
+    date-format: java.text.SimpleDateFormat    #或正则yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+
+
+  pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+  logging:
+    config: classpath:conf/log4j2.xml
+
+
+
+  # LOG4J配置
+  #  log4j.rootLogger=INFO,stdout,file
+  #  # 日志输出到文件
+  #  log4j.appender.file=org.apache.log4j.DailyRollingFileAppender
+  #  log4j.appender.file.file=logs/springboot.log
+  #  log4j.appender.file.DatePattern='.'yyyy-MM-dd
+  #  log4j.appender.file.layout=org.apache.log4j.PatternLayout
+  #  log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L - %m%n
+
+    #  配置mysql连接数据库
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.147:3306/vacation?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username:  lyq
+    password: 123
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/config.xml
+
