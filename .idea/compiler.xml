@@ -10,6 +10,7 @@
         <module name="serice-feign" />
         <module name="service-hi" />
         <module name="service-ribbon" />
+        <module name="service-zuul" />
         <module name="springboot-rabbit" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="serice-feign" options="-parameters" />
       <module name="service-hi" options="-parameters" />
       <module name="service-ribbon" options="-parameters" />
+      <module name="service-zuul" options="-parameters" />
       <module name="springboot-rabbit" options="-parameters" />
     </option>
   </component>
