@@ -49,7 +49,7 @@ spring:
     #  配置mysql连接数据库
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.147:3306/vacation?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://192.168.43.139:3306/vacation?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
     username:  lyq
     password: 123
   mvc:

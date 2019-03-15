@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 public class TestController {
@@ -14,9 +15,10 @@ public class TestController {
      private TestService testService;
 
      @GetMapping(value = "/hi" )
-    public  String hi(@RequestParam String name){
+    public List hi(@RequestParam String name){
+         List list =testService.queryCatalog();
 
-         return testService.hi(name);
+         return testService.queryCatalog();
      }
 
 
