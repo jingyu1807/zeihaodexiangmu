@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+
+
+
+<html>
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
+<meta name="author" content="http://www.itmayiedu.com">
+<meta name="keywords" content="èš‚èšè¯¾å ‚,Javaè§†é¢‘æ•™ç¨‹,Javaé«˜çº§æ¶æ„å¸ˆæ•™ç¨‹,SpringBootè§†é¢‘æ•™ç¨‹,SpringCloudè§†é¢‘æ•™ç¨‹,Redisè§†é¢‘æ•™ç¨‹,ActivityMQè§†é¢‘æ•™ç¨‹">
+<meta name="description" content="èš‚èšè¯¾å ‚ï¼šä¸“å±äºå¹´è½»äººçš„åœ¨çº¿å­¦ä¹ å¹³å°ï¼Œå› ä¸ºå¹´è½»ï¼Œæ‰€ä»¥åšæŒä¸æ‡ˆï¼ç½‘ç«™åŒ…å«äº†ã€å¾®æœåŠ¡å®æˆ˜ã€‘ã€åˆ†å¸ƒå¼æ¶æ„ã€‘ã€é«˜å¹¶å‘ä¸é«˜å¯ç”¨ã€‘ç­‰è§†é¢‘è¯¾ç¨‹ã€‚å®˜æ–¹QQç¾¤:917150497">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent">
+<meta content="telephone=no" name="format-detection">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css"
+	href="reset.min.css" tppabs="http://static.itmayiedu.com/reset.min.css">
+<link rel="stylesheet" type="text/css"
+	href="global-1.css" tppabs="http://static.itmayiedu.com/global.css">
+	<link rel="stylesheet" type="text/css" href="web.min.css" tppabs="http://static.itmayiedu.com/web.min.css">
+	
+<link rel="stylesheet" type="text/css"
+	href="theme.min.css" tppabs="http://static.itmayiedu.com/theme.min.css">
+<link href="mw_320_768.min.css" tppabs="http://static.itmayiedu.com/mw_320_768.min.css" rel="stylesheet"
+	type="text/css"
+	media="screen and (min-width: 320px) and (max-width: 768px)">
+<title>èš‚èšè¯¾å ‚ç¬¬äº”æœŸ</title>
+
+<script type="text/javascript"
+	src="jquery-1.7.2.min.js" tppabs="http://static.itmayiedu.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript"
+	src="jquery.qrcode.min.js" tppabs="http://static.itmayiedu.com/jquery.qrcode.min.js"></script>
+<script type="text/javascript" src="webutils.js" tppabs="http://www.mayikt.com/static/js/common/webutils.js"></script>
+<script type="text/javascript"
+	src="headerH5SearchCommon.min.js" tppabs="http://static.itmayiedu.com/headerH5SearchCommon.min.js"></script>
+<script type="text/javascript" src="header.min.js" tppabs="http://static.itmayiedu.com/header.min.js"></script>
+<script type="text/javascript" src="common.min.js" tppabs="http://static.itmayiedu.com/common.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="base.min.css" tppabs="http://static.itmayiedu.com/base.min.css">
+<script type="text/javascript" src="test.js" tppabs="http://static.itmayiedu.com/test.js"></script>
+</head>
+<body>
+
+
+<link rel="stylesheet" type="text/css"
+	href="base.min.css" tppabs="http://static.itmayiedu.com/base.min.css">
+<script type="text/javascript" src="test.js" tppabs="http://static.itmayiedu.com/test.js"></script>
+
+<script>
+    $(document).ready(function () {
+        loadimage();
+    });
+
+
+    //éªŒè¯å—code
+    function loadimage() {
+        $.ajax({
+            //å‡ ä¸ªå‚æ•°éœ€è¦æ³¨æ„ä¸€ä¸‹
+            type: "POST",//æ–¹æ³•ç±»å‹
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",//é¢„æœŸæœåŠ¡å™¨è¿”å›çš„æ•°æ®ç±»å‹
+            url: "/loadimage",//url
+            success: function (result) {
+                var json = eval(result);
+                console.log(json); //æ‰“å°æœåŠ¡ç«¯è¿”å›çš„æ•°æ®(è°ƒè¯•ç”¨)
+                if (json.rtnCode == 200) {
+                    var randImage = document
+                        .getElementById("randImage");
+                    randImage.value = json.data;//æŠŠcodeå€¼èµ‹ç»™éªŒè¯ç 
+                }
+                ;
+
+            },
+        });
+    }
+
+    function openLoginDialog() {
+
+        document.getElementById("u-email").value = "";
+        document.getElementById("u-password").value = "";
+        $("#dialogLogin").addClass('current');
+        $("#dialogWrap").show();
+        $("#RegisterFrom").hide();
+        $("#loginFrom").show();
+        var emailVal = $("#u-email").val();
+
+    }
+
+    function reginDialog() {
+        document.getElementById("u-email-reg").value = "";
+        document.getElementById("u-mobile-reg").value = "";
+        document.getElementById("u-zhucecode-reg").value = "";
+        document.getElementById("u-password-reg").value = "";
+        document.getElementById("u-passwordl-reg").value = "";
+        document.getElementById("imageCode").value = "";
+
+        $("#dialogLogin").removeClass('current');
+        $("#reginDialog").addClass('current');
+        $("#loginFrom").hide();
+        $("#RegisterFrom").show();
+    }
+
+    function dialogLogin() {
+        $("#dialogLogin").addClass('current');
+        $("#reginDialog").removeClass('current');
+        $("#loginFrom").show();
+        //  $("#reginDialog").addClass('current');
+        $("#RegisterFrom").hide();
+    }
+
+
+    function dClose() {
+        document.getElementById("u-email").value = "";
+        document.getElementById("u-password").value = "";
+        document.getElementById("u-email-reg").value = "";
+        document.getElementById("u-mobile-reg").value = "";
+        document.getElementById("u-zhucecode-reg").value = "";
+        document.getElementById("u-password-reg").value = "";
+        document.getElementById("u-passwordl-reg").value = "";
+        document.getElementById("imageCode").value = "";
+        $("#dialogWrap").hide();
+    }
+
+
+    //
+    function Register() {
+        var emailRegisterZz = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+
+
+        var courseId = $("#courseId").val();
+        var userVip = $("#userVip").val();
+
+
+        var emailRegister = $("#u-email-reg").val();
+        var mobileRegister = $("#u-mobile-reg").val();
+        var zhucecodeRegister = $("#u-zhucecode-reg").val();
+        var passwordRegister = $("#u-password-reg").val();
+        var passwordlRegister = $("#u-passwordl-reg").val();
+        var imageCodeRegister = $("#imageCode").val();
+
+        if (emailRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥é‚®ç®±!");
+            return;
+        }
+
+        if (mobileRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥æ‰‹æœºå·ç !");
+            return;
+        }
+        if (zhucecodeRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥æ³¨å†Œç !");
+            return;
+        }
+        if (passwordRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥å¯†ç !");
+            return;
+        }
+        if (passwordlRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥ç¡®è®¤å¯†ç !");
+            return;
+        }
+        if (imageCodeRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥éªŒè¯ç !");
+            return;
+        }
+
+        if (!emailRegisterZz.test(emailRegister)) {
+            $("#registeInfo").html("è¯·è¾“å…¥æ­£ç¡®é‚®ç®±!");
+            return;
+        }
+
+        if (mobileRegister.length < 11) {
+            $("#registeInfo").html("è¯·è¾“å…¥æ­£ç¡®æ‰‹æœºå·!");
+            return;
+        }
+
+
+        $.ajax({
+            //å‡ ä¸ªå‚æ•°éœ€è¦æ³¨æ„ä¸€ä¸‹
+            type: "POST",//æ–¹æ³•ç±»å‹
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",//é¢„æœŸæœåŠ¡å™¨è¿”å›çš„æ•°æ®ç±»å‹
+            url: "/user/registe",//url
+            // data:{"mobile":$("#mobile").val(),"password":$("#password").val()},  $('#loginUserFrom').serialize(),
+            data: JSON.stringify({
+                "email": emailRegister,
+                "mobile": mobileRegister,
+                "zhucecode": zhucecodeRegister,
+                "password": passwordRegister,
+                "passwordl": passwordlRegister,
+                "imageCode": imageCodeRegister
+            }),
+            success: function (result) {
+                var json = eval(result);
+                if (json.rtnCode == 200) {
+                    document.getElementById("registeInfo").innerHTML = "æ³¨å†ŒæˆåŠŸï¼";
+                    if (courseId != "") {
+                        window.location.href = "http://www.mayikt.com/front/couinfo/" + courseId+"/0";
+                    } else if (userVip != null) {
+                        window.location.href = "userVip.htm"/*tpa=http://www.mayikt.com/user/userVip*/;
+                    } else {
+                        window.location.href = "index.htm"/*tpa=http://www.mayikt.com/*/;
+                    }
+                }
+                ;
+                if (json.rtnCode == 500) {
+                    var data = json.msg;
+                    document.getElementById("registeInfo").innerHTML = data;
+                }
+                ;
+
+            }
+        });
+    }
+
+    // ssoå¤šç«¯ç™»å½•
+    function login() {
+        var courseId = $("#courseId").val();
+        var userVip = $("#userVip").val();
+        var pageActionUrl = $("#pageActionUrl").val();
+        $.ajax({
+            //å‡ ä¸ªå‚æ•°éœ€è¦æ³¨æ„ä¸€ä¸‹
+            type: "POST",//æ–¹æ³•ç±»å‹
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",//é¢„æœŸæœåŠ¡å™¨è¿”å›çš„æ•°æ®ç±»å‹
+            url: "/user/login",//url
+            data: JSON.stringify({
+                "email": $("#u-email").val(),
+                "password": $("#u-password").val()
+            }),
+            success: function (result) {
+                var json = eval(result);
+                console.log(json); //æ‰“å°æœåŠ¡ç«¯è¿”å›çš„æ•°æ®(è°ƒè¯•ç”¨)
+                if (json.rtnCode == 200) {
+                    if (courseId != "") {
+                        window.location.href = "http://www.mayikt.com/front/couinfo/" + courseId+"/0";
+                    } else if (userVip != null) {
+                        window.location.href = "index-2.htm"/*tpa=http://www.mayikt.com/user/userVip/*/;
+                    } else if (pageActionUrl != null) {
+                        window.location.href = "index-3.htm"/*tpa=http://www.mayikt.com/front/showcoulist/*/;
+                    }
+                    else {
+                        window.location.href = "index.htm"/*tpa=http://www.mayikt.com/*/;
+                    }
+
+
+                }
+                ;
+                if (json.rtnCode == 500) {
+                    var data = json.msg;
+                    document.getElementById("loginInfo").innerHTML = data;
+                }
+                ;
+            },
+
+        });
+    }
+
+
+</script>
+
+
+<script>
+
+    //é”™è¯¯ä»£å¼€ç™»å½• qq
+    window.onload = function () {
+
+        var qqerror = $("#qqerror").val();
+        if (qqerror != "") {
+            document.getElementById("loginInfo").innerHTML = qqerror;
+
+            openLoginDialog();
+        }
+    };
+
+</script>
+
+
+<header id="header" class="all-header">
+
+
+
+	<input type="hidden" id="qqerror" value="">
+	<section class="container">
+		<h1 id="logo" class="logo">
+			<a class="headerlogo" style="" href="" title="èš‚èšè¯¾å ‚"> <img
+				src="20181024142946.png" tppabs="http://static.itmayiedu.com/20181024142946.png" width="100%"
+				alt="èš‚èšè¯¾å ‚">
+			</a> <a class="headerfanhui" style="display: none"
+				href="javascript:void (0)" onclick="goHistory(&#39;&#39;)"
+				title="èš‚èšè¯¾å ‚"> <img src="mo-back.png" tppabs="http://www.mayikt.com/static/images/index/mo-back.png">
+			</a>
+		</h1>
+		<div class="h-r-nsl">
+			<ul class="nav">
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						<li><a href="index.htm" tppabs="http://www.mayikt.com/"
+							title="é¦–é¡µ" rel="nofollow" >é¦–é¡µ</a></li>
+					
+				
+					
+						<li><a href="showcoulist.htm" tppabs="http://www.mayikt.com/front/showcoulist"
+							title="è¯¾ç¨‹" rel="nofollow" >è¯¾ç¨‹</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://cn.mikecrm.com/kz8uPv0  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://cn.mikecrm.com/kz8uPv0'" tppabs="http://cn.mikecrm.com/kz8uPv0"
+							title="åŸ¹è®­" rel="nofollow" >åŸ¹è®­</a></li>
+					
+				
+					
+						<li><a href="userVip.htm" tppabs="http://www.mayikt.com/user/userVip"
+							title="ä¼šå‘˜" rel="nofollow" >ä¼šå‘˜</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://static.itmayiedu.com/2018-06-04-V3.png  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://static.itmayiedu.com/2018-06-04-V3.png'" tppabs="http://static.itmayiedu.com/2018-06-04-V3.png"
+							title="è·¯çº¿" rel="nofollow" >è·¯çº¿</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://static.itmayiedu.com/123123sdfdsgf.jpg  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://static.itmayiedu.com/123123sdfdsgf.jpg'" tppabs="http://static.itmayiedu.com/123123sdfdsgf.jpg"
+							title="å°ç¨‹åº" rel="nofollow" >å°ç¨‹åº</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1'" tppabs="http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1"
+							title="å®šæœŸç›´æ’­" rel="nofollow" >å®šæœŸç›´æ’­</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://ms.mayikt.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://ms.mayikt.com/'" tppabs="http://ms.mayikt.com/"
+							title="é¢è¯•å®å…¸" rel="nofollow" >é¢è¯•å®å…¸</a></li>
+					
+				
+					
+				
+
+			</ul>
+			<!-- / nav -->
+			<ul class="h-r-login clearfix">
+
+				
+					<li class="undis h-login-li" id="no-login"
+						style="display: list-item;"><a href="javascript:void(0)"
+						onclick="openLoginDialog()" title="ç™»å½•"> <em
+							class="icon18 login-icon">&nbsp;</em><span class="vam ml5">ç™»å½•
+						</span>
+					</a></li>
+					<li class="tit-new-list undis h-login-li" id="is-login-one"><a
+						href="" title="æ¶ˆæ¯" id="headerMsgCountId"> <em
+							class="news-icon">&nbsp;</em>
+					</a> <q class="red-point" id="letterPoint" style="display: none">&nbsp;</q>
+						<div class="tit-n-warp new-dwon-warp-all">
+							<ol id="letter">
+
+							</ol>
+							<div class="new-tit-box tac mt10 mb20" style="display: none">
+								<a href="" title="æŸ¥çœ‹æ›´å¤š" class="fsize16 c-master f-fM disIb">æŸ¥çœ‹æ›´å¤š</a>
+							</div>
+						</div></li>
+				
+
+				
+
+				
+				<!-- /æœªç™»å½•æ˜¾ç¤ºç¬¬1 liï¼›ç™»å½•åæ˜¾ç¤ºç¬¬2ï¼Œ3 li -->
+			</ul>
+			<aside class="h-r-search">
+				<div class="pr h-r-s-box-cx">
+					<form method="post" id="headerformSearch"
+						onsubmit="return toSearch()" action="http://www.mayikt.com/ajax/saveSearchWords">
+						<label class="h-r-s-box"><input type="text" value=""
+							style="color: #5a5a5a" id="courseName" name="courseName"
+							placeholder="æœç´¢...">
+							<button class="s-btn" type="submit">
+								<em class="icon18">&nbsp;</em>
+							</button> </label>
+					</form>
+				</div>
+			</aside>
+		</div>
+		<aside class="mw-nav-btn">
+			<div class="mw-nav-icon"></div>
+		</aside>
+		<aside class="mw-nav-seach mw-nav-seach-d1">
+			<form method="post" id="headerformSearch"
+				onsubmit="return toSearch()" action="http://www.mayikt.com/ajax/saveSearchWords">
+				<label class="h-r-s-box"><input type="text" value=""
+					style="color: #5a5a5a" id="courseName" name="courseName"
+					placeholder="æœç´¢...">
+					<button class="s-btn" type="submit">
+						<em class="icon18">&nbsp;</em>
+					</button> </label>
+			</form>
+
+			<div class="exam-mo-test-time tac">
+				<span class="time c-fff f-fM vam examTimer"></span> <a
+					href="javascript:void(0)" onclick="timePause(this)" title=""
+					class="de-over-btn timePauseTag"></a>
+			</div>
+
+		</aside>
+		<div class="clear mobile-clear"></div>
+	</section>
+</header>
+
+
+<div class="dialogWrap" id="dialogWrap"
+	style="position: absolute; display: none; overflow-x: hidden; overflow-y: auto; top: 210px; margin-left: -150px;">
+	<div class="dialog-ele new-loigin" id="new-loigin">
+		<h4 class="d-s-head pr new-header" style="width: 100%;">
+			<a id="dClose" onclick="dClose()" title="å…³é—­"
+				class="dClose icon16 pa new-close">&nbsp; </a><span
+				id="d-s-head-tab" class="d-s-head-tab"><a id="dialogLogin"
+				onclick="dialogLogin()">ç™»å½•</a> <a href="javascript:void(0)"
+				id="reginDialog" onclick="reginDialog()">æ³¨å†Œ</a></span>
+		</h4>
+		<div class="of">
+			<div id="lrEleWrap" class="mt10 mb20 ml30 mr30">
+
+				<div id="d-s-head-cont" class="lrWrap">
+
+					<div id="loginFrom">
+						<section class="dis e-login-ele">
+							<div class="mt10">
+								<p class="e-l-jy"></p>
+							</div>
+							<form action="#" method="post" id="loginUserFrom">
+								<input type="hidden" id="courseId" value="">
+
+								<div>
+									<ol class="e-login-options">
+										<li><em class="lo-ico zc-dl-ioc"> </em> <input
+											id="focusId" type="hidden"> <input id="u-email"
+											maxlength="30" placeholder="è¯·è¾“å…¥é‚®ç®±/æ‰‹æœºå·" name="email"
+											type="text">
+											<p class="lr-tip-wrap"></p></li>
+										<li><em class="zc-ico zc-dl-ioc"> </em> <input
+											id="u-password" placeholder="è¯·è¾“å…¥å¯†ç " name="password"
+											type="password">
+											<p class="lr-tip-wrap"></p></li>
+									</ol>
+									<section class="hLh30 of pl10">
+										<label class="hand c-999 vam fl"> <input
+											id="autoThirty" style="vertical-align: -2px;"
+											checked="checked" type="checkbox"> è‡ªåŠ¨ç™»å½•
+										</label> <a class="vam ml10 c-blue fr" title=""
+											href="UserPasswordRecovery.htm" tppabs="http://www.mayikt.com/front/UserPasswordRecovery">å¿˜è®°å¯†ç ?</a>
+									</section>
+
+									<section class="mt20 tac mb50">
+										<input class="e-login-btn" type="button" value="ç™»å½•"
+											onclick="login()">
+										<div style="color: red; font-size: 15px;" id="loginInfo">
+									</section>
+								</div>
+					</div>
+					</form>
+					</section>
+				</div>
+
+
+				<div id="RegisterFrom" style="display: none;">
+
+					<section class="undis e-login-ele" style="display: block;">
+						<div class="mt10">
+							<p class="e-l-jy"></p>
+						</div>
+						<div>
+							<ol class="e-login-options">
+								<li><em class="lo-ico zc-dl-ioc"> </em> <input
+									id="u-email-reg" placeholder="è¯·è¾“å…¥è´¦å·é‚®ç®±" name="email"
+									maxlength="30" type="text">
+									<p class="lr-tip-wrap"></p></li>
+								<li><em class="lo-ico zc-dl-ioc"></em> <input
+									id="u-mobile-reg" placeholder="è¯·è¾“å…¥ç”¨æˆ·æ‰‹æœºå·" name="mobile"
+									maxlength="11" type="text"></li>
+								<div style="text-align: center;">
+									<img src="1513928038043.jpg" tppabs="http://static.itmayiedu.com/1513928038043.jpg"
+										width="100" height="100"
+										style="border: 2px solid #4CAF50; border-radius: 7px; margin-top: 10px;" />
+								</div>
+								<div
+									style="text-align: center; font-size: 14px; color: #FF5722;">å…³æ³¨å¾®ä¿¡å…¬ä¼—å·,å‘é€æ‰‹æœºå·ç å¯è·å¾—æ³¨å†Œç 
+								</div>
+								<li><em class="lo-ico zc-dl-ioc"> </em> <input
+									id="u-zhucecode-reg" placeholder="è¯·è¾“å…¥æ³¨å†Œç " name="zhucecode"
+									maxlength="4" type="text">
+									<p class="lr-tip-wrap"></p></li>
+
+								<li><em class="lo-ico zc-dl-ioc"> </em> <input
+									id="u-password-reg" placeholder="è¯·è¾“å…¥å¯†ç " name="password"
+									maxlength="16" type="password">
+									<p class="lr-tip-wrap"></p></li>
+
+								<li><em class="lo-ico zc-dl-ioc"> </em> <input
+									id="u-passwordl-reg" placeholder="è¯·å†æ¬¡è¾“å…¥å¯†ç " name="passwordl"
+									maxlength="16" type="password">
+									<p class="lr-tip-wrap"></p></li>
+
+								<li><input id="imageCode" placeholder="è¯·è¾“å…¥éªŒè¯ç "
+									name="imageCode" maxlength="4" type="text"
+									style="width: 110px; float: left; padding-left: 15px;">
+									<input type="button" onclick="loadimage()" name="randImage"
+									id="randImage"
+									style="height: 40px; width: 100px; font-size: 20px; background: #E6E6E6; padding-left: 1px; margin-left: 1px; margin-left: 40px;">
+									<p class="lr-tip-wrap"></p></li>
+
+
+								
+								</li>
+							</ol>
+						</div>
+						<section class="tac mt20">
+							<input class="e-login-btn" type="button" value="æ³¨ å†Œ"
+								onclick="Register()">
+						</section>
+						<div style="color: red; font-size: 15px; text-align: center;"
+							id="registeInfo"></div>
+					</section>
+				</div>
+
+				<div class="mt20 sf-lr-wrap tac">
+					<h6 class="hLh20 mb15">
+						<span class="c-666 fsize14">ç¬¬ä¸‰æ–¹å¿«æ·ç™»å½•</span>
+					</h6>
+					<a class="qq-sf" href="javascript:if(confirm('https://graph.qq.com/oauth2.0/authorize?client_id=101491546&redirect_uri=http://www.mayikt.com/loginQu/oauth/qq/callback&response_type=code&state=24ea23dd86b25354c991a48376b2506c&scope=get_user_info,add_topic,add_one_blog,add_album,upload_pic,list_album,add_share,check_page_fans,add_t,add_pic_t,del_t,get_repost_list,get_info,get_other_info,get_fanslist,get_idollist,add_idol,del_ido,get_tenpay_addr(?????)  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://graph.qq.com/oauth2.0/authorize?client_id=101491546&redirect_uri=http://www.mayikt.com/loginQu/oauth/qq/callback&response_type=code&state=24ea23dd86b25354c991a48376b2506c&scope=get_user_info,add_topic,add_one_blog,add_album,upload_pic,list_album,add_share,check_page_fans,add_t,add_pic_t,del_t,get_repost_list,get_info,get_other_info,get_fanslist,get_idollist,add_idol,del_ido,get_tenpay_addr(?????)'" tppabs="http://www.mayikt.com/user/locaQQLogin" title="QQç™»å½•"><img
+						alt="" src="qq-icon-hover-32.png" tppabs="http://www.mayikt.com/static/images/index/qq-icon-hover-32.png"> </a> </a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+
+<div style="width: 100%; margin: auto;" >
+ <img style="width: 100%; border:0px solid;
+border-radius:25px;
+-moz-border-radius:25px; /* Old Firefox */
+	height: 100%;" alt="http://wpa.qq.com/msgrd?v=3&uin=483966038&site=qq&menu=yes" src="20181221173511.jpg" tppabs="http://static.itmayiedu.com/20181221173511.jpg">
+</div>
+
+<a href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=483966038&site=qq&menu=yes  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://wpa.qq.com/msgrd?v=3&uin=483966038&site=qq&menu=yes'" tppabs="http://wpa.qq.com/msgrd?v=3&uin=483966038&site=qq&menu=yes"><h1 style="font-size: 20px; text-align: center;color: red;" ><img alt="" src="QQå›¾ç‰‡20181106174042.png" tppabs="http://static.itmayiedu.com/QQ%E5%9B%BE%E7%89%8720181106174042.png"></h1></a> 
+
+
+</body>
+</html>
