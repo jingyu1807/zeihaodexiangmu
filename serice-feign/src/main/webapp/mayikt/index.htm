@@ -1,0 +1,3824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+
+
+
+<html>
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
+<meta name="author" content="http://www.itmayiedu.com">
+<meta name="keywords" content="èš‚èšè¯¾å ‚,Javaè§†é¢‘æ•™ç¨‹,Javaé«˜çº§æ¶æ„å¸ˆæ•™ç¨‹,SpringBootè§†é¢‘æ•™ç¨‹,SpringCloudè§†é¢‘æ•™ç¨‹,Redisè§†é¢‘æ•™ç¨‹,ActivityMQè§†é¢‘æ•™ç¨‹">
+<meta name="description" content="èš‚èšè¯¾å ‚ï¼šä¸“å±äºå¹´è½»äººçš„åœ¨çº¿å­¦ä¹ å¹³å°ï¼Œå› ä¸ºå¹´è½»ï¼Œæ‰€ä»¥åšæŒä¸æ‡ˆï¼ç½‘ç«™åŒ…å«äº†ã€å¾®æœåŠ¡å®æˆ˜ã€‘ã€åˆ†å¸ƒå¼æ¶æ„ã€‘ã€é«˜å¹¶å‘ä¸é«˜å¯ç”¨ã€‘ç­‰è§†é¢‘è¯¾ç¨‹ã€‚å®˜æ–¹QQç¾¤:917150497">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent">
+<meta content="telephone=no" name="format-detection">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css"
+	href="reset.min.css" tppabs="http://static.itmayiedu.com/reset.min.css">
+<link rel="stylesheet" type="text/css"
+	href="global.css" tppabs="http://www.mayikt.com/static/css/common/global.css">
+<link rel="stylesheet" type="text/css"
+	href="web.min.css" tppabs="http://static.itmayiedu.com/web.min.css">
+
+<link rel="stylesheet" type="text/css"
+	href="theme.min.css" tppabs="http://static.itmayiedu.com/theme.min.css">
+<link href="mw_320_768.min.css" tppabs="http://static.itmayiedu.com/mw_320_768.min.css"
+	rel="stylesheet" type="text/css"
+	media="screen and (min-width: 320px) and (max-width: 768px)">
+<title>èš‚èšè¯¾å ‚-ä¸“æ³¨äºåˆ†å¸ƒå¼&å¾®æœåŠ¡çš„åœ¨çº¿æ•™è‚²</title>
+
+<script type="text/javascript"
+	src="jquery-1.7.2.min.js" tppabs="http://static.itmayiedu.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript"
+	src="jquery.qrcode.min.js" tppabs="http://static.itmayiedu.com/jquery.qrcode.min.js"></script>
+<script type="text/javascript" src="webutils.js" tppabs="http://www.mayikt.com/static/js/common/webutils.js"></script>
+<script type="text/javascript"
+	src="headerH5SearchCommon.min.js" tppabs="http://static.itmayiedu.com/headerH5SearchCommon.min.js"></script>
+<script type="text/javascript"
+	src="header.js" tppabs="http://static.itmayiedu.com/header.js"></script>
+<script type="text/javascript"
+	src="common.min.js" tppabs="http://static.itmayiedu.com/common.min.js"></script>
+
+
+<!-- ä¸‹é›ª -->
+<!-- script type="text/javascript" src="/static/js/index/snow.js"></script>
+
+
+
+<script type="text/javascript">
+(function($){
+	$.fn.snow = function(options){
+	var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html('&#10052;'),
+	documentHeight 	= $(document).height(),
+	documentWidth	= $(document).width(),
+	defaults = {
+		minSize		: 10,
+		maxSize		: 20,
+		newOn		: 1000,
+		flakeColor	: "#AFDAEF" /* æ­¤å¤„å¯ä»¥å®šä¹‰é›ªèŠ±é¢œè‰²ï¼Œè‹¥è¦ç™½è‰²å¯ä»¥æ”¹ä¸º#FFFFFF */
+	},
+	options	= $.extend({}, defaults, options);
+	var interval= setInterval( function(){
+	var startPositionLeft = Math.random() * documentWidth - 100,
+	startOpacity = 0.5 + Math.random(),
+	sizeFlake = options.minSize + Math.random() * options.maxSize,
+	endPositionTop = documentHeight - 200,
+	endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+	durationFall = documentHeight * 10 + Math.random() * 5000;
+	$flake.clone().appendTo('body').css({
+		left: startPositionLeft,
+		opacity: startOpacity,
+		'font-size': sizeFlake,
+		color: options.flakeColor
+	}).animate({
+		top: endPositionTop,
+		left: endPositionLeft,
+		opacity: 0.2
+	},durationFall,'linear',function(){
+		$(this).remove()
+	});
+	}, options.newOn);
+    };
+})(jQuery);
+$(function(){
+    $.fn.snow({ 
+	    minSize: 5, /* å®šä¹‰é›ªèŠ±æœ€å°å°ºå¯¸ */
+	    maxSize: 50,/* å®šä¹‰é›ªèŠ±æœ€å¤§å°ºå¯¸ */
+	    newOn: 300  /* å®šä¹‰å¯†é›†ç¨‹åº¦ï¼Œæ•°å­—è¶Šå°è¶Šå¯†é›† */
+    });
+});
+</script> -->
+
+<!-- end -->
+
+<script type="text/javascript">
+
+ $(function(){
+
+	 $(".coupletbox").clonefn({
+
+		    cloneto:true,//æ˜¯å¦å…è®¸å…‹éš†
+
+			initial:"top",//åˆå§‹ä½ç½®topæˆ–down
+
+			closeBtn:".closeBtn",//å…³é—­æŒ‰é’®
+
+			speed:2000,//åŠ¨ç”»é€Ÿåº¦
+
+			easing:"easeInOutBack",//æ‰©å±•åŠ¨ç”»ï¼Œæ˜¯åŸºäºjQuery Easing v1.3å®˜æ–¹ä¸‹è½½åœ°å€http://gsgd.co.uk/sandbox/jquery/easing/
+
+			zIndex:10000000000000 //å±‚
+
+		 });
+
+	 });
+
+</script>
+
+
+
+
+
+</head>
+<body class="W-body line-mo-body">
+	
+
+	
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+
+
+
+
+
+<div>
+
+
+<style type="text/css">
+/* HoverTree hovertree.com*/
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.hvttop {
+	width: 100%;
+	height: 250px;
+	margin: 0 auto;
+	overflow: hidden;
+	display: none;
+	background: url("00000000top.jpg")/*tpa=http://static.itmayiedu.com/00000000top.jpg*/
+		no-repeat center top #7B010B;
+	text-align: center;
+	position: relative;
+}
+
+.hvttop .link {
+	width: 100%;
+	height: 250px;
+	display: block;
+	z-index: 10;
+}
+
+.hvttop .up {
+	display: block;
+	width: 120px;
+	height: 12px;
+	background: url("00000000top.jpg")/*tpa=http://static.itmayiedu.com/00000000top.jpg*/
+		no-repeat left bottom;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	z-index: 20;
+	margin-left: -60px;
+}
+
+.hvttop .down {
+	display: block;
+	width: 120px;
+	height: 12px;
+	background: url("00000000top.jpg")/*tpa=http://static.itmayiedu.com/00000000top.jpg*/
+		no-repeat left top;
+	position: absolute;
+	left: 50%;
+	top: 88px;
+	z-index: 20;
+	margin-left: -60px;
+}
+</style>
+<script type="text/javascript">
+$(function () {
+    //å°†å†…å®¹æ’å…¥åˆ°bodyå¼€å§‹å¤„ï¼Œé¡µé¢åŠ è½½å®Œæ¯•åè‡ªåŠ¨å±•å¼€
+    $('body').prepend("<div class='hvttop'><a href='guanggaoInfo.htm'/*tpa=http://www.mayikt.com/guanggaoInfo*/ target='_blank' class='link'></a></div>");
+    $('.hvttop').slideDown(1500, function () {
+        $('.hvttop').append("<a href='javascript:;'  target='_self' class='up'></a>");
+    });
+    //è®¾ç½®å»¶æ—¶å‡½æ•°
+    function adsUp() {
+        $('.hvttop').animate({
+            height: '100px'
+        }, 1000, function () {
+            $(this).find('.up').addClass('down').removeClass('up');
+        });
+    }
+    //äº”ç§’é’Ÿåè‡ªåŠ¨æ”¶èµ·
+    var t = setTimeout(adsUp, 15000);
+    //ç‚¹å‡»æ”¶èµ·
+    $('http://www.mayikt.com/.hvttop a.up').live('click', function () {
+        clearTimeout(t);
+        $('.hvttop').animate({
+            height: '100px'
+        }, function () {
+            $(this).find('.up').addClass('down').removeClass('up');
+        });
+    });
+
+    //ç‚¹å‡»ä¸‹æ‹‰
+    $('http://www.mayikt.com/.hvttop a.down').live('click', function () {
+        $(this).css({
+            opacity: '0',
+            filter: 'alpha(opacity=0)'
+        });
+        $('.hvttop').animate({
+            height: '250px'
+        }, function () {
+            $(this).find('.down').addClass('up').removeClass('down').css({ opacity: '1', filter: 'alpha(opacity=100)' });
+        });
+    });
+});
+
+
+</script>
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
+
+
+	<input type="hidden" id="mydomain" value="">
+	<div class="in-wrap">
+		<div class="h-mobile-mask"></div>
+
+		
+
+
+
+
+<div class="head-mobile" style="height: 917px;">
+			<div class="head-mobile-box">
+				<section class="clearfix">
+				<div class="u-face-pic">
+					<img src="avatar-boy.gif" tppabs="http://static.itmayiedu.com/avatar-boy.gif" alt=""
+						class="userImgPhoto">
+				</div>
+				<h4 class="hLh30 txtOf mo-uc-login-name">
+				   
+					<li class="undis h-login-li" id="no-login"
+						style="display: list-item;"><a  href="javascript:void(0)"
+						onclick="openLoginDialog()"
+						title="ç™»å½•"> <em class="icon18 login-icon">&nbsp;</em><span
+							 class="vam ml5 fsize16 c-ccc userNameClass"  style="cursor: pointer;">ç™»å½• </span>
+					</a></li>
+					<li class="tit-new-list undis h-login-li" id="is-login-one"><a
+						href="" title="æ¶ˆæ¯" id="headerMsgCountId"> <em
+							class="news-icon">&nbsp;</em>
+					</a> <q class="red-point" id="letterPoint" style="display: none">&nbsp;</q>
+						<div class="tit-n-warp new-dwon-warp-all">
+							<ol id="letter">
+
+							</ol>
+							<div class="new-tit-box tac mt10 mb20" style="display: none">
+								<a href="" title="æŸ¥çœ‹æ›´å¤š" class="fsize16 c-master f-fM disIb">æŸ¥çœ‹æ›´å¤š</a>
+							</div>
+						</div></li>
+				
+
+				
+				   
+				
+				
+				
+					<!-- <span class="vam ml5 fsize16 c-ccc userNameClass"
+						style="cursor: pointer;" onclick=""  id="openLoginDialog">ç™»å½•</span> -->
+				</h4>
+			
+				</section>
+				<nav class="mw-nav">
+				<ul class="clearfix">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							<li><a href="index.htm" tppabs="http://www.mayikt.com/"
+								title="é¦–é¡µ">é¦–é¡µ</a></li>
+						
+					
+						
+							<li><a href="showcoulist.htm" tppabs="http://www.mayikt.com/front/showcoulist"
+								title="è¯¾ç¨‹">è¯¾ç¨‹</a></li>
+						
+					
+						
+							<li><a href="javascript:if(confirm('http://cn.mikecrm.com/kz8uPv0  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://cn.mikecrm.com/kz8uPv0'" tppabs="http://cn.mikecrm.com/kz8uPv0"
+								title="åŸ¹è®­">åŸ¹è®­</a></li>
+						
+					
+						
+							<li><a href="userVip.htm" tppabs="http://www.mayikt.com/user/userVip"
+								title="ä¼šå‘˜">ä¼šå‘˜</a></li>
+						
+					
+						
+							<li><a href="javascript:if(confirm('http://static.itmayiedu.com/2018-06-04-V3.png  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://static.itmayiedu.com/2018-06-04-V3.png'" tppabs="http://static.itmayiedu.com/2018-06-04-V3.png"
+								title="è·¯çº¿">è·¯çº¿</a></li>
+						
+					
+						
+							<li><a href="javascript:if(confirm('http://static.itmayiedu.com/123123sdfdsgf.jpg  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://static.itmayiedu.com/123123sdfdsgf.jpg'" tppabs="http://static.itmayiedu.com/123123sdfdsgf.jpg"
+								title="å°ç¨‹åº">å°ç¨‹åº</a></li>
+						
+					
+						
+							<li><a href="javascript:if(confirm('http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1'" tppabs="http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1"
+								title="å®šæœŸç›´æ’­">å®šæœŸç›´æ’­</a></li>
+						
+					
+						
+							<li><a href="javascript:if(confirm('http://ms.mayikt.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://ms.mayikt.com/'" tppabs="http://ms.mayikt.com/"
+								title="é¢è¯•å®å…¸">é¢è¯•å®å…¸</a></li>
+						
+					
+						
+					
+				</ul>
+				</nav>
+<!-- 				<section class="u-m-dd"> 
+					<ul class="uM-list">
+						<li>
+							<a href="/courseList" title="æˆ‘çš„è¯¾ç¨‹">
+								æˆ‘çš„è¯¾ç¨‹
+							</a>
+						</li>
+						<li>
+								<a href="" title="æˆ‘çš„è€ƒè¯•">
+									æˆ‘çš„è€ƒè¯•
+								</a>
+							</li>
+						<li>
+								<a href="" title="æˆ‘çš„ç­çº§">
+									æˆ‘çš„ç­çº§
+								</a>
+							</li>
+							<li>
+								<a href="" title="æˆ‘çš„è¯ä¹¦">
+									æˆ‘çš„è¯ä¹¦
+								</a>
+							</li>
+						<li>
+								<a href="" title="æˆ‘çš„é¢æˆ">
+									æˆ‘çš„é¢æˆ
+								</a>
+							</li>
+						<li id="default1JudgeLearnGroup" style="display:none">
+							<a href="" title="å†…éƒ¨å­¦ä¹ ">
+								å†…éƒ¨å­¦ä¹ 
+							</a>
+						</li>
+						<li>
+							<a href="" title="æˆ‘çš„ç¬”è®°">
+								æˆ‘çš„ç¬”è®°
+							</a>
+						</li>
+						<li>
+							<a href="" title="æˆ‘çš„æ”¶è—">
+								æˆ‘çš„æ”¶è—
+							</a>
+						</li>
+						<li>
+							<a href="" title="æ¶ˆæ¯ä¸­å¿ƒ">
+								æ¶ˆæ¯ä¸­å¿ƒ
+							</a>
+						</li>
+					</ul>
+					<ul class="uM-list">
+						<li>
+							<a href="" title="æˆ‘çš„è®¢å•">
+								æˆ‘çš„è®¢å•
+							</a>
+						</li>
+						<li>
+								<a href="" title="ä¸ªäººè´¦æˆ·">
+									ä¸ªäººè´¦æˆ·
+								</a>
+							</li>
+						<li>
+								<a href="" title="é‚€è¯·å¥½å‹">
+									é‚€è¯·å¥½å‹
+								</a>
+							</li>
+						<li>
+							<a href="" title="ä¸ªäººèµ„æ–™">
+								ä¸ªäººèµ„æ–™
+							</a>
+						</li>
+						</ul> 
+				<div id="mobileExitDiv" class="mt15 undis tac">
+					<a href="javascript:void(0)" title="é€€å‡º" onclick="exit();"
+						class="u-loginout">é€€å‡ºç™»å½•</a>
+				</div>
+				</section> -->
+			</div>
+		</div>
+		
+		
+		
+		
+
+
+
+		<div class="main-warp">
+			<div class="main-infor">
+				<!-- å…¬å…±å¤´å¼•å…¥ -->
+				<style>
+.new-head-dwon-ewm {
+	width: 362px;
+}
+</style>
+
+
+
+				<!-- /global header begin-->
+				<!-- å¤´éƒ¨å¼•å…¥ -->
+				
+
+<link rel="stylesheet" type="text/css"
+	href="base.min.css" tppabs="http://static.itmayiedu.com/base.min.css">
+<script type="text/javascript" src="test.js" tppabs="http://static.itmayiedu.com/test.js"></script>
+
+<script>
+    $(document).ready(function () {
+        loadimage();
+    });
+
+
+    //éªŒè¯å—code
+    function loadimage() {
+        $.ajax({
+            //å‡ ä¸ªå‚æ•°éœ€è¦æ³¨æ„ä¸€ä¸‹
+            type: "POST",//æ–¹æ³•ç±»å‹
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",//é¢„æœŸæœåŠ¡å™¨è¿”å›çš„æ•°æ®ç±»å‹
+            url: "/loadimage",//url
+            success: function (result) {
+                var json = eval(result);
+                console.log(json); //æ‰“å°æœåŠ¡ç«¯è¿”å›çš„æ•°æ®(è°ƒè¯•ç”¨)
+                if (json.rtnCode == 200) {
+                    var randImage = document
+                        .getElementById("randImage");
+                    randImage.value = json.data;//æŠŠcodeå€¼èµ‹ç»™éªŒè¯ç 
+                }
+                ;
+
+            },
+        });
+    }
+
+    function openLoginDialog() {
+
+        document.getElementById("u-email").value = "";
+        document.getElementById("u-password").value = "";
+        $("#dialogLogin").addClass('current');
+        $("#dialogWrap").show();
+        $("#RegisterFrom").hide();
+        $("#loginFrom").show();
+        var emailVal = $("#u-email").val();
+
+    }
+
+    function reginDialog() {
+        document.getElementById("u-email-reg").value = "";
+        document.getElementById("u-mobile-reg").value = "";
+        document.getElementById("u-zhucecode-reg").value = "";
+        document.getElementById("u-password-reg").value = "";
+        document.getElementById("u-passwordl-reg").value = "";
+        document.getElementById("imageCode").value = "";
+
+        $("#dialogLogin").removeClass('current');
+        $("#reginDialog").addClass('current');
+        $("#loginFrom").hide();
+        $("#RegisterFrom").show();
+    }
+
+    function dialogLogin() {
+        $("#dialogLogin").addClass('current');
+        $("#reginDialog").removeClass('current');
+        $("#loginFrom").show();
+        //  $("#reginDialog").addClass('current');
+        $("#RegisterFrom").hide();
+    }
+
+
+    function dClose() {
+        document.getElementById("u-email").value = "";
+        document.getElementById("u-password").value = "";
+        document.getElementById("u-email-reg").value = "";
+        document.getElementById("u-mobile-reg").value = "";
+        document.getElementById("u-zhucecode-reg").value = "";
+        document.getElementById("u-password-reg").value = "";
+        document.getElementById("u-passwordl-reg").value = "";
+        document.getElementById("imageCode").value = "";
+        $("#dialogWrap").hide();
+    }
+
+
+    //
+    function Register() {
+        var emailRegisterZz = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+
+
+        var courseId = $("#courseId").val();
+        var userVip = $("#userVip").val();
+
+
+        var emailRegister = $("#u-email-reg").val();
+        var mobileRegister = $("#u-mobile-reg").val();
+        var zhucecodeRegister = $("#u-zhucecode-reg").val();
+        var passwordRegister = $("#u-password-reg").val();
+        var passwordlRegister = $("#u-passwordl-reg").val();
+        var imageCodeRegister = $("#imageCode").val();
+
+        if (emailRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥é‚®ç®±!");
+            return;
+        }
+
+        if (mobileRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥æ‰‹æœºå·ç !");
+            return;
+        }
+        if (zhucecodeRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥æ³¨å†Œç !");
+            return;
+        }
+        if (passwordRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥å¯†ç !");
+            return;
+        }
+        if (passwordlRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥ç¡®è®¤å¯†ç !");
+            return;
+        }
+        if (imageCodeRegister == "") {
+            $("#registeInfo").html("è¯·è¾“å…¥éªŒè¯ç !");
+            return;
+        }
+
+        if (!emailRegisterZz.test(emailRegister)) {
+            $("#registeInfo").html("è¯·è¾“å…¥æ­£ç¡®é‚®ç®±!");
+            return;
+        }
+
+        if (mobileRegister.length < 11) {
+            $("#registeInfo").html("è¯·è¾“å…¥æ­£ç¡®æ‰‹æœºå·!");
+            return;
+        }
+
+
+        $.ajax({
+            //å‡ ä¸ªå‚æ•°éœ€è¦æ³¨æ„ä¸€ä¸‹
+            type: "POST",//æ–¹æ³•ç±»å‹
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",//é¢„æœŸæœåŠ¡å™¨è¿”å›çš„æ•°æ®ç±»å‹
+            url: "/user/registe",//url
+            // data:{"mobile":$("#mobile").val(),"password":$("#password").val()},  $('#loginUserFrom').serialize(),
+            data: JSON.stringify({
+                "email": emailRegister,
+                "mobile": mobileRegister,
+                "zhucecode": zhucecodeRegister,
+                "password": passwordRegister,
+                "passwordl": passwordlRegister,
+                "imageCode": imageCodeRegister
+            }),
+            success: function (result) {
+                var json = eval(result);
+                if (json.rtnCode == 200) {
+                    document.getElementById("registeInfo").innerHTML = "æ³¨å†ŒæˆåŠŸï¼";
+                    if (courseId != "") {
+                        window.location.href = "http://www.mayikt.com/front/couinfo/" + courseId+"/0";
+                    } else if (userVip != null) {
+                        window.location.href = "userVip.htm"/*tpa=http://www.mayikt.com/user/userVip*/;
+                    } else {
+                        window.location.href = "index.htm"/*tpa=http://www.mayikt.com/*/;
+                    }
+                }
+                ;
+                if (json.rtnCode == 500) {
+                    var data = json.msg;
+                    document.getElementById("registeInfo").innerHTML = data;
+                }
+                ;
+
+            }
+        });
+    }
+
+    // ssoå¤šç«¯ç™»å½•
+    function login() {
+        var courseId = $("#courseId").val();
+        var userVip = $("#userVip").val();
+        var pageActionUrl = $("#pageActionUrl").val();
+        $.ajax({
+            //å‡ ä¸ªå‚æ•°éœ€è¦æ³¨æ„ä¸€ä¸‹
+            type: "POST",//æ–¹æ³•ç±»å‹
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",//é¢„æœŸæœåŠ¡å™¨è¿”å›çš„æ•°æ®ç±»å‹
+            url: "/user/login",//url
+            data: JSON.stringify({
+                "email": $("#u-email").val(),
+                "password": $("#u-password").val()
+            }),
+            success: function (result) {
+                var json = eval(result);
+                console.log(json); //æ‰“å°æœåŠ¡ç«¯è¿”å›çš„æ•°æ®(è°ƒè¯•ç”¨)
+                if (json.rtnCode == 200) {
+                    if (courseId != "") {
+                        window.location.href = "http://www.mayikt.com/front/couinfo/" + courseId+"/0";
+                    } else if (userVip != null) {
+                        window.location.href = "index-2.htm"/*tpa=http://www.mayikt.com/user/userVip/*/;
+                    } else if (pageActionUrl != null) {
+                        window.location.href = "index-3.htm"/*tpa=http://www.mayikt.com/front/showcoulist/*/;
+                    }
+                    else {
+                        window.location.href = "index.htm"/*tpa=http://www.mayikt.com/*/;
+                    }
+
+
+                }
+                ;
+                if (json.rtnCode == 500) {
+                    var data = json.msg;
+                    document.getElementById("loginInfo").innerHTML = data;
+                }
+                ;
+            },
+
+        });
+    }
+
+
+</script>
+
+
+<script>
+
+    //é”™è¯¯ä»£å¼€ç™»å½• qq
+    window.onload = function () {
+
+        var qqerror = $("#qqerror").val();
+        if (qqerror != "") {
+            document.getElementById("loginInfo").innerHTML = qqerror;
+
+            openLoginDialog();
+        }
+    };
+
+</script>
+
+
+<header id="header" class="all-header">
+
+
+
+	<input type="hidden" id="qqerror" value="">
+	<section class="container">
+		<h1 id="logo" class="logo">
+			<a class="headerlogo" style="" href="" title="èš‚èšè¯¾å ‚"> <img
+				src="20181024142946.png" tppabs="http://static.itmayiedu.com/20181024142946.png" width="100%"
+				alt="èš‚èšè¯¾å ‚">
+			</a> <a class="headerfanhui" style="display: none"
+				href="javascript:void (0)" onclick="goHistory(&#39;&#39;)"
+				title="èš‚èšè¯¾å ‚"> <img src="mo-back.png" tppabs="http://www.mayikt.com/static/images/index/mo-back.png">
+			</a>
+		</h1>
+		<div class="h-r-nsl">
+			<ul class="nav">
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						<li><a href="index.htm" tppabs="http://www.mayikt.com/"
+							title="é¦–é¡µ" rel="nofollow" >é¦–é¡µ</a></li>
+					
+				
+					
+						<li><a href="showcoulist.htm" tppabs="http://www.mayikt.com/front/showcoulist"
+							title="è¯¾ç¨‹" rel="nofollow" >è¯¾ç¨‹</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://cn.mikecrm.com/kz8uPv0  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://cn.mikecrm.com/kz8uPv0'" tppabs="http://cn.mikecrm.com/kz8uPv0"
+							title="åŸ¹è®­" rel="nofollow" >åŸ¹è®­</a></li>
+					
+				
+					
+						<li><a href="userVip.htm" tppabs="http://www.mayikt.com/user/userVip"
+							title="ä¼šå‘˜" rel="nofollow" >ä¼šå‘˜</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://static.itmayiedu.com/2018-06-04-V3.png  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://static.itmayiedu.com/2018-06-04-V3.png'" tppabs="http://static.itmayiedu.com/2018-06-04-V3.png"
+							title="è·¯çº¿" rel="nofollow" >è·¯çº¿</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://static.itmayiedu.com/123123sdfdsgf.jpg  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://static.itmayiedu.com/123123sdfdsgf.jpg'" tppabs="http://static.itmayiedu.com/123123sdfdsgf.jpg"
+							title="å°ç¨‹åº" rel="nofollow" >å°ç¨‹åº</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1'" tppabs="http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1"
+							title="å®šæœŸç›´æ’­" rel="nofollow" >å®šæœŸç›´æ’­</a></li>
+					
+				
+					
+						<li><a href="javascript:if(confirm('http://ms.mayikt.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://ms.mayikt.com/'" tppabs="http://ms.mayikt.com/"
+							title="é¢è¯•å®å…¸" rel="nofollow" >é¢è¯•å®å…¸</a></li>
+					
+				
+					
+				
+
+			</ul>
+			<!-- / nav -->
+			<ul class="h-r-login clearfix">
+
+				
+					<li class="undis h-login-li" id="no-login"
+						style="display: list-item;"><a href="javascript:void(0)"
+						onclick="openLoginDialog()" title="ç™»å½•"> <em
+							class="icon18 login-icon">&nbsp;</em><span class="vam ml5">ç™»å½•
+						</span>
+					</a></li>
+					<li class="tit-new-list undis h-login-li" id="is-login-one"><a
+						href="" title="æ¶ˆæ¯" id="headerMsgCountId"> <em
+							class="news-icon">&nbsp;</em>
+					</a> <q class="red-point" id="letterPoint" style="display: none">&nbsp;</q>
+						<div class="tit-n-warp new-dwon-warp-all">
+							<ol id="letter">
+
+							</ol>
+							<div class="new-tit-box tac mt10 mb20" style="display: none">
+								<a href="" title="æŸ¥çœ‹æ›´å¤š" class="fsize16 c-master f-fM disIb">æŸ¥çœ‹æ›´å¤š</a>
+							</div>
+						</div></li>
+				
+
+				
+
+				
+				<!-- /æœªç™»å½•æ˜¾ç¤ºç¬¬1 liï¼›ç™»å½•åæ˜¾ç¤ºç¬¬2ï¼Œ3 li -->
+			</ul>
+			<aside class="h-r-search">
+				<div class="pr h-r-s-box-cx">
+					<form method="post" id="headerformSearch"
+						onsubmit="return toSearch()" action="http://www.mayikt.com/ajax/saveSearchWords">
+						<label class="h-r-s-box"><input type="text" value=""
+							style="color: #5a5a5a" id="courseName" name="courseName"
+							placeholder="æœç´¢...">
+							<button class="s-btn" type="submit">
+								<em class="icon18">&nbsp;</em>
+							</button> </label>
+					</form>
+				</div>
+			</aside>
+		</div>
+		<aside class="mw-nav-btn">
+			<div class="mw-nav-icon"></div>
+		</aside>
+		<aside class="mw-nav-seach mw-nav-seach-d1">
+			<form method="post" id="headerformSearch"
+				onsubmit="return toSearch()" action="http://www.mayikt.com/ajax/saveSearchWords">
+				<label class="h-r-s-box"><input type="text" value=""
+					style="color: #5a5a5a" id="courseName" name="courseName"
+					placeholder="æœç´¢...">
+					<button class="s-btn" type="submit">
+						<em class="icon18">&nbsp;</em>
+					</button> </label>
+			</form>
+
+			<div class="exam-mo-test-time tac">
+				<span class="time c-fff f-fM vam examTimer"></span> <a
+					href="javascript:void(0)" onclick="timePause(this)" title=""
+					class="de-over-btn timePauseTag"></a>
+			</div>
+
+		</aside>
+		<div class="clear mobile-clear"></div>
+	</section>
+</header>
+
+
+<div class="dialogWrap" id="dialogWrap"
+	style="position: absolute; display: none; overflow-x: hidden; overflow-y: auto; top: 210px; margin-left: -150px;">
+	<div class="dialog-ele new-loigin" id="new-loigin">
+		<h4 class="d-s-head pr new-header" style="width: 100%;">
+			<a id="dClose" onclick="dClose()" title="å…³é—­"
+				class="dClose icon16 pa new-close">&nbsp; </a><span
+				id="d-s-head-tab" class="d-s-head-tab"><a id="dialogLogin"
+				onclick="dialogLogin()">ç™»å½•</a> <a href="javascript:void(0)"
+				id="reginDialog" onclick="reginDialog()">æ³¨å†Œ</a></span>
+		</h4>
+		<div class="of">
+			<div id="lrEleWrap" class="mt10 mb20 ml30 mr30">
+
+				<div id="d-s-head-cont" class="lrWrap">
+
+					<div id="loginFrom">
+						<section class="dis e-login-ele">
+							<div class="mt10">
+								<p class="e-l-jy"></p>
+							</div>
+							<form action="#" method="post" id="loginUserFrom">
+								<input type="hidden" id="courseId" value="">
+
+								<div>
+									<ol class="e-login-options">
+										<li><em class="lo-ico zc-dl-ioc"> </em> <input
+											id="focusId" type="hidden"> <input id="u-email"
+											maxlength="30" placeholder="è¯·è¾“å…¥é‚®ç®±/æ‰‹æœºå·" name="email"
+											type="text">
+											<p class="lr-tip-wrap"></p></li>
+										<li><em class="zc-ico zc-dl-ioc"> </em> <input
+											id="u-password" placeholder="è¯·è¾“å…¥å¯†ç " name="password"
+											type="password">
+											<p class="lr-tip-wrap"></p></li>
+									</ol>
+									<section class="hLh30 of pl10">
+										<label class="hand c-999 vam fl"> <input
+											id="autoThirty" style="vertical-align: -2px;"
+											checked="checked" type="checkbox"> è‡ªåŠ¨ç™»å½•
+										</label> <a class="vam ml10 c-blue fr" title=""
+											href="UserPasswordRecovery.htm" tppabs="http://www.mayikt.com/front/UserPasswordRecovery">å¿˜è®°å¯†ç ?</a>
+									</section>
+
+									<section class="mt20 tac mb50">
+										<input class="e-login-btn" type="button" value="ç™»å½•"
+											onclick="login()">
+										<div style="color: red; font-size: 15px;" id="loginInfo">
+									</section>
+								</div>
+					</div>
+					</form>
+					</section>
+				</div>
+
+
+				<div id="RegisterFrom" style="display: none;">
+
+					<section class="undis e-login-ele" style="display: block;">
+						<div class="mt10">
+							<p class="e-l-jy"></p>
+						</div>
+						<div>
+							<ol class="e-login-options">
+								<li><em class="lo-ico zc-dl-ioc"> </em> <input
+									id="u-email-reg" placeholder="è¯·è¾“å…¥è´¦å·é‚®ç®±" name="email"
+									maxlength="30" type="text">
+									<p class="lr-tip-wrap"></p></li>
+								<li><em class="lo-ico zc-dl-ioc"></em> <input
+									id="u-mobile-reg" placeholder="è¯·è¾“å…¥ç”¨æˆ·æ‰‹æœºå·" name="mobile"
+									maxlength="11" type="text"></li>
+								<div style="text-align: center;">
+									<img src="1513928038043.jpg" tppabs="http://static.itmayiedu.com/1513928038043.jpg"
+										width="100" height="100"
+										style="border: 2px solid #4CAF50; border-radius: 7px; margin-top: 10px;" />
+								</div>
+								<div
+									style="text-align: center; font-size: 14px; color: #FF5722;">å…³æ³¨å¾®ä¿¡å…¬ä¼—å·,å‘é€æ‰‹æœºå·ç å¯è·å¾—æ³¨å†Œç 
+								</div>
+								<li><em class="lo-ico zc-dl-ioc"> </em> <input
+									id="u-zhucecode-reg" placeholder="è¯·è¾“å…¥æ³¨å†Œç " name="zhucecode"
+									maxlength="4" type="text">
+									<p class="lr-tip-wrap"></p></li>
+
+								<li><em class="lo-ico zc-dl-ioc"> </em> <input
+									id="u-password-reg" placeholder="è¯·è¾“å…¥å¯†ç " name="password"
+									maxlength="16" type="password">
+									<p class="lr-tip-wrap"></p></li>
+
+								<li><em class="lo-ico zc-dl-ioc"> </em> <input
+									id="u-passwordl-reg" placeholder="è¯·å†æ¬¡è¾“å…¥å¯†ç " name="passwordl"
+									maxlength="16" type="password">
+									<p class="lr-tip-wrap"></p></li>
+
+								<li><input id="imageCode" placeholder="è¯·è¾“å…¥éªŒè¯ç "
+									name="imageCode" maxlength="4" type="text"
+									style="width: 110px; float: left; padding-left: 15px;">
+									<input type="button" onclick="loadimage()" name="randImage"
+									id="randImage"
+									style="height: 40px; width: 100px; font-size: 20px; background: #E6E6E6; padding-left: 1px; margin-left: 1px; margin-left: 40px;">
+									<p class="lr-tip-wrap"></p></li>
+
+
+								
+								</li>
+							</ol>
+						</div>
+						<section class="tac mt20">
+							<input class="e-login-btn" type="button" value="æ³¨ å†Œ"
+								onclick="Register()">
+						</section>
+						<div style="color: red; font-size: 15px; text-align: center;"
+							id="registeInfo"></div>
+					</section>
+				</div>
+
+				<div class="mt20 sf-lr-wrap tac">
+					<h6 class="hLh20 mb15">
+						<span class="c-666 fsize14">ç¬¬ä¸‰æ–¹å¿«æ·ç™»å½•</span>
+					</h6>
+					<a class="qq-sf" href="javascript:if(confirm('https://graph.qq.com/oauth2.0/authorize?client_id=101491546&redirect_uri=http://www.mayikt.com/loginQu/oauth/qq/callback&response_type=code&state=24ea23dd86b25354c991a48376b2506c&scope=get_user_info,add_topic,add_one_blog,add_album,upload_pic,list_album,add_share,check_page_fans,add_t,add_pic_t,del_t,get_repost_list,get_info,get_other_info,get_fanslist,get_idollist,add_idol,del_ido,get_tenpay_addr(?????)  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://graph.qq.com/oauth2.0/authorize?client_id=101491546&redirect_uri=http://www.mayikt.com/loginQu/oauth/qq/callback&response_type=code&state=24ea23dd86b25354c991a48376b2506c&scope=get_user_info,add_topic,add_one_blog,add_album,upload_pic,list_album,add_share,check_page_fans,add_t,add_pic_t,del_t,get_repost_list,get_info,get_other_info,get_fanslist,get_idollist,add_idol,del_ido,get_tenpay_addr(?????)'" tppabs="http://www.mayikt.com/user/locaQQLogin" title="QQç™»å½•"><img
+						alt="" src="qq-icon-hover-32.png" tppabs="http://www.mayikt.com/static/images/index/qq-icon-hover-32.png"> </a> </a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+				<!-- 	<div class="all" style="width: 100%; height: 100%;color: #3d3d3d;font-size: 20px; text-align:center; " >
+<SCRIPT language=javascript src="/static/js/common/topad.js" type=text/javascript></SCRIPT>
+
+<button type="button" >å…³é—­</button>
+</div> -->
+
+
+				<!-- /global header end-->
+				<!-- å…¬å…±å¤´å¼•å…¥ -->
+
+				<!-- æ¨¡æ¿åˆ‡æ¢ -->
+				<!-- <div class="mbqh-qt">
+	<ul>
+		<li id="page7" class="li-1">
+				<a href="" class="f-fM " title="é¦–é¡µä¸€">é¦–é¡µä¸€</a>
+			</li>
+			<li id="page47" class="li-2">
+				<a href="" class="f-fM " title="é¦–é¡µäºŒ">é¦–é¡µäºŒ</a>
+			</li>
+			<li id="page48" class="li-3">
+				<a href="" class="f-fM " title="é¦–é¡µä¸‰">é¦–é¡µä¸‰</a>
+			</li>
+		</ul>
+</div> -->
+				<style>
+.mbqh-qt {
+	width: 32px;
+	position: fixed;
+	top: 70px;
+	left: 0;
+	z-index: 9999999;
+}
+
+.mbqh-qt ul li {
+	display: block;
+	width: 34px;
+	height: 82px;
+	position: absolute;
+}
+
+.mbqh-qt ul li a {
+	color: #fff;
+	display: block;
+	font-size: 14px;
+	line-height: 18px;
+	margin-top: 14px;
+	padding: 0 0 0 6px;
+	width: 20px;
+}
+
+.mbqh-qt ul li.li-1 {
+	background: url("li-3.png")/*tpa=http://www.mayikt.com/static/inxweb/img/indexchange/li-3.png*/ no-repeat top
+		left;
+	z-index: 99;
+	top: 0px;
+	right: 0;
+}
+
+.mbqh-qt ul li.li-2 {
+	background: url("li-3.png")/*tpa=http://www.mayikt.com/static/inxweb/img/indexchange/li-3.png*/ no-repeat top
+		left;
+	z-index: 100;
+	top: 75px;
+	right: 0;
+}
+
+.mbqh-qt ul li.li-3 {
+	background: url("li-3.png")/*tpa=http://www.mayikt.com/static/inxweb/img/indexchange/li-3.png*/ no-repeat top
+		left;
+	z-index: 101;
+	top: 150px;
+	right: 0;
+}
+
+.mbqh-qt ul li.li-1:hover, .mbqh-qt ul li.li-1.current {
+	background: url("li-3-xz.png")/*tpa=http://www.mayikt.com/static/inxweb/img/indexchange/li-3-xz.png*/ no-repeat
+		top left;
+}
+
+.mbqh-qt ul li.li-2:hover, .mbqh-qt ul li.li-2.current {
+	background: url("li-3-xz.png")/*tpa=http://www.mayikt.com/static/inxweb/img/indexchange/li-3-xz.png*/ no-repeat
+		top left;
+}
+
+.mbqh-qt ul li.li-3:hover, .mbqh-qt ul li.li-3.current {
+	background: url("li-3-xz.png")/*tpa=http://www.mayikt.com/static/inxweb/img/indexchange/li-3-xz.png*/ no-repeat
+		top left;
+}
+
+.mbqh-qt ul li:hover a {
+	text-decoration: none;
+}
+</style>
+				<!--å½•æ’­å›¾å¼•å…¥ banner  -->
+				
+
+
+
+
+ <div class="i-slide banner-slide"  style="background-color:#f8f8f8;padding-top: 20px;">
+    <section>
+        <!-- å¦‚æœéœ€è¦å¯¼èˆªæŒ‰é’® -->
+        <!-- å›¾ç‰‡ä½ç½® -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper"
+                 style="border-radius: 9px; transform: translate3d(-3726px, 0px, 0px); transition-duration: 0.3s;  ">
+                
+
+                    
+
+                        <div class="swiper-slide"
+                             style="width: 1180px; height: 450px; ">
+                            <a target="_blank"
+                               href="guanggaoInfo.htm" tppabs="http://www.mayikt.com/guanggaoInfo">
+                                <img class="imgload"
+                                     style="width: 1180px; box-shadow: 0 0px 16px 0px #888181; height: 450px; border-radius: 20px;"
+                                     src="000000000001.jpg" tppabs="http://static.itmayiedu.com/000000000001.jpg" alt="1">
+                            </a>
+                        </div>
+                    
+
+
+                
+
+                    
+
+                        <div class="swiper-slide"
+                             style="width: 1180px; height: 450px; ">
+                            <a target="_blank"
+                               href="userVip.htm" tppabs="http://www.mayikt.com/user/userVip">
+                                <img class="imgload"
+                                     style="width: 1180px; box-shadow: 0 0px 16px 0px #888181; height: 450px; border-radius: 20px;"
+                                     src="000000000002.jpg" tppabs="http://static.itmayiedu.com/000000000002.jpg" alt="1">
+                            </a>
+                        </div>
+                    
+
+
+                
+
+                    
+
+                        <div class="swiper-slide"
+                             style="width: 1180px; height: 450px; ">
+                            <a target="_blank"
+                               href="javascript:if(confirm('http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1'" tppabs="http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1">
+                                <img class="imgload"
+                                     style="width: 1180px; box-shadow: 0 0px 16px 0px #888181; height: 450px; border-radius: 20px;"
+                                     src="0000000003.jpg" tppabs="http://static.itmayiedu.com/0000000003.jpg" alt="1">
+                            </a>
+                        </div>
+                    
+
+
+                
+
+                    
+
+                        <div class="swiper-slide"
+                             style="width: 1180px; height: 450px; ">
+                            <a target="_blank"
+                               href="javascript:if(confirm('http://ms.mayikt.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://ms.mayikt.com/'" tppabs="http://ms.mayikt.com/">
+                                <img class="imgload"
+                                     style="width: 1180px; box-shadow: 0 0px 16px 0px #888181; height: 450px; border-radius: 20px;"
+                                     src="20190228094327001.jpg" tppabs="http://static.itmayiedu.com/20190228094327001.jpg" alt="1">
+                            </a>
+                        </div>
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+                    
+
+
+                
+
+
+            </div>
+        </div>
+        <!-- å¦‚æœéœ€è¦åˆ†é¡µå™¨ -->
+        <div class="pagination">
+            <span class="swiper-pagination-switch"></span><span
+                class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span>
+        </div>
+    </section>
+</div> 
+
+				
+				<!-- /index slide -->
+				<div id="aCoursesList" class="of index-bg">
+					<!-- /ä¸ºä½ æ¨è å¼€å§‹ -->
+					
+
+
+<script type="text/javascript">
+	function huanYiHuan() {
+		var xmlHttp;
+		if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+		} else {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		xmlHttp.onreadystatechange = function() {
+			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+				var data = xmlHttp.responseText;
+				var htmlRecommend = '';
+				for (var i = 0; i < JSON.parse(data).queryCourseDetailPagelist.length; i++) {
+					var courseId = JSON.parse(data).queryCourseDetailPagelist[i].courseId;
+
+					var courseName = JSON.parse(data).queryCourseDetailPagelist[i].courseName;
+					var logo = JSON.parse(data).queryCourseDetailPagelist[i].logo;
+					var courseType = JSON.parse(data).queryCourseDetailPagelist[i].type;
+					var pageViewcount = JSON.parse(data).queryCourseDetailPagelist[i].pageViewcount;
+					htmlRecommend = htmlRecommend
+							+ '<li> <div class="cc-l-wrap"><section class="course-img"> <a href="http://www.mayikt.com/front/couinfo/'+courseId+'/0"> <img xsrc="'+logo+'" src="'+logo+'" class="img-responsive" alt="'+courseName+'"> </a>';
+					htmlRecommend = htmlRecommend
+							+ '<div class="cc-mask"> <a href="http://www.mayikt.com/front/couinfo/'+courseId+'/0" title="" class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a> </div> ';
+					htmlRecommend = htmlRecommend
+							+ '</section><div class="coure-bg-g"><h3 class="hLh30 txtOf">';
+					htmlRecommend = htmlRecommend
+							+ '<a href="http://www.mayikt.com/front/couinfo/'+courseId+'/0" title="'+courseName+'" id="course-title fsize16 c-333" class="course-title fsize16 c-333">'
+							+ courseName + '</a>';
+					htmlRecommend = htmlRecommend
+							+ '</h3><section class="mt10 hLh20 of"><span class="fr"><tt class="c-master fsize14 f-fM">';
+					if (courseType == '1') {
+						htmlRecommend = htmlRecommend + 'ä¼šå‘˜';
+					} else if (courseType == '0') {
+						htmlRecommend = htmlRecommend
+								+ '<span style="color:#24936E ">å…è´¹</span>';
+					}
+					htmlRecommend = htmlRecommend
+							+ '</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt class="c-999 f-fA mr10">'
+							+ pageViewcount + 'äººå­¦ä¹ </tt>';
+					htmlRecommend = htmlRecommend + '</span></section>';
+					htmlRecommend = htmlRecommend
+							+ '<div class="coures-jbicon">';
+					if (courseType == '1') {
+						htmlRecommend = htmlRecommend
+								+ '<img src="c-vip-jb.png"/*tpa=http://www.mayikt.com/static/images/course/c-vip-jb.png*/>';
+					}
+					htmlRecommend = htmlRecommend + '</div>';
+					htmlRecommend = htmlRecommend
+							+ '<div class="coures-jbicon">';
+					htmlRecommend = htmlRecommend + '</div></div></li>';
+
+				}
+				document.getElementById("weinituijian0").innerHTML = htmlRecommend;
+
+			}
+
+		};
+
+		xmlHttp.open("post", "getAjaxHuanYiHuan", true);
+		xmlHttp.send();
+
+	}
+</script>
+
+<div class="of bg-fff">
+	<section class="container">
+		<header class="comm-title">
+			<span class="fr mt15 mr10 hyh"><a href="javascript:void(0)"
+				title="æ¢ä¸€æ¢" class="c-master" onclick="huanYiHuan()">æ¢ä¸€æ¢</a></span>
+			<h2 class="fl tac tit-header">
+				<span class="c-333">ä¸ºä½ æ¨è</span>
+			</h2>
+		</header>
+		<article class="comm-course-list">
+			<ul class="of  " id="weinituijian0">
+				
+
+
+
+
+					<li>
+						<div class="cc-l-wrap">
+							<section class="course-img">
+								<section class="course-img">
+									<a href="0-1.htm" tppabs="http://www.mayikt.com/front/couinfo/91/0" target="_blank"> <img
+										xsrc="http://static.itmayiedu.com/0000000000003.jpg"
+										src="0000000000003.jpg" tppabs="http://static.itmayiedu.com/0000000000003.jpg"
+										class="img-responsive" alt="">
+									</a>
+									<div class="cc-mask">
+										<a href="0-1.htm" tppabs="http://www.mayikt.com/front/couinfo/91/0"
+											title="" class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+									</div>
+								</section>
+
+							</section>
+							<div class="coure-bg-g">
+								<h3 class="hLh30 txtOf">
+									<a href="0-1.htm" tppabs="http://www.mayikt.com/front/couinfo/91/0"
+										title="SpringCloud"
+										class="course-title fsize16 c-333">SpringCloud</a>
+								</h3>
+								<section class="mt10 hLh20 of">
+									<span class="fr"> <tt class="c-master fsize14 f-fM">
+											
+												
+												
+													<span style="color: #4CAF50">å…è´¹</span>
+												
+											
+										</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+											class="c-999 f-fA mr10">604402äººå­¦ä¹ </tt>
+									</span>
+								</section>
+
+								<div class="coures-jbicon">
+									
+								</div>
+							</div>
+						</div>
+					</li>
+
+
+				
+
+
+
+
+					<li>
+						<div class="cc-l-wrap">
+							<section class="course-img">
+								<section class="course-img">
+									<a href="0-2.htm" tppabs="http://www.mayikt.com/front/couinfo/189/0" target="_blank"> <img
+										xsrc="http://static.itmayiedu.com/0000000000002.jpg"
+										src="0000000000002.jpg" tppabs="http://static.itmayiedu.com/0000000000002.jpg"
+										class="img-responsive" alt="">
+									</a>
+									<div class="cc-mask">
+										<a href="0-2.htm" tppabs="http://www.mayikt.com/front/couinfo/189/0"
+											title="" class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+									</div>
+								</section>
+
+							</section>
+							<div class="coure-bg-g">
+								<h3 class="hLh30 txtOf">
+									<a href="0-2.htm" tppabs="http://www.mayikt.com/front/couinfo/189/0"
+										title="ä»0å¼€å§‹æ„å»ºå¾®æœåŠ¡ç”µå•†é¡¹ç›®"
+										class="course-title fsize16 c-333">ä»0å¼€å§‹æ„å»ºå¾®æœåŠ¡ç”µå•†é¡¹ç›®</a>
+								</h3>
+								<section class="mt10 hLh20 of">
+									<span class="fr"> <tt class="c-master fsize14 f-fM">
+											
+												
+												
+													<span style="color: #4CAF50">å…è´¹</span>
+												
+											
+										</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+											class="c-999 f-fA mr10">41547äººå­¦ä¹ </tt>
+									</span>
+								</section>
+
+								<div class="coures-jbicon">
+									
+								</div>
+							</div>
+						</div>
+					</li>
+
+
+				
+
+
+
+
+					<li>
+						<div class="cc-l-wrap">
+							<section class="course-img">
+								<section class="course-img">
+									<a href="0-3.htm" tppabs="http://www.mayikt.com/front/couinfo/87/0" target="_blank"> <img
+										xsrc="http://static.itmayiedu.com/00000000001.jpg"
+										src="00000000001.jpg" tppabs="http://static.itmayiedu.com/00000000001.jpg"
+										class="img-responsive" alt="">
+									</a>
+									<div class="cc-mask">
+										<a href="0-3.htm" tppabs="http://www.mayikt.com/front/couinfo/87/0"
+											title="" class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+									</div>
+								</section>
+
+							</section>
+							<div class="coure-bg-g">
+								<h3 class="hLh30 txtOf">
+									<a href="0-3.htm" tppabs="http://www.mayikt.com/front/couinfo/87/0"
+										title="2019ç‰ˆSpringBoot"
+										class="course-title fsize16 c-333">2019ç‰ˆSpringBoot</a>
+								</h3>
+								<section class="mt10 hLh20 of">
+									<span class="fr"> <tt class="c-master fsize14 f-fM">
+											
+												
+												
+													<span style="color: #4CAF50">å…è´¹</span>
+												
+											
+										</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+											class="c-999 f-fA mr10">706108äººå­¦ä¹ </tt>
+									</span>
+								</section>
+
+								<div class="coures-jbicon">
+									
+								</div>
+							</div>
+						</div>
+					</li>
+
+
+				
+
+
+
+
+					<li>
+						<div class="cc-l-wrap">
+							<section class="course-img">
+								<section class="course-img">
+									<a href="0-4.htm" tppabs="http://www.mayikt.com/front/couinfo/107/0" target="_blank"> <img
+										xsrc="http://static.itmayiedu.com/000000000003.jpg"
+										src="000000000003.jpg" tppabs="http://static.itmayiedu.com/000000000003.jpg"
+										class="img-responsive" alt="">
+									</a>
+									<div class="cc-mask">
+										<a href="0-4.htm" tppabs="http://www.mayikt.com/front/couinfo/107/0"
+											title="" class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+									</div>
+								</section>
+
+							</section>
+							<div class="coure-bg-g">
+								<h3 class="hLh30 txtOf">
+									<a href="0-4.htm" tppabs="http://www.mayikt.com/front/couinfo/107/0"
+										title="97åITå¤©æ‰åˆ†äº«æ¶æ„æˆé•¿ä¹‹è·¯"
+										class="course-title fsize16 c-333">97åITå¤©æ‰åˆ†äº«æ¶æ„æˆé•¿ä¹‹è·¯</a>
+								</h3>
+								<section class="mt10 hLh20 of">
+									<span class="fr"> <tt class="c-master fsize14 f-fM">
+											
+												
+												
+													<span style="color: #4CAF50">å…è´¹</span>
+												
+											
+										</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+											class="c-999 f-fA mr10">22974äººå­¦ä¹ </tt>
+									</span>
+								</section>
+
+								<div class="coures-jbicon">
+									
+								</div>
+							</div>
+						</div>
+					</li>
+
+
+				
+
+			</ul>
+			<div class="clear"></div>
+		</article>
+	</section>
+</div>
+					<!-- /ä¸ºä½ æ¨è ç»“æŸ -->
+
+					<!-- ç²¾å“å½•æ’­ å¼€å§‹ -->
+					
+
+
+<div class="of bg-f8">
+	<section class="container">
+		<header class="comm-title">
+			<span class="fr mt15 mr10 hyh"><a href="showcoulist.htm" tppabs="http://www.mayikt.com/front/showcoulist"
+				title="æ›´å¤š" class="c-master fsize14">æ›´å¤š &gt;</a></span>
+			<h2 class="fl tac tit-header">
+				<span class="c-333">æœ€æ–°è¯¾ç¨‹</span>
+			</h2>
+		</header>
+		<div>
+			<article class="comm-course-list">
+				<ul id="goodCourse" class="current">
+
+					
+
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-5.htm" tppabs="http://www.mayikt.com/front/couinfo/190/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/5638e006c812d13fab515000ca13e31.jpg"
+											src="5638e006c812d13fab515000ca13e31.jpg" tppabs="http://static.itmayiedu.com/5638e006c812d13fab515000ca13e31.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-5.htm" tppabs="http://www.mayikt.com/front/couinfo/190/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-5.htm" tppabs="http://www.mayikt.com/front/couinfo/190/0"
+											title="ELK+Kafkaå®ç°åˆ†å¸ƒå¼æ—¥å¿—æ”¶é›†"
+											class="course-title fsize16 c-333">ELK+Kafkaå®ç°åˆ†å¸ƒå¼æ—¥å¿—æ”¶é›†</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+													
+															ä¼šå‘˜
+													
+													
+													
+
+												
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">10006äººå­¦ä¹ </tt>
+											<!-- 												<tt class="c-999 f-fA span-2">1301æµè§ˆ</tt>
+ -->
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+										
+											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+					
+
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-2.htm" tppabs="http://www.mayikt.com/front/couinfo/189/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/0000000000002.jpg"
+											src="0000000000002.jpg" tppabs="http://static.itmayiedu.com/0000000000002.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-2.htm" tppabs="http://www.mayikt.com/front/couinfo/189/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-2.htm" tppabs="http://www.mayikt.com/front/couinfo/189/0"
+											title="ä»0å¼€å§‹æ„å»ºå¾®æœåŠ¡ç”µå•†é¡¹ç›®"
+											class="course-title fsize16 c-333">ä»0å¼€å§‹æ„å»ºå¾®æœåŠ¡ç”µå•†é¡¹ç›®</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+													
+													
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+													
+
+												
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">41547äººå­¦ä¹ </tt>
+											<!-- 												<tt class="c-999 f-fA span-2">1301æµè§ˆ</tt>
+ -->
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+					
+
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-6.htm" tppabs="http://www.mayikt.com/front/couinfo/185/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/00000000000030.jpg"
+											src="00000000000030.jpg" tppabs="http://static.itmayiedu.com/00000000000030.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-6.htm" tppabs="http://www.mayikt.com/front/couinfo/185/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-6.htm" tppabs="http://www.mayikt.com/front/couinfo/185/0"
+											title="å¤§å‹ç”µå•†ç³»ç»Ÿå•†å“æ•°æ®åº“è®¾è®¡"
+											class="course-title fsize16 c-333">å¤§å‹ç”µå•†ç³»ç»Ÿå•†å“æ•°æ®åº“è®¾è®¡</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+													
+															ä¼šå‘˜
+													
+													
+													
+
+												
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">11960äººå­¦ä¹ </tt>
+											<!-- 												<tt class="c-999 f-fA span-2">1301æµè§ˆ</tt>
+ -->
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+										
+											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+					
+
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-7.htm" tppabs="http://www.mayikt.com/front/couinfo/184/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000sos.jpg"
+											src="000000000sos.jpg" tppabs="http://static.itmayiedu.com/000000000sos.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-7.htm" tppabs="http://www.mayikt.com/front/couinfo/184/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-7.htm" tppabs="http://www.mayikt.com/front/couinfo/184/0"
+											title="SSOå•ç‚¹ç™»é™†ç³»ç»Ÿè®¾è®¡"
+											class="course-title fsize16 c-333">SSOå•ç‚¹ç™»é™†ç³»ç»Ÿè®¾è®¡</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+													
+															ä¼šå‘˜
+													
+													
+													
+
+												
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">14923äººå­¦ä¹ </tt>
+											<!-- 												<tt class="c-999 f-fA span-2">1301æµè§ˆ</tt>
+ -->
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+										
+											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+					
+
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-8.htm" tppabs="http://www.mayikt.com/front/couinfo/183/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/2112312312312.jpg"
+											src="2112312312312.jpg" tppabs="http://static.itmayiedu.com/2112312312312.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-8.htm" tppabs="http://www.mayikt.com/front/couinfo/183/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-8.htm" tppabs="http://www.mayikt.com/front/couinfo/183/0"
+											title="å¦‚ä½•æŠŠæ¡é‡‘ä¸‰é“¶å››è·³æ§½å­£"
+											class="course-title fsize16 c-333">å¦‚ä½•æŠŠæ¡é‡‘ä¸‰é“¶å››è·³æ§½å­£</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+													
+													
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+													
+
+												
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">19167äººå­¦ä¹ </tt>
+											<!-- 												<tt class="c-999 f-fA span-2">1301æµè§ˆ</tt>
+ -->
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+					
+
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-9.htm" tppabs="http://www.mayikt.com/front/couinfo/182/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/0000000000004.jpg"
+											src="0000000000004.jpg" tppabs="http://static.itmayiedu.com/0000000000004.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-9.htm" tppabs="http://www.mayikt.com/front/couinfo/182/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-9.htm" tppabs="http://www.mayikt.com/front/couinfo/182/0"
+											title="å”¯ä¸€ç™»é™†æ¶æ„è®¾è®¡æ–¹æ¡ˆ"
+											class="course-title fsize16 c-333">å”¯ä¸€ç™»é™†æ¶æ„è®¾è®¡æ–¹æ¡ˆ</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+													
+															ä¼šå‘˜
+													
+													
+													
+
+												
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">14697äººå­¦ä¹ </tt>
+											<!-- 												<tt class="c-999 f-fA span-2">1301æµè§ˆ</tt>
+ -->
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+										
+											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+					
+
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-10.htm" tppabs="http://www.mayikt.com/front/couinfo/181/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000005.jpg"
+											src="000000005.jpg" tppabs="http://static.itmayiedu.com/000000005.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-10.htm" tppabs="http://www.mayikt.com/front/couinfo/181/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-10.htm" tppabs="http://www.mayikt.com/front/couinfo/181/0"
+											title="äº’è”ç½‘æ¶æ„é¢è¯•é¢˜ç²¾è®²"
+											class="course-title fsize16 c-333">äº’è”ç½‘æ¶æ„é¢è¯•é¢˜ç²¾è®²</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+													
+													
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+													
+
+												
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">29394äººå­¦ä¹ </tt>
+											<!-- 												<tt class="c-999 f-fA span-2">1301æµè§ˆ</tt>
+ -->
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+					
+
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-11.htm" tppabs="http://www.mayikt.com/front/couinfo/180/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/0000000000006.jpg"
+											src="0000000000006.jpg" tppabs="http://static.itmayiedu.com/0000000000006.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-11.htm" tppabs="http://www.mayikt.com/front/couinfo/180/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-11.htm" tppabs="http://www.mayikt.com/front/couinfo/180/0"
+											title="Dockeræ„å»ºMavenç§æœä¸GitLab"
+											class="course-title fsize16 c-333">Dockeræ„å»ºMavenç§æœä¸GitLab</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+													
+															ä¼šå‘˜
+													
+													
+													
+
+												
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">14350äººå­¦ä¹ </tt>
+											<!-- 												<tt class="c-999 f-fA span-2">1301æµè§ˆ</tt>
+ -->
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+										
+											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+					
+
+				</ul>
+				<ul id="newCourseList" style="display: none">
+					<!-- /æ— æ•°æ®æç¤º å¼€å§‹-->
+					<section class="no-data-wrap">
+						<em class="icon30 no-data-ico">&nbsp;</em> <span
+							class="c-666 fsize14 ml10 vam">æ²¡æœ‰ç›¸å…³æ•°æ®ï¼Œå°ç¼–æ­£åœ¨åŠªåŠ›æ•´ç†ä¸­...</span>
+					</section>
+					<!-- /æ— æ•°æ®æç¤º ç»“æŸ-->
+				</ul>
+				<ul id="allCourseList" style="display: none">
+					<!-- /æ— æ•°æ®æç¤º å¼€å§‹-->
+					<section class="no-data-wrap">
+						<em class="icon30 no-data-ico">&nbsp;</em> <span
+							class="c-666 fsize14 ml10 vam">æ²¡æœ‰ç›¸å…³æ•°æ®ï¼Œå°ç¼–æ­£åœ¨åŠªåŠ›æ•´ç†ä¸­...</span>
+					</section>
+					<!-- /æ— æ•°æ®æç¤º ç»“æŸ-->
+				</ul>
+				<div class="clear"></div>
+			</article>
+		</div>
+	</section>
+</div>
+
+					<!-- å¾®æœåŠ¡è¯¾ç¨‹ -->
+					
+
+
+<div class="of bg-f8" style="background-color: #ffffff">
+	<section class="container">
+		<header class="comm-title">
+			<span class="fr mt15 mr10 hyh"><a href="366.htm" tppabs="http://www.mayikt.com/subject/subjectinfo/366"
+				title="æ›´å¤š" class="c-master fsize14">æ›´å¤š &gt;</a></span>
+			<h2 class="fl tac tit-header">
+				<span class="c-333">å¾®æœåŠ¡è¯¾ç¨‹</span>
+			</h2>
+		</header>
+		<div>
+			<article class="comm-course-list">
+				<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-1.htm" tppabs="http://www.mayikt.com/front/couinfo/91/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/0000000000003.jpg"
+											src="0000000000003.jpg" tppabs="http://static.itmayiedu.com/0000000000003.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-1.htm" tppabs="http://www.mayikt.com/front/couinfo/91/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-1.htm" tppabs="http://www.mayikt.com/front/couinfo/91/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">SpringCloud</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">409048äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-3.htm" tppabs="http://www.mayikt.com/front/couinfo/87/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/00000000001.jpg"
+											src="00000000001.jpg" tppabs="http://static.itmayiedu.com/00000000001.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-1.htm" tppabs="http://www.mayikt.com/front/couinfo/91/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-3.htm" tppabs="http://www.mayikt.com/front/couinfo/87/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">2018ç‰ˆSpringBoot</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">524419äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+				
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-12.htm" tppabs="http://www.mayikt.com/front/couinfo/153/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/0000000000010.jpg"
+											src="0000000000010.jpg" tppabs="http://static.itmayiedu.com/0000000000010.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-12.htm" tppabs="http://www.mayikt.com/front/couinfo/153/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-12.htm" tppabs="http://www.mayikt.com/front/couinfo/153/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">SpringCloudåˆ†å¸ƒå¼é…ç½®ä¸­å¿ƒ</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">13230äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-12.htm" tppabs="http://www.mayikt.com/front/couinfo/153/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000000000011.jpg"
+											src="000000000000000011.jpg" tppabs="http://static.itmayiedu.com/000000000000000011.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-12.htm" tppabs="http://www.mayikt.com/front/couinfo/153/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-12.htm" tppabs="http://www.mayikt.com/front/couinfo/153/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">Ribbonå®¢æˆ·ç«¯è´Ÿè½½å‡è¡¡åŸç†</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">13231äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+			
+			</article>
+		</div>
+	</section>
+</div>
+
+					<!-- åˆ†å¸ƒå¼è§£å†³æ–¹æ¡ˆè¯¾ç¨‹ -->
+					
+
+
+<div class="of bg-f8">
+	<section class="container">
+		<header class="comm-title">
+			<span class="fr mt15 mr10 hyh"><a href="359.htm" tppabs="http://www.mayikt.com/subject/subjectinfo/359"
+				title="æ›´å¤š" class="c-master fsize14">æ›´å¤š &gt;</a></span>
+			<h2 class="fl tac tit-header">
+				<span class="c-333">åˆ†å¸ƒå¼è§£å†³æ–¹æ¡ˆ</span>
+			</h2>
+		</header>
+		<div>
+			<article class="comm-course-list">
+				<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-13.htm" tppabs="http://www.mayikt.com/front/couinfo/97/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000000012.jpg"
+											src="000000000000012.jpg" tppabs="http://static.itmayiedu.com/000000000000012.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-13.htm" tppabs="http://www.mayikt.com/front/couinfo/97/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-13.htm" tppabs="http://www.mayikt.com/front/couinfo/97/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">åˆ†å¸ƒå¼ä»»åŠ¡è°ƒåº¦å¹³å°</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">20255äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-14.htm" tppabs="http://www.mayikt.com/front/couinfo/92/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000000000012.jpg"
+											src="000000000000000012.jpg" tppabs="http://static.itmayiedu.com/000000000000000012.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-14.htm" tppabs="http://www.mayikt.com/front/couinfo/92/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-14.htm" tppabs="http://www.mayikt.com/front/couinfo/92/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">Zookeeperå®æˆ˜åˆ†å¸ƒå¼é”</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">23656äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+				
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-15.htm" tppabs="http://www.mayikt.com/front/couinfo/159/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/00000000000013.jpg"
+											src="00000000000013.jpg" tppabs="http://static.itmayiedu.com/00000000000013.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-15.htm" tppabs="http://www.mayikt.com/front/couinfo/159/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-15.htm" tppabs="http://www.mayikt.com/front/couinfo/159/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">åŸºäºLCNå½»åº•è§£å†³åˆ†å¸ƒå¼äº‹åŠ¡éš¾é¢˜</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">12996äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-16.htm" tppabs="http://www.mayikt.com/front/couinfo/148/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000000014.jpg"
+											src="000000000000014.jpg" tppabs="http://static.itmayiedu.com/000000000000014.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-16.htm" tppabs="http://www.mayikt.com/front/couinfo/148/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-16.htm" tppabs="http://www.mayikt.com/front/couinfo/148/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">å…¨é¢è§£å¯†åˆ†å¸ƒå¼ä»»åŠ¡è°ƒåº¦å¹³å°
+											</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">12650äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+			
+			</article>
+		</div>
+	</section>
+</div>
+
+					<!-- æºç åˆ†æè¯¾ç¨‹  -->
+					
+
+
+
+<div class="of bg-f8" style="background-color: #ffffff">
+	<section class="container">
+		<header class="comm-title">
+			<span class="fr mt15 mr10 hyh"><a href="384.htm" tppabs="http://www.mayikt.com/subject/subjectinfo/384"
+				title="æ›´å¤š" class="c-master fsize14">æ›´å¤š &gt;</a></span>
+			<h2 class="fl tac tit-header">
+				<span class="c-333">æºç åˆ†æè¯¾ç¨‹</span>
+			</h2>
+		</header>
+		<div>
+			<article class="comm-course-list">
+				<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-17.htm" tppabs="http://www.mayikt.com/front/couinfo/123/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000013.jpg"
+											src="000000000013.jpg" tppabs="http://static.itmayiedu.com/000000000013.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-17.htm" tppabs="http://www.mayikt.com/front/couinfo/123/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-17.htm" tppabs="http://www.mayikt.com/front/couinfo/123/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">çº¯æ‰‹å†™SpringMVCæ¡†æ¶</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">24667äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-18.htm" tppabs="http://www.mayikt.com/front/couinfo/124/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/00000000000014.jpg"
+											src="00000000000014.jpg" tppabs="http://static.itmayiedu.com/00000000000014.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-18.htm" tppabs="http://www.mayikt.com/front/couinfo/124/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-18.htm" tppabs="http://www.mayikt.com/front/couinfo/124/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">çº¯æ‰‹å†™Mybatisæ¡†æ¶</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">17119äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+				
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-19.htm" tppabs="http://www.mayikt.com/front/couinfo/125/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000015.jpg"
+											src="000000000015.jpg" tppabs="http://static.itmayiedu.com/000000000015.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-19.htm" tppabs="http://www.mayikt.com/front/couinfo/125/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-19.htm" tppabs="http://www.mayikt.com/front/couinfo/125/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">çº¯æ‰‹å†™Arraylisté›†åˆæ¡†æ¶</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">17405äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-20.htm" tppabs="http://www.mayikt.com/front/couinfo/127/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/00000000015.jpg"
+											src="00000000015.jpg" tppabs="http://static.itmayiedu.com/00000000015.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-20.htm" tppabs="http://www.mayikt.com/front/couinfo/127/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-20.htm" tppabs="http://www.mayikt.com/front/couinfo/127/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">çº¯æ‰‹å†™HashMapé›†åˆ
+											
+											</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">24987äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+			
+			</article>
+		</div>
+	</section>
+</div>
+
+					<!-- æ•°æ®åº“è¯¾ç¨‹  -->
+					
+
+
+
+<div class="of bg-f8" style="background-color: #ffffff">
+	<section class="container">
+		<header class="comm-title">
+			<span class="fr mt15 mr10 hyh"><a href="384.htm" tppabs="http://www.mayikt.com/subject/subjectinfo/384"
+				title="æ›´å¤š" class="c-master fsize14">æ›´å¤š &gt;</a></span>
+			<h2 class="fl tac tit-header">
+				<span class="c-333">æ•°æ®åº“è¯¾ç¨‹</span>
+			</h2>
+		</header>
+		<div>
+			<article class="comm-course-list">
+				<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-21.htm" tppabs="http://www.mayikt.com/front/couinfo/174/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/00000000016.jpg"
+											src="00000000016.jpg" tppabs="http://static.itmayiedu.com/00000000016.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-21.htm" tppabs="http://www.mayikt.com/front/couinfo/174/0" title=""
+												class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-21.htm" tppabs="http://www.mayikt.com/front/couinfo/174/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">Sharding-Jdbcåˆ†ç‰‡é›†ç¾¤åˆ†è¡¨åˆ†åº“</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">ä¼šå‘˜</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">24667äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-22.htm" tppabs="http://www.mayikt.com/front/couinfo/172/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000000017.jpg"
+											src="000000000000017.jpg" tppabs="http://static.itmayiedu.com/000000000000017.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-22.htm" tppabs="http://www.mayikt.com/front/couinfo/172/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-22.htm" tppabs="http://www.mayikt.com/front/couinfo/172/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">MyCatå®ç°è¯»å†™åˆ†ç¦»</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">17119äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+				
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-23.htm" tppabs="http://www.mayikt.com/front/couinfo/173/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/000000000000018.jpg"
+											src="000000000000018.jpg" tppabs="http://static.itmayiedu.com/000000000000018.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-23.htm" tppabs="http://www.mayikt.com/front/couinfo/173/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-23.htm" tppabs="http://www.mayikt.com/front/couinfo/173/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">MyCatåˆ†ç‰‡é›†ç¾¤åˆ†è¡¨åˆ†åº“ç­–ç•¥</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">17405äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+				
+				
+					<ul id="goodCourse" class="current">
+						<li>
+							<div class="cc-l-wrap">
+								<section class="course-img">
+									<section class="course-img">
+										<a href="0-24.htm" tppabs="http://www.mayikt.com/front/couinfo/171/0" target="_blank"> <img xsrc="http://static.itmayiedu.com/0000000000018.jpg"
+											src="0000000000018.jpg" tppabs="http://static.itmayiedu.com/0000000000018.jpg" class="img-responsive" alt="">
+										</a>
+										<div class="cc-mask">
+											<a href="0-24.htm" tppabs="http://www.mayikt.com/front/couinfo/171/0" title=""
+												class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+										</div>
+									</section>
+									<span class="new-bargain-jb"> </span>
+								</section>
+								<div class="coure-bg-g">
+									<h3 class="hLh30 txtOf">
+										<a href="0-24.htm" tppabs="http://www.mayikt.com/front/couinfo/171/0"
+											title="SpringCloud"
+											class="course-title fsize16 c-333">MySQLä¸»ä»å¤åˆ¶ä¸æ•°æ®å¤‡ä»½
+											
+											</a>
+									</h3>
+									<section class="mt10 hLh20 of">
+										<span class="fr"> <tt class="c-master fsize14 f-fM">
+												
+																<span style="color:#4CAF50 ">å…è´¹</span>
+													
+											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
+												class="c-999 f-fA mr10">24987äººå­¦ä¹ </tt>
+										</span>
+									</section>
+
+									<div class="coures-jbicon">
+									
+											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
+										
+									</div>
+								</div>
+							</div>
+						</li>
+
+
+				</ul>
+			
+			</article>
+		</div>
+	</section>
+</div>
+
+
+
+
+					<!-- /ç²¾å“å½•æ’­ ç»“æŸ -->
+					<!--ç›´æ’­è¯¾ç¨‹å¼€å§‹  -->
+					
+
+
+
+
+<div class="of bg-fff" style="background-color: #f8f8f8;">
+	<section class="container">
+		<header class="comm-title">
+			<span class="fr mt15 mr10 hyh"><a
+				href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548" target="_blank" title="æ›´å¤š"
+				class="c-master fsize14">æ›´å¤š &gt;</a></span>
+			<h2 class="fl tac tit-header">
+				<span class="c-333" >ç›´æ’­è¯¾ç¨‹</span>
+			</h2>
+		</header>
+
+		<article class="comm-course-list">
+			<ul class="of  " id="weinituijian0">
+				
+					<li style="height: 400px;">
+						<div class="cc-l-wrap">
+							<section class="course-img">
+								<section class="course-img">
+								<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548">
+										<img src="74c1d3ecd7ea3be788857488fb36270.jpg" tppabs="http://static.itmayiedu.com/74c1d3ecd7ea3be788857488fb36270.jpg">
+									</a>
+									<div class="cc-mask">
+										<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548"  target="_blank"
+											title="" class="comm-btn c-btn-1" target="_blank">å¼€å§‹å­¦ä¹ </a>
+									</div>
+								</section>
+
+							</section>
+							<div class="coure-bg-g">
+								<h3 class="hLh30 txtOf" style="text-align: center;">
+									<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548"
+										title="äº’è”ç½‘javaæ„æ¶å…¬å¼€è¯¾"  target="_blank"
+										class="course-title fsize16 c-333">äº’è”ç½‘javaæ„æ¶å…¬å¼€è¯¾</a>
+								</h3>
+				
+							</div>
+						</div>
+					</li>
+
+
+
+
+
+
+<li style="height: 400px;">
+						<div class="cc-l-wrap">
+							<section class="course-img">
+								<section class="course-img">
+																<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548">
+								
+										<img src="e21d8c44921acd60c98906c59064258.jpg" tppabs="http://static.itmayiedu.com/e21d8c44921acd60c98906c59064258.jpg">
+									</a>
+									<div class="cc-mask">
+										<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548"  target="_blank"
+											title="" class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+									</div>
+								</section>
+
+							</section>
+							<div class="coure-bg-g">
+								<h3 class="hLh30 txtOf" style="text-align: center;">
+									<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548"
+										title="äººå·¥æ™ºèƒ½æœºå™¨å­¦ä¹ å­¦ä¹ å…¬å¼€è¯¾"  target="_blank"
+										class="course-title fsize16 c-333">äººå·¥æ™ºèƒ½æœºå™¨å­¦ä¹ å­¦ä¹ å…¬å¼€è¯¾</a>
+								</h3>
+							<!-- 	<section class="mt10 hLh20 of">
+									<span class="fr"> <tt class="c-master fsize14 f-fM" style="color: #69a4d2;">
+							
+										å…¬å¼€è¯¾
+										</tt></span>
+									<span class="fl jgAttr c-ccc f-fA">
+										<tt class="c-999 f-fA mr10">99999+äººå­¦ä¹ </tt>
+									</span>
+								</section> -->
+
+								<!-- <div class="coures-jbicon">
+										<img src="/static/images/course/c-vip-jb.png">
+								</div> -->
+							</div>
+						</div>
+					</li>
+
+
+<li style="height: 400px;">
+						<div class="cc-l-wrap">
+							<section class="course-img">
+								<section class="course-img">
+																<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548">
+								
+										<img src="ef8d437ca7c819e242963c967718c7a.jpg" tppabs="http://static.itmayiedu.com/ef8d437ca7c819e242963c967718c7a.jpg">
+									</a>
+									<div class="cc-mask">
+										<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548"  target="_blank"
+											title="" class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+									</div>
+								</section>
+
+							</section>
+							<div class="coure-bg-g">
+								<h3 class="hLh30 txtOf" style="text-align: center;">
+									<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548"
+										title="å¤§æ•°æ®ä¸äº‘è®¡ç®—å…¬å¼€è¯¾"  target="_blank"
+										class="course-title fsize16 c-333">å¤§æ•°æ®ä¸äº‘è®¡ç®—å…¬å¼€è¯¾</a>
+								</h3>
+						<!-- 		<section class="mt10 hLh20 of">
+									<span class="fr"> <tt class="c-master fsize14 f-fM" style="color: #69a4d2;">
+							
+										å…¬å¼€è¯¾
+										</tt></span>
+									<span class="fl jgAttr c-ccc f-fA">
+										<tt class="c-999 f-fA mr10">99999+äººå­¦ä¹ </tt>
+									</span>
+								</section> -->
+
+								<!-- <div class="coures-jbicon">
+										<img src="/static/images/course/c-vip-jb.png">
+								</div> -->
+							</div>
+						</div>
+					</li>
+
+
+<li style="height: 400px;">
+						<div class="cc-l-wrap">
+							<section class="course-img">
+								<section class="course-img">
+																<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548">
+								
+										<img src="7cf32f885e0574fdacf217a6db2d59a.jpg" tppabs="http://static.itmayiedu.com/7cf32f885e0574fdacf217a6db2d59a.jpg">
+									</a>
+									<div class="cc-mask">
+										<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548"  target="_blank"
+											title="" class="comm-btn c-btn-1">å¼€å§‹å­¦ä¹ </a>
+									</div>
+								</section>
+
+							</section>
+							<div class="coure-bg-g">
+								<h3 class="hLh30 txtOf" style="text-align: center;">
+									<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548"
+										title="åŒºå—é“¾æ¯”ç‰¹å¸å…¬å¼€è¯¾"  target="_blank"
+										class="course-title fsize16 c-333">åŒºå—é“¾æ¯”ç‰¹å¸å…¬å¼€è¯¾</a>
+								</h3>
+						<!-- 		<section class="mt10 hLh20 of">
+									<span class="fr"> <tt class="c-master fsize14 f-fM" style="color: #69a4d2;">
+							
+										å…¬å¼€è¯¾
+										</tt></span>
+									<span class="fl jgAttr c-ccc f-fA">
+										<tt class="c-999 f-fA mr10">99999+äººå­¦ä¹ </tt>
+									</span>
+								</section> -->
+
+								<!-- <div class="coures-jbicon">
+										<img src="/static/images/course/c-vip-jb.png">
+								</div> -->
+							</div>
+						</div>
+					</li>
+
+					
+
+			</ul>
+			<div class="clear"></div>
+		</article>
+
+
+
+	</section>
+</div>
+					<!--ç›´æ’­è¯¾ç¨‹ç»“æŸ  -->
+
+					<!-- /ç­çº§ å¼€å§‹ -->
+					<!-- /æ— æ•°æ®æç¤º å¼€å§‹-->
+					<!-- /æ— æ•°æ®æç¤º ç»“æŸ-->
+					<!-- /ç­çº§ ç»“æŸ -->
+
+					<!-- /ç½‘æ ¡åå¸ˆ å¼€å§‹ -->
+					
+					<!-- /ç½‘æ ¡åå¸ˆ ç»“æŸ -->
+					<!-- èµ„è®¯åˆ—è¡¨ -->
+					
+<div class="bg-fff of" style="background-color: #ffffff; margin-top: 10px;">
+	<section class="container">
+	<div style="width: 620px;">
+		<header class="comm-title">
+			<!-- <span class="fr mt15 mr10 hyh"><a href="#"   title="æ›´å¤š"
+				class="c-master fsize14">æ›´å¤š &gt;</a></span> -->
+			<h2 class="fl tac tit-header">
+				<span class="c-333">å­¦å‘˜è–ªèµ„</span>
+			</h2>
+		</header>
+		<section class="in-new-box clerfix">
+			<div class="clearfix">
+				<article class="w50pre fl">
+					<div class="mr30 i-article-list in-new-box-list">
+						<ul>
+							
+<style>
+    table,tbody,tfoot,thead,tr,th,td {
+        margin:0;
+        padding:0;
+        outline:0;
+        font-size:100%;
+        vertical-align:baseline;
+        background:transparent;
+        border-collapse:collapse;
+        border-spacing:0;
+        border:0px;
+    }
+    .tablebox {
+        width:550px;
+        height:280px;
+        overflow:hidden;
+        margin:5px auto;
+    }
+    .tablebox table {
+        width:100%;
+    }
+    .tablebox table th,.tablebox table td {
+        font-size:14px;
+        text-align:center;
+        line-height:36px;
+        font-family: "å¾®è½¯é›…é»‘";
+        color: #495055;
+    }
+    .tablebox table th {
+        color: #FAFAFA;
+        background-color: #FF7043;
+    }
+    .tablebox table td img {
+        display:inline-block;
+        vertical-align:middle;
+    }
+    .tablebox table tbody tr:nth-child(even) {
+        background-color:#F5F5F5;
+    }
+    .tablebox.table_md table td,.tablebox.table_md table th {
+        line-height:40px;
+    }
+</style>
+</head>
+<body>
+<div class="tablebox" style="border: 1px solid #dddddd">
+    <table id="tableId" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>å­¦å‘˜å§“å</th>
+				<th>æ‰€åœ¨åŸå¸‚</th>
+		 		<th>å­¦å‘˜å­¦å†</th>
+		 		<th>åŸ¹è®­å‰è–ªèµ„</th>
+				<th>åŸ¹è®­åè–ªèµ„</th>
+		 
+				
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+                <td>å°è½©</td>
+                <td>åŒ—äº¬</td>
+			    <td>æœ¬ç§‘</td>
+				<td>12000</td>
+				<td>26000</td>
+				
+				
+				
+            </tr>
+            <tr>
+                <td>å°æˆ‘</td>
+                <td>åŒ—äº¬</td>
+			    <td>æœ¬ç§‘</td>
+				<td>15000</td>
+				<td>25000</td>
+				
+				
+				
+            </tr><tr>
+                <td>å°ä½³ä½³</td>
+                <td>ä¸Šæµ·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>8000</td>
+				<td>25000</td>
+				
+				
+				
+            </tr><tr>
+                <td>å°é’±</td>
+                <td>ä¸Šæµ·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>12000</td>
+				<td>22000</td>
+				
+				
+				
+            </tr><tr>
+                <td>é†‰é…’</td>
+                <td>ä¸Šæµ·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>12000</td>
+				<td>20500</td>
+				
+				
+				
+            </tr><tr>
+                <td>å°è£</td>
+                <td>å¹¿å·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>----</td>
+				<td>20000</td>
+				
+				
+				
+            </tr><tr>
+                <td>ç‹¬å®¶è®°å¿†</td>
+                <td>ä¸Šæµ·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>8500</td>
+				<td>18000</td>
+				
+				
+				
+            </tr><tr>
+                <td>å°æ¶›æ¶›</td>
+                <td>ä¸Šæµ·</td>
+			    <td>é«˜ä¸­</td>
+				<td>10000</td>
+				<td>19000</td>
+				
+				
+				
+            </tr><tr>
+                <td>å°ç™½</td>
+                <td>ä¸Šæµ·</td>
+			    <td>é«˜ä¸­</td>
+				<td>8000</td>
+				<td>18000</td>
+				
+				
+				
+            </tr><tr>
+                <td>æµæ˜Ÿ</td>
+                <td>è¥¿å®‰</td>
+			    <td>æœ¬ç§‘</td>
+				<td>6000</td>
+				<td>14000</td>
+				
+				
+				
+            </tr><tr>
+                <td>ä¸€å‡¡</td>
+                <td>ä¸Šæµ·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>10000</td>
+				<td>17500</td>
+				
+				
+				
+            </tr><tr>
+                <td>HL</td>
+                <td>ä¸Šæµ·</td>
+			    <td>å¤§ä¸“</td>
+				<td>12000</td>
+				<td>17000</td>
+				
+				
+				
+            </tr><tr>
+                <td>å°é¹°</td>
+                <td>æ·±åœ³</td>
+			    <td>å¤§ä¸“</td>
+				<td>12000</td>
+				<td>17000</td>
+				
+				
+				
+            </tr><tr>
+                <td>å¼ *æ¾</td>
+                <td>ä¸Šæµ·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>8000</td>
+				<td>17000</td>
+				
+				
+				
+            </tr><tr>
+                <td>jetty</td>
+                <td>ä¸Šæµ·</td>
+			    <td>é«˜ä¸­</td>
+				<td>9000</td>
+				<td>16000</td>
+				
+				
+				
+            </tr><tr>
+                <td>åº·</td>
+                <td>ä¸Šæµ·</td>
+			    <td>å¤§ä¸“</td>
+				<td>8000</td>
+				<td>16000</td>
+				
+				
+				
+            </tr><tr>
+                <td>å°*è£</td>
+                <td>æ·±åœ³</td>
+			    <td>åˆä¸­</td>
+				<td>5000</td>
+				<td>16000</td>
+				
+				
+				
+            </tr><tr>
+                <td>*æ¾</td>
+                <td>ä¸Šæµ·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>12000</td>
+				<td>15500</td>
+				
+				
+				
+            </tr><tr>
+                <td>å°*é±¼</td>
+                <td>ä¸Šæµ·</td>
+			    <td>å¤§ä¸“</td>
+				<td>7000</td>
+				<td>16000</td>
+				
+				
+				
+            </tr><tr>
+                <td>*æ€å„’</td>
+                <td>ä¸Šæµ·</td>
+			    <td>æœ¬ç§‘</td>
+				<td>0</td>
+				<td>16000</td>	
+				
+            </tr>
+           
+				
+    </tbody></table>
+</div>
+
+<script>
+// å‚æ•°1 tableID,å‚æ•°2 divé«˜åº¦ï¼Œå‚æ•°3 é€Ÿåº¦ï¼Œå‚æ•°4 tbodyä¸­trå‡ æ¡ä»¥ä¸Šæ»šåŠ¨
+tableScroll('tableId', 295, 30, 10)
+var MyMarhq;
+
+function tableScroll(tableid, hei, speed, len) {
+    clearTimeout(MyMarhq);
+    $('#' + tableid).parent().find('.tableid_').remove()
+    $('#' + tableid).parent().prepend(
+        '<table class="tableid_"><thead>' + $('#' + tableid + ' thead').html() + '</thead></table>'
+    ).css({
+        'position': 'relative',
+        'overflow': 'hidden',
+        'height': hei + 'px'
+    })
+    $(".tableid_").find('th').each(function(i) {
+        $(this).css('width', $('#' + tableid).find('th:eq(' + i + ')').width());
+    });
+    $(".tableid_").css({
+        'position': 'absolute',
+        'top': 0,
+        'left': 0,
+        'z-index': 9
+    })
+    $('#' + tableid).css({
+        'position': 'absolute',
+        'top': 0,
+        'left': 0,
+        'z-index': 1
+    })
+
+    if ($('#' + tableid).find('tbody tr').length > len) {
+        $('#' + tableid).find('tbody').html($('#' + tableid).find('tbody').html() + $('#' + tableid).find('tbody').html());
+        $(".tableid_").css('top', 0);
+        $('#' + tableid).css('top', 0);
+        var tblTop = 0;
+        var outerHeight = $('#' + tableid).find('tbody').find("tr").outerHeight();
+
+        function Marqueehq() {
+            if (tblTop <= -outerHeight * $('#' + tableid).find('tbody').find("tr").length) {
+                tblTop = 0;
+            } else {
+                tblTop -= 1;
+            }
+            $('#' + tableid).css('margin-top', tblTop + 'px');
+            clearTimeout(MyMarhq);
+            MyMarhq = setTimeout(function() {
+                Marqueehq()
+            }, speed);
+        }
+
+        MyMarhq = setTimeout(Marqueehq, speed);
+        $('#' + tableid).find('tbody').hover(function() {
+            clearTimeout(MyMarhq);
+        }, function() {
+            clearTimeout(MyMarhq);
+            if ($('#' + tableid).find('tbody tr').length > len) {
+                MyMarhq = setTimeout(Marqueehq, speed);
+            }
+        })
+    }
+
+}
+</script>
+
+</body>
+</html>
+
+							
+						</ul>
+					</div>
+				</article>
+			
+			</div>
+		</section>
+		</div>
+		
+		
+		
+		<div style="width: 550px; float: right; margin-top: -442px;  
+white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+               ">
+		<header class="comm-title">
+			<!-- <span class="fr mt15 mr10 hyh"><a href="#"   title="æ›´å¤š"
+				class="c-master fsize14">æ›´å¤š &gt;</a></span> -->
+			<h2 class="fl tac tit-header" style="margin-left: 20px;">
+				<span class="c-333">æœ€æ–°èµ„è®¯</span>
+			</h2>
+		</header>
+		<section class="in-new-box clerfix">
+			<div class="clearfix">
+		
+
+			<article class="w50pre fl" >
+					<div class="ml30 i-article-list in-new-box-list" style="display:inline-block;" >
+							<section class="i-article-list r-art-wrap">
+		
+									
+
+    
+    
+    
+    <ul  >
+			<li class="lt2" >
+						<aside class="orderNum"><span>1</span></aside>
+						<h3 class="hLh30 txtOf">
+							<a href="javascript:if(confirm('https://mp.weixin.qq.com/s?__biz=MzUzNDQwNTI5OA==&mid=2247483676&idx=1&sn=0ab157709cf2af77ef70271e19524ef6&chksm=fa9408c1cde381d7288816e4a4ed63b17e4159a0dc40afaa41321ca029ac91d4fd77cacd4b63&mpshare=1&scene=23&srcid=1102A1IwsABHl5RtUJmXnsN8  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://mp.weixin.qq.com/s?__biz=MzUzNDQwNTI5OA==&mid=2247483676&idx=1&sn=0ab157709cf2af77ef70271e19524ef6&chksm=fa9408c1cde381d7288816e4a4ed63b17e4159a0dc40afaa41321ca029ac91d4fd77cacd4b63&mpshare=1&scene=23&srcid=1102A1IwsABHl5RtUJmXnsN8#rd'" tppabs="https://mp.weixin.qq.com/s?__biz=MzUzNDQwNTI5OA==&mid=2247483676&idx=1&sn=0ab157709cf2af77ef70271e19524ef6&chksm=fa9408c1cde381d7288816e4a4ed63b17e4159a0dc40afaa41321ca029ac91d4fd77cacd4b63&mpshare=1&scene=23&srcid=1102A1IwsABHl5RtUJmXnsN8#rd" target="_blank"  title="èš‚èšè¯¾å ‚ä¼šå‘˜å……å€¼é¡»çŸ¥.ä¸Šæµ·æ¯ç‰¹æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸.." class="i-art-title" >ä¸€å¼ å›¾çœ‹å®Œæ¯ç‰¹æ•™è‚²åŸ¹è®­åè–ªèµ„æ¶¨å¹…é«˜è¾¾1ä¸‡å…ƒ</a>
+						</h3>
+						</li>
+				<li class="lt2">
+						<aside class="orderNum"><span>2</span></aside>
+						<h3 class="hLh30 txtOf">
+							<a href="javascript:if(confirm('https://baijiahao.baidu.com/s?id=1608288841413969576&wfr=spider&for=pc  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://baijiahao.baidu.com/s?id=1608288841413969576&wfr=spider&for=pc'" tppabs="https://baijiahao.baidu.com/s?id=1608288841413969576&wfr=spider&for=pc" target="_blank" title="èš‚èšè¯¾å ‚ä¼šå‘˜å……å€¼é¡»çŸ¥.ä¸Šæµ·æ¯ç‰¹æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸.." class="i-art-title">è…¾è®¯è¯¾å ‚å…¥é©»æœ€å¹´è½»çš„97åJavaæ¶æ„å¸ˆ,å¹´æ”¶å…¥å‡ ç™¾ä¸‡å…ƒ  </a>
+						</h3>
+						</li>
+				<li class="lt2">
+						<aside class="orderNum"><span>3</span></aside>
+						<h3 class="hLh30 txtOf">
+							<a href="javascript:if(confirm('http://sh.qihoo.com/pc/9c0da1d08e393c6ae?sign=360_e39369d1  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://sh.qihoo.com/pc/9c0da1d08e393c6ae?sign=360_e39369d1'" tppabs="http://sh.qihoo.com/pc/9c0da1d08e393c6ae?sign=360_e39369d1" target="_blank" title="èš‚èšè¯¾å ‚ä¼šå‘˜å……å€¼é¡»çŸ¥.ä¸Šæµ·æ¯ç‰¹æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸.." class="i-art-title">åˆ›åŠåœ¨çº¿æ•™è‚²ç½‘ç«™ï¼Œä¼°å€¼ä¸Šäº¿å…ƒï¼Œæ‹’ç»å¤šå®¶é£æŠ•åƒä¸‡å…ƒèèµ„</a>
+						</h3>
+						</li>
+				<li>
+						<aside class="orderNum"><span>4</span></aside>
+						<h3 class="hLh30 txtOf">
+							<a href="0-1.htm" tppabs="http://www.mayikt.com/front/couinfo/91/0" target="_blank" title="èš‚èšè¯¾å ‚ä¼šå‘˜å……å€¼é¡»çŸ¥.ä¸Šæµ·æ¯ç‰¹æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸.." class="i-art-title">æ¯ç‰¹æ•™è‚²å®˜æ–¹SpringCloudå¾®æœåŠ¡è§†é¢‘æ•™ç¨‹ç ´ç™¾ä¸‡äººå­¦ä¹ </a>
+						</h3>
+						</li>
+				<li>
+						<aside class="orderNum"><span>5</span></aside>
+						<h3 class="hLh30 txtOf">
+							<a href="javascript:if(confirm('https://ke.qq.com/course/291872  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/291872'" tppabs="https://ke.qq.com/course/291872" target="_blank" title="èš‚èšè¯¾å ‚ä¼šå‘˜å……å€¼é¡»çŸ¥.ä¸Šæµ·æ¯ç‰¹æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸.." class="i-art-title">97åäº’è”ç½‘æ¶æ„å¸ˆè…¾è®¯è¯¾å ‚ç›´æ’­äº’è”ç½‘æ¶æ„è¯¾ç¨‹ï¼Œç ´åƒäººè´­ä¹°</a>
+						</h3>
+						</li>
+				<li>
+						<aside class="orderNum"><span>6</span></aside>
+						<h3 class="hLh30 txtOf">
+							<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548" target="_blank" title="èš‚èšè¯¾å ‚ä¼šå‘˜å……å€¼é¡»çŸ¥.ä¸Šæµ·æ¯ç‰¹æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸.." class="i-art-title">97åäº’è”ç½‘æ¶æ„å¸ˆè…¾è®¯è¯¾å ‚åˆ†äº«Javaæ¶æ„æˆç²¾ä¹‹è·¯</a>
+						</h3>
+						</li>
+				
+			
+				</ul>
+		
+		
+	</section>
+					</div>
+				</article> 
+			
+			</div>
+		</section>
+		</div>
+		
+		
+	</section>
+</div>
+
+
+					<!-- èµ„è®¯åˆ—è¡¨ç»“æŸ -->
+
+				</div>
+				<input type="hidden" id="theme_color" value="">
+				<script type="text/javascript"
+					src="swiper-2.1.0.js" tppabs="http://static.itmayiedu.com/swiper-2.1.0.js"></script>
+				<script type="text/javascript"
+					src="index.js" tppabs="http://static.itmayiedu.com/index.js"></script>
+				<script type="text/javascript"
+					src="index_theme_color.js" tppabs="http://static.itmayiedu.com/index_theme_color.js"></script>
+				<!-- æ¢è‚¤ -->
+			</div>
+		</div>
+	</div>
+
+	<!--å¯¹è”å¹¿å‘Š-->
+	
+		
+	
+	<!--Endå¯¹è”å¹¿å‘Š-->
+
+
+	<div class="mo-footer">
+		<!-- å…¬å…±åº•å¼•å…¥ -->
+		<style type="text/css">
+.bdsharebuttonbox .bds_tsina {
+	background-image: url("share-sina.png")/*tpa=http://www.mayikt.com/static/inxweb/img/share-sina.png*/;
+	background-position: 0;
+}
+
+.bdsharebuttonbox .bds_weixin {
+	background-image: url("share-weixin.png")/*tpa=http://www.mayikt.com/static/inxweb/img/share-weixin.png*/;
+	background-position: 0;
+}
+
+.bdsharebuttonbox .bds_qzone {
+	background-image: url("share-qzone.png")/*tpa=http://www.mayikt.com/static/inxweb/img/share-qzone.png*/;
+	background-position: 0;
+}
+</style>
+		<script type="text/javascript"
+			src="footer.min.js" tppabs="http://static.itmayiedu.com/footer.min.js"></script>
+
+
+
+
+		
+
+
+<link rel="stylesheet" type="text/css" href="base.min.css" tppabs="http://static.itmayiedu.com/base.min.css">
+<script type="text/javascript" src="test.js" tppabs="http://static.itmayiedu.com/test.js"></script>
+
+
+<footer id="footer" style="background-color: #f1f0f0;">
+	<section class="container">
+		<div class="b-foot">
+			<section class="fl col-80">
+				<section class="mr20">
+					<div class="find-box">
+						<h4 class="hLh30 txtOf">
+							<span class="fsize18 f-fM c-fff" style="color:#6c6c6c">å‹æƒ…é“¾æ¥</span></h4>
+						<ul class="flink-list clearfix">
+						
+						
+							<li><a href="javascript:if(confirm('http://www.itresource.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.itresource.org/'" tppabs="http://www.itresource.org/" title="Javaè§†é¢‘æ•™ç¨‹" target="_blank">Javaè§†é¢‘æ•™ç¨‹</a></li>
+						
+							
+						
+							<li><a href="javascript:if(confirm('https://ms.meitedu.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ms.meitedu.com/'" tppabs="https://ms.meitedu.com/" title="Javaé¢è¯•å®å…¸" target="_blank">Javaé¢è¯•å®å…¸</a></li>
+						
+							
+						
+							<li><a href="javascript:if(confirm('http://www.meitedu.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.meitedu.com/'" tppabs="http://www.meitedu.com/" title="æ¯ç‰¹å…¬å¸" target="_blank">æ¯ç‰¹å…¬å¸</a></li>
+						
+							
+						
+							<li><a href="javascript:if(confirm('http://mini.eastday.com/a/170618074857596.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://mini.eastday.com/a/170618074857596.html'" tppabs="http://mini.eastday.com/a/170618074857596.html" title="åª’ä½“æŠ¥é“" target="_blank">åª’ä½“æŠ¥é“</a></li>
+						
+							
+						
+							<li><a href="javascript:if(confirm('http://www.itresource.org/plugin.php?id=qgroup:qgroup  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.itresource.org/plugin.php?id=qgroup:qgroup'" tppabs="http://www.itresource.org/plugin.php?id=qgroup:qgroup" title="ç²‰ä¸ç¾¤" target="_blank">ç²‰ä¸ç¾¤</a></li>
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+							</ul>
+						<div class="clear"></div>
+					</div>
+					<section class="b-f-link mt20">
+						<a href="javascript:if(confirm('https://jq.qq.com/?_wv=1027&k=5bwGmi2  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://jq.qq.com/?_wv=1027&k=5bwGmi2'" tppabs="https://jq.qq.com/?_wv=1027&k=5bwGmi2" title="å¸®åŠ©ä¸­å¿ƒ" target="_blank">å¸®åŠ©ä¸­å¿ƒ</a>|
+						<a href="javascript:if(confirm('https://jq.qq.com/?_wv=1027&k=5bwGmi2  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://jq.qq.com/?_wv=1027&k=5bwGmi2'" tppabs="https://jq.qq.com/?_wv=1027&k=5bwGmi2" title="è”ç³»æˆ‘ä»¬" target="_blank">è”ç³»æˆ‘ä»¬</a>|
+						<a href="javascript:if(confirm('https://meitedu.ke.qq.com/?tuin=388db9e0  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://meitedu.ke.qq.com/?tuin=388db9e0#tab=3&category=-1'" tppabs="https://meitedu.ke.qq.com/?tuin=388db9e0#tab=3&category=-1" title="å…³äºæˆ‘ä»¬" target="_blank">å…³äºæˆ‘ä»¬</a>|
+						<a href="sitemap.xml" tppabs="http://www.mayikt.com/sitemap.xml" title="ç½‘ç«™åœ°å›¾" target="_blank">ç½‘ç«™åœ°å›¾</a>|
+						<span>å®¢æœå°è–‡QQï¼š483966038</span>
+						<span>Emailï¼š644064779@qq.com</span>
+						<span class="ml30">
+							<tt class="c-666 f-fM vam">å®˜æ–¹ç²‰ä¸ç¾¤ï¼š</tt><tt class="c-666 f-fM vam mr20">193086273</tt></span>
+					</section>
+					<section class="b-f-link mt10">
+						<span>Copyright Â©2016-2019 ä¸Šæµ·æ¯ç‰¹æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸ ç‰ˆæœ¬æ‰€æœ‰</span>
+						<span class="c-666">Powered by<a title="ä¸Šæµ·æ¯ç‰¹æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸" target="_blank" href="#" class="c-666">èš‚èšè¯¾å ‚</a></span>
+						<!-- ç»Ÿè®¡ä»£ç  -->
+						</section>
+				</section>
+			</section>
+			<aside class="fl col-20 tar ewm-box">
+				<span class="disIb tac">
+					<img src="1513928038043.jpg" tppabs="http://static.itmayiedu.com/1513928038043.jpg" alt="" class="dis" width="140" height="140">
+					<p class="hLh30 fsize14 c-999 f-fM mt10 tac">å…³æ³¨å¾®ä¿¡å…¬ä¼—å·</p>
+				</span>
+				</aside>
+			<div class="clear"></div>
+
+		</div>
+	</section>
+</footer>
+
+
+<!-- <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b43c1c82b09cda6b125e6981fbde442c";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "hm.js-eaa952b8610db6f155ab0febd442e89a"/*tpa=https://hm.baidu.com/hm.js?eaa952b8610db6f155ab0febd442e89a*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+		<!-- åº•éƒ¨å¹¿å‘Š -->
+
+		<div id="main">
+			<div class="demo">
+				<p
+					style="text-align: center; font-size: 18px; line-height: 26px; padding: 0px 0 0px 0">
+					<a href="guanggaoInfo.htm" tppabs="http://www.mayikt.com/guanggaoInfo"><img alt=""
+						src="00000000top.jpg" tppabs="http://static.itmayiedu.com/00000000top.jpg"></a>
+				</p>
+				<div style="height: 0px; width: 100%; background-color: #f6f6f6">
+				</div>
+			</div>
+
+		</div>
+
+
+		
+			
+		
+		<!-- end -->
+
+
+
+
+
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>js+cookieå®ç°é¡µè„šå›ºå®šå¹¿å‘Šæ¡ä»£ç </title>
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+</body>
+</html>
+
+
+		<!-- åº•éƒ¨ç»“æŸ -->
+		<div class="r-fixed-wrap">
+			<div class="pr r-fix-box">
+				<ul class="r-fixed-ul">
+					<li id="goTopBtn" class="undis"><a href="javascript: void(0)"
+						title="è¿”å›é¡¶éƒ¨" class="bg-orange"> <em class="r-f-icon-3">&nbsp;</em><span>è¿”å›é¡¶éƒ¨</span>
+					</a></li>
+					<!-- <li class="foot-zixun" id="shopCart">
+				<a href="javascript:shopCartHtml()" title="æŸ¥çœ‹è¯¦æƒ…" class="bg-orange pr" id="v-nav-first">
+					<em class="r-f-icon-4">&nbsp;</em><span>æŸ¥çœ‹è¯¦æƒ…</span>
+					<tt class="shop-car-num" id="shopCartNum">0</tt>
+				</a>
+			</li>
+			<li class="foot-zixun">
+				<a href="" target="_blank" title="åœ¨çº¿å’¨è¯¢" class="bg-orange">
+					<em class="r-f-icon-1">&nbsp;</em><span>åœ¨çº¿å’¨è¯¢</span>
+				</a>
+			</li>
+			<li class="foot-zixun">
+				<a href="JavaScript:void(0)" title="æ‰«æå…³æ³¨" class="bg-orange">
+					<em class="r-f-icon-2">&nbsp;</em><span>æ‰«æå…³æ³¨</span>
+					<div class="smgz-pic">
+						<img src="/static/images/userInfo/1481617339900.jpg" width="150" height="150" class="dis">
+						<p class=" fsize14 f-fM c-666 tac">æ‰«ä¸€æ‰«ï¼Œå…³æ³¨æˆ‘ä»¬</p>
+					</div>
+				</a>
+			</li> -->
+				</ul>
+				<div class="shopcar-box fr" id="shopcarthtml"></div>
+			</div>
+		</div>
+
+
+
+		<!--æ‰‹æœºç«¯å›åˆ°é¡¶éƒ¨ å¼€å§‹-->
+		<div class="m-go-top-box">
+			<ul class="r-fixed-ul">
+				<li id="goTopBtn2" class="" style="display: none;"><a
+					href="javascript: void(0)" title="è¿”å›é¡¶éƒ¨" class="bg-orange"> <em
+						class="r-f-icon-3">&nbsp;</em><span>è¿”å›é¡¶éƒ¨</span>
+				</a></li>
+			</ul>
+		</div>
+		<!--æ‰‹æœºç«¯ footerå¼€å§‹-->
+		
+
+<section class="mo-foot">
+	<article class="mo-f-warp">
+		<ul class="clearfix mo-f-w-list" id="gn-ul">
+			<li style="width: 20.0%" class="current">
+					<a href="index.htm" tppabs="http://www.mayikt.com/">
+							<svg t="1486257228474" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" p-id="2464" width="32" height="32">
+           <path d="M978.221 507.167l-469.737-439.203-469.737 437.913c-9.189 8.567-9.702 22.975-1.114 32.155 8.579 9.173 23.004 9.692 32.187 1.105l438.629-408.894 438.649 410.139c4.401 4.112 9.987 6.144 15.563 6.144 6.070 0 12.143-2.411 16.623-7.209 8.596-9.173 8.123-23.568-1.065-32.149v0zM978.221 507.167z" fill="#d44920" p-id="2465"></path>
+            <path d="M834.88 516.187c-12.573 0-22.772 10.193-22.772 22.75v348.839h-182.185v-242.67h-242.91v242.67h-182.178v-348.839c0-12.557-10.189-22.75-22.771-22.75-12.59 0-22.777 10.193-22.777 22.75v394.338h273.275v-242.669h151.819v242.669h273.268v-394.338c0.001-12.557-10.201-22.75-22.768-22.75v0zM834.88 516.187z" fill="#d44920" p-id="2466"></path>
+           <path d="M675.472 190.101h136.635v121.332c0 12.576 10.201 22.755 22.772 22.755 12.569 0 22.769-10.179 22.769-22.755v-166.831h-182.177c-12.576 0-22.777 10.174-22.777 22.75-0.001 12.572 10.201 22.75 22.777 22.75v0zM675.472 190.101z" fill="#d44920" p-id="2467"></path>
+         </svg><p>é¦–é¡µ</p>
+					</a>
+				</li>
+			<li style="width: 20.0%">
+					<a href="showcoulist.htm" tppabs="http://www.mayikt.com/front/showcoulist">
+							<svg t="1486257362855" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" p-id="5482" width="30" height="30">
+           <path d="M229.499951 913.188218c-48.914036-7.229658-80.168878-68.500117-58.45432-114.993011 17.700127-37.899168 77.866439-44.274366 114.710578-43.379996 12.209066 0.296759 22.588461-10.589173 22.588461-22.588461 0-214.33967 0-428.679339 0-643.020032 0-12.211113-10.349719-22.588461-22.588461-22.588461-79.519078 0-156.825768 13.127995-188.981119 97.637738-14.056134 36.941354-9.794064 79.658248-9.794064 118.503974 0 140.217509 0 280.435017 0 420.652526 0 34.616402-1.300622 69.511143 0 104.108103 3.175319 84.488253 66.817802 147.707087 151.284565 150.829194 116.201535 1.707898 521.665127 0.956791 671.114904 0 21.049409 0 27.852348-24.02723 15.972786-38.561247-39.46278-48.27754-42.548048-113.524566 0-161.04793 19.342534-21.60404-12.502755-53.66013-31.94455-31.94455-60.080354 67.105351-56.141648 156.255787 0 224.937029 5.324262-12.853749 10.648524-25.707498 15.972786-38.561247-208.42496 0-416.84992 0-625.27488 0-45.63434 0-90.661859 2.997264-124.948757-35.18843-31.254841-34.808784-26.997887-78.81709-26.997887-121.741715 0-125.962853 0-251.925706 0-377.88856 0-50.012044-1.000793-100.139721 0-150.142555 0.601704-30.04427 6.29231-57.972343 26.997887-81.227999 34.031071-38.22151 80.371492-35.18843 126.600373-35.18843-7.529487-7.529487-15.058974-15.058974-22.588461-22.588461 0 214.33967 0 428.679339 0 643.020032 7.529487-7.529487 15.058974-15.058974 22.588461-22.588461-60.922535-1.479701-144.667867 18.272155-161.406087 86.262666-16.9613 68.895113 19.038612 149.897985 93.140307 160.850431C245.930155 960.955128 258.202667 917.430846 229.499951 913.188218L229.499951 913.188218z" p-id="5483" fill="#333"></path>
+            <path d="M361.056196 111.795179c137.728828 0 277.028431-6.541997 414.573063 0 56.018851 8.659217 110.147656 42.715871 112.727411 105.47217 0.642636 15.646352 0 31.460526 0 47.115064 0 88.575338 0 177.150676 0 265.72499 0 68.37732 0 136.75464 0 205.130937 7.529487-7.529487 15.058974-15.058974 22.588461-22.588461-183.296653 0-366.592282 0-549.888935 0 7.529487 7.529487 15.058974 15.058974 22.588461 22.588461 0-215.344556 0-430.688089 0-646.032646 0-29.069059-45.176922-29.117155-45.176922 0 0 215.344556 0 430.688089 0 646.032646 0 12.211113 10.349719 22.588461 22.588461 22.588461 183.296653 0 366.592282 0 549.888935 0 12.211113 0 22.588461-10.349719 22.588461-22.588461 0-156.952658 0-313.904293 0-470.856951 0-82.908268-11.682064-153.384389-102.450347-182.328605-30.673603-9.781784-66.485227-13.762445-102.756315-15.243169-69.480444-0.192382-73.621764-0.192382-116.468618-0.192382-83.601046 0-167.202093 0-250.802116 0C331.987137 66.618257 331.939041 111.795179 361.056196 111.795179z" p-id="5484" fill="#333"></path><path d="M510.185678 94.477768c0 113.695458 0 227.390917 0 341.086375 0 24.375154 29.352515 28.110221 42.092677 11.400654 29.27986-38.400588 58.559721-76.801177 87.840604-115.201765-11.825326 1.523703-23.651676 3.047406-35.477003 4.571109 29.826306 38.400588 59.652612 76.801177 89.479941 115.201765 12.533454 16.136515 38.561247 1.967818 38.561247-15.972786 0-113.695458 0-227.390917 0-341.086375 0-29.069059-45.176922-29.117155-45.176922 0 0 113.695458 0 227.390917 0 341.086375 12.853749-5.324262 25.707498-10.648524 38.561247-15.972786-29.826306-38.400588-59.652612-76.801177-89.479941-115.201765-9.933233-12.788258-27.79095-5.508457-35.477003 4.572132-29.27986 38.400588-58.559721 76.801177-87.839581 115.201765 14.030551 3.800559 28.062126 7.600095 42.092677 11.400654 0-113.695458 0-227.390917 0-341.086375C555.3626 65.408709 510.185678 65.360614 510.185678 94.477768L510.185678 94.477768z" p-id="5485" fill="#333"></path><path d="M361.056196 879.8049c165.349909 0 330.700841 0 496.05075 0 29.069059 0 29.117155-45.176922 0-45.176922-165.349909 0-330.700841 0-496.05075 0C331.987137 834.627978 331.939041 879.8049 361.056196 879.8049L361.056196 879.8049z" p-id="5486" fill="#333"></path>
+          </svg><p>è¯¾ç¨‹</p>
+					</a>
+				</li>
+			<li style="width: 20.0%">
+					<a href="javascript:if(confirm('https://ke.qq.com/course/273548?tuin=ca541f47  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ke.qq.com/course/273548?tuin=ca541f47'" tppabs="https://ke.qq.com/course/273548?tuin=ca541f47">
+							<svg t="1486257689517" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" p-id="11329" width="32" height="32">
+           <path d="M438.615 605.87L629.76 438.615l-191.145-168.96V605.87z m240.635 332.8H344.745c-13.655 0-25.6-11.95-25.6-25.6 0-13.66 11.945-25.6 25.6-25.6H679.25c13.66 0 25.6 11.94 25.6 25.6 0 13.65-11.94 25.6-25.6 25.6z m179.538-453.14c-37.31 0.384-63.191 18.35-79.683 38.65-16.19-20.561-42.122-38.65-80.379-38.65-25.277 0-46.264 8.181-62.366 24.37-29.481 29.6-30.085 74.184-29.773 75.567-0.737 4.505-15.975 111.585 162.954 200.745a21.658 21.658 0 0 0 9.651 2.294 21.453 21.453 0 0 0 10.133-2.555C897.53 728.515 953.8 658.959 952.064 583.214c0.046-39.26-24.494-97.684-93.276-97.684z m-77.819 263.03c-144.297-75.736-136.213-154.287-135.542-160.953-0.046-8.356 3.226-35.63 18.335-50.785 8.161-8.213 19.01-12.206 33.213-12.206 48.057 0 60.396 43.878 61.573 48.737a22.62 22.62 0 0 0 21.602 17.423c9.933-1.09 19.553-6.625 22.369-16.558 0.594-2.002 14.474-49.1 63.483-49.602 50.642 0 51.185 54.722 51.236 59.714 1.275 56.5-47.007 114.54-136.269 164.23z" fill="#333" p-id="11330"></path>
+           <path d="M177.495 738.99c-32.425 0-58.025-25.6-58.025-58.03v-486.4c0-32.425 25.6-58.025 58.025-58.025H846.51c32.42 0 58.02 25.6 58.02 58.025v228.623a319.078 319.078 0 0 1 49.5 7.133V194.56c1.7-59.735-47.79-109.225-107.52-109.225H177.495c-59.735 0-109.23 49.49-109.23 109.225v486.4c0 59.73 49.495 109.23 109.225 109.23h443.76a264.433 264.433 0 0 1-23.24-51.2H177.496z" fill="#333" p-id="11331"></path>
+         </svg><p>ç›´æ’­</p>
+					</a>
+				</li>
+			<li style="width: 20.0%">
+					<a href="javascript:if(confirm('http://bbs.itmayiedu.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://bbs.itmayiedu.com/'" tppabs="http://bbs.itmayiedu.com/">
+							<svg t="1486258789373" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" p-id="23121" width="32" height="32">
+           <path d="M464.2 622c0.8 0 1.6 0 2.4-0.1 96.3-9 120.4-71.5 119.8-103.3-0.3-14.1-11.5-24.9-26-24.9-14 0.3-25.2 11.9-24.9 26 0 0.5 0.1 44.7-73.7 51.6-14 1.3-24.3 13.7-22.9 27.7 1.3 13.1 12.4 23 25.3 23z" p-id="23122" fill="#333"></path>
+           <path d="M910.3 414.9c55.7-99.1 64.3-180.3 24-228.6-39.7-47.6-119.6-54.3-225.1-19-0.6 0.2-1 0.7-1.6 0.9-65.5-43.5-143.9-68.9-228.3-68.9-228.3-0.1-414 185.7-414 414 0 67.7 16.7 131.5 45.6 188-34.8 89.8-16.1 140 5.8 166.3 23.4 28.1 60.4 41.6 106.9 41.6 28.2 0 60-5 94.3-14.7 46.4 19.7 97.2 30.9 150.4 32.3v0.6h425.2V502.2h-0.6c-0.5-17.3-2.1-34.3-4.6-51 7.9-12.2 15.3-24.4 22-36.3z m-15.1-196.1c23.9 28.7 14.6 88.7-24.2 161.3-23-67.5-63-127.1-114.9-173.9 67.5-17.8 117.4-13.5 139.1 12.6z m-415.9-68.7c174.9 0 321.2 124.2 355.6 289.1-49.5 72.4-119.4 147.6-202.1 216.6-113.6 94.7-224.4 155.6-311.9 183.9-121-59-204.8-182.9-204.8-326.3 0-200.4 163-363.3 363.2-363.3z m-323.6 685c-13.7-16.4-16.7-43-9.3-76.6 28.1 38.1 62.3 71.5 101.6 98.1-43.6 5-76-2.1-92.3-21.5z m323.6 41.4c-28.8 0-56.6-3.7-83.5-10.1 83.6-36.2 176.8-94.4 269.5-171.7 68.6-57.2 129-118.9 177.2-180.2v361.9H479.3z" p-id="23123" fill="#333"></path>
+         </svg><p>ç¤¾åŒº</p>
+					</a>
+				</li>
+			<li style="width: 20.0%">
+					<a href="javascript:if(confirm('http://www.mayikt.com/user/userCenter/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ·şÎñÆ÷±¨¸æ¸ÃÎÄ¼şÎ´ÕÒµ½¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.mayikt.com/user/userCenter/'" tppabs="http://www.mayikt.com/user/userCenter/">
+							<svg t="1486257862430" class="icon" style="" viewBox="0 0 1024 1024" p-id="17785" width="32" height="32">
+            <path d="M511.674589 64.696488c-246.847038 0-446.956611 200.109574-446.956611 446.956611 0 94.231151 29.160133 181.651177 78.95012 253.727749 0 0 15.517415 21.547759 35.803437 9.270131 19.442818-11.768021 7.554046-34.44551 7.554046-34.44551-18.063401-24.635073-28.063149-46.14497-40.059368-74.507948-20.624736-48.762587-31.081902-100.589976-31.081902-154.044422 0-53.454446 10.457166-105.281835 31.081902-154.044422 19.931958-47.124274 48.477085-89.457428 84.842317-125.82266 36.365232-36.365232 78.698386-64.910359 125.82266-84.842317 48.762587-20.624736 100.589976-31.081902 154.044422-31.081902 53.454446 0 105.281835 10.457166 154.044422 31.081902 41.683355 17.630542 79.609129 42.012859 112.981191 72.572876l21.829168 21.586644c32.097022 34.219359 57.598836 73.345472 75.854619 116.506481 20.624736 48.762587 31.081902 100.589976 31.081902 154.044422 0 53.454446-10.457166 105.281835-31.081902 154.044422-19.931958 47.124274-48.477085 89.457428-84.842317 125.82266-5.247514 5.247514-10.634198 10.31288-16.127306 15.232936-7.247054-53.594639-33.886785-103.058191-76.816526-141.627624-24.589025-22.092158-53.120848-39.295981-84.133166-51.097772 46.131667-32.394804 76.2885-85.996606 76.2885-146.646941 0-98.902544-80.176041-179.078585-179.078585-179.078585s-179.078585 80.176041-179.078585 179.078585c0 60.651358 30.156834 114.252137 76.2885 146.646941-31.013341 11.80179-59.544141 29.005614-84.133166 51.097772-50.834782 45.671179-78.82937 106.616226-78.82937 171.609473 0 8.114818 0.179079 13.518898 1.193175 22.279423 0.470721 4.068665 1.876744 7.79964 3.970428 11.011798 4.293793 7.453762 10.69048 12.249999 10.69048 12.249999 71.334675 48.192605 157.330258 76.333526 249.897513 76.333526 246.848061 0 446.956611-200.109574 446.956611-446.956611S758.521626 64.696488 511.674589 64.696488zM383.761314 467.379757c0-34.167171 13.305027-66.288752 37.465287-90.447988 24.159236-24.159236 56.281841-37.465287 90.447988-37.465287s66.288752 13.305027 90.447988 37.465287c24.159236 24.159236 37.465287 56.281841 37.465287 90.447988s-13.305027 66.288752-37.465287 90.447988c-24.159236 24.159236-56.281841 37.465287-90.447988 37.465287s-66.288752-13.305027-90.447988-37.465287C397.066341 533.668509 383.761314 501.546927 383.761314 467.379757zM511.674589 907.444401c-53.454446 0-105.281835-10.457166-154.044422-31.081902-21.145599-8.943696-41.312918-19.643386-60.423161-31.984459-0.094144-2.240017-0.119727-4.589528-0.119727-7.643074 0-104.875582 96.263437-190.19783 214.58731-190.19783s214.58731 85.322248 214.58731 190.19783c0 2.555196-0.076748 5.127787-0.193405 7.701402-19.086707 12.319583-39.232536 22.99369-60.349483 31.92613C616.956424 896.987235 565.128011 907.444401 511.674589 907.444401z" p-id="17786" fill="#333"></path>
+          </svg><p>æˆ‘çš„</p>
+					</a>
+				</li>
+			</ul>
+	</article>
+</section>
+		<!--æ‰‹æœºç«¯ footerç»“æŸ-->
+
+		<script>
+	setTimeout(function () {
+		try {
+			headerIndexSubject();//ç¬¬äºŒä¸‰ç‰ˆé¦–é¡µ ä¸“ä¸š æ˜¾ç¤º å¤„ç†
+		}catch (err){}
+
+	},100)
+</script>
+		<!-- å…¬å…±åº•å¼•å…¥ -->
+	</div>
+	<div class="exam-foot-kst">
+		<div class="undis exam-f-kst-list clearfix h5ExamDatika">
+			<div class="dtk-box fl f-kst-fl-box fot-box-btn-js">
+				<div class="lin-right tac">
+					<svg t="1508738291238" class="icon" style=""
+						viewBox="0 0 1024 1024" version="1.1" p-id="2257" width="48"
+						height="48"> <defs>
+					<style type="text/css"></style>
+					</defs> <path
+						d="M816.655 962.058h-609.165c-56.524 0-102.506-46.111-102.506-102.806v-694.316c0-56.695 45.982-102.806 102.506-102.806h609.165c56.524 0 102.549 46.41 102.549 103.406v450.265c0 11.828-9.599 21.426-21.426 21.426s-21.426-9.599-21.426-21.426v-450.265c0-33.383-26.783-60.553-59.695-60.553h-609.165c-32.869 0-59.652 26.912-59.652 59.952v694.273c0 33.040 26.783 59.952 59.652 59.952h609.165c32.911 0 59.695-27.212 59.695-60.596v-81.25c0-11.828 9.599-21.426 21.426-21.426s21.426 9.599 21.426 21.426v81.25c0 57.082-45.982 103.491-102.549 103.491zM746.246 726.362h-182.171c-11.828 0-21.426-9.599-21.426-21.426s9.599-21.426 21.426-21.426h182.171c11.828 0 21.426 9.599 21.426 21.426s-9.599 21.426-21.426 21.426zM446.27 726.362h-182.214c-11.828 0-21.426-9.599-21.426-21.426s9.599-21.426 21.426-21.426h182.214c11.828 0 21.426 9.599 21.426 21.426s-9.556 21.426-21.426 21.426zM746.246 554.948h-182.171c-11.828 0-21.426-9.599-21.426-21.426s9.599-21.426 21.426-21.426h182.171c11.828 0 21.426 9.599 21.426 21.426s-9.599 21.426-21.426 21.426zM446.27 554.948h-182.214c-11.828 0-21.426-9.599-21.426-21.426s9.599-21.426 21.426-21.426h182.214c11.828 0 21.426 9.599 21.426 21.426s-9.556 21.426-21.426 21.426zM746.246 383.533h-182.171c-11.828 0-21.426-9.599-21.426-21.426s9.599-21.426 21.426-21.426h182.171c11.828 0 21.426 9.599 21.426 21.426s-9.599 21.426-21.426 21.426zM446.27 383.533h-182.214c-11.828 0-21.426-9.599-21.426-21.426s9.599-21.426 21.426-21.426h182.214c11.828 0 21.426 9.599 21.426 21.426s-9.556 21.426-21.426 21.426z"
+						p-id="2258"></path></svg>
+					<span class="f-fM c-666 fsize16 vam">ç­”é¢˜å¡</span>
+				</div>
+				<div class="gscz-ej-li gscz-ej-li-big"
+					style="width: 1863px; height: 819px;">
+					<div class="n-test-right-card bg-fff">
+						<div class="title f-fM c-333 fsize16 disFw">ç­”é¢˜å¡</div>
+						<div class="card-da">
+							<div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tjsj-box fl f-kst-fl-box">
+				<div class="lin-right tac" onclick="formSubmit()">
+					<svg t="1508738342428" class="icon" style=""
+						viewBox="0 0 1024 1024" version="1.1" p-id="4141" width="48"
+						height="48"> <defs>
+					<style type="text/css"></style>
+					</defs> <path
+						d="M872.30464 499.22048l0 417.18784L75.84768 916.40832 75.84768 157.89056l606.8224 0L682.67008 82.04288 37.92896 82.04288C16.95744 82.04288 0 99.0208 0 119.9616l0 834.36544C0 975.29856 16.95744 992.256 37.92896 992.256l872.2944 0c20.97152 0 37.92896-16.95744 37.92896-37.92896L948.15232 499.22048 872.30464 499.22048 872.30464 499.22048z"
+						p-id="4142"></path> <path
+						d="M1024 69.00736c0-13.74208-11.15136-24.89344-24.89344-24.89344-6.52288 0-12.17536 2.82624-16.66048 6.94272L493.4144 600.17664 303.4112 411.41248 171.40736 540.70272l53.77024 0 267.48928 249.71264L1020.5184 81.07008C1022.58688 77.44512 1024 73.44128 1024 69.00736L1024 69.00736z"
+						p-id="4143"></path></svg>
+					<span class="f-fM c-666 fsize16 vam">äº¤å·</span>
+				</div>
+			</div>
+			<div class="gscz-box fl f-kst-fl-box fot-box-btn-js">
+				<div class="tac">
+					<svg t="1508738466385" class="icon" style=""
+						viewBox="0 0 1024 1024" version="1.1" p-id="10466" width="48"
+						height="48"> <defs>
+					<style type="text/css"></style>
+					</defs> <path
+						d="M307.1 833.1c-14.1 0-26.4-19.3-26.4-41.3s12.3-41.3 26.4-41.3h627.8c14.1 0 26.4 19.3 26.4 41.3s-12.3 41.3-26.4 41.3H307.1z m0-282.7c-14.1 0-26.4-19.3-26.4-41.3 0-22 12.3-41.3 26.4-41.3h627.8c14.1 0 26.4 19.3 26.4 41.3 0 22-12.3 41.3-26.4 41.3H307.1z m0-282.6c-14.1 0-26.4-19.3-26.4-41.3s12.3-41.3 26.4-41.3h627.8c14.1 0 26.4 19.3 26.4 41.3s-12.3 41.3-26.4 41.3H307.1z"
+						p-id="10467"></path> <path
+						d="M125.5 853.5c-10.8 0-21.4-2.9-30.8-8.3-19-11-30.9-31.5-30.8-53.4 0-22 11.8-42.5 30.8-53.4 9.4-5.4 20-8.3 30.8-8.3s21.5 2.9 30.8 8.3c19 11 30.8 31.5 30.8 53.4 0 10.8-2.9 21.5-8.3 30.9-10.8 19-31.3 30.8-53.3 30.8z m0.1-279.5c-10.8 0-21.5-2.9-30.8-8.3-19-11-30.9-31.5-30.8-53.4 0-22 11.8-42.4 30.8-53.4 9.4-5.4 20-8.3 30.8-8.3s21.5 2.9 30.8 8.3c19 11 30.8 31.5 30.8 53.4 0 22-11.8 42.5-30.8 53.4-9.3 5.4-20 8.3-30.8 8.3z m0-279.6c-10.8 0-21.5-2.9-30.8-8.3-19-11-30.9-31.5-30.9-53.4 0-22 11.8-42.5 30.8-53.4 9.4-5.4 20-8.3 30.8-8.3s21.5 2.9 30.8 8.3c19 11 30.8 31.5 30.8 53.4 0 22-11.8 42.4-30.8 53.4-9.2 5.5-19.9 8.3-30.7 8.3z"
+						p-id="10468"></path></svg>
+					<span class="f-fM c-666 fsize16 vam">æ›´å¤š</span>
+				</div>
+				<div class="gscz-ej-li">
+					<ul class="gscz-ej-li-ul">
+						<li><a href="javascript:void(0)"
+							onclick="dialog(&#39;æ¸©é¦¨æç¤º&#39;,&#39;ç»ƒä¹ é¢˜åº“&#39;,19);" title=""
+							class="f-fM fsize16 c-666 current">ä¸‹æ¬¡å†åš</a></li>
+						<li><a href="javascript:void(0)" onclick="danti(this)"
+							id="h5dantiATag" title="" class="f-fM fsize16 c-666">å•é¢˜æ¨¡å¼</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="exam-f-kst-tc-btn undis">
+			<a href="javascript:void(0)"
+				onclick="dialog(&#39;æç¤º&#39;,&#39;&#39;,20);" titile="é€€å‡º">é€€å‡º</a>
+		</div>
+	</div>
+	<script type="text/javascript"
+		src="socket.io.js" tppabs="http://static.itmayiedu.com/socket.io.js"></script>
+	<input type="hidden" id="socketPort" value="63021">
+	<input type="hidden" id="serverHostAddress" value="211.159.160.107">
+	<input type="hidden" id="limitLogin" value="OFF">
+	<script type="text/javascript">
+        var winW=$(window).width();
+        var boyH=$(window).height()-98;
+        $(".fot-box-btn-js").click(function () {
+            if($(this).hasClass("cur")){
+                $(".fot-box-btn-js").removeClass("cur");
+                $(this).children(".gscz-ej-li").hide();
+				//h5æ»šåŠ¨æ—¶ï¼Œå³ä¾§èœå•å®šä½æœ‰é—®é¢˜è¢«éšè—ï¼Œéœ€è¦æ¸…é™¤é«˜åº¦
+                $("body").css("height","");
+            }else {
+                $(".fot-box-btn-js").removeClass("cur");
+                $(this).addClass("cur");
+                $(".fot-box-btn-js").children(".gscz-ej-li").hide();
+                $(this).children(".gscz-ej-li").show();
+                $("body").css({"height":winW});
+            }
+        })
+        $(".gscz-ej-li-big").css({"width":winW,"height":boyH});
+
+	</script>
+
+
+
+
+	<!-- æ‰“å¼€ç™»å½• -->
+	<!-- <div class="dialogWrap" style="position: absolute; overflow-x: hidden; overflow-y: auto; top: 248.5px; margin-left: -193px;  ">
+<div class="dialog-ele new-loigin"><h4 class="d-s-head pr new-header" style="width: 380px;"><a id="dClose" href="javascript:void(0)" title="å…³é—­" class="dClose icon16 pa new-close">&nbsp;</a>
+<span id="d-s-head-tab" class="d-s-head-tab"><a href="javascript:void(0)" class="current">ç™»å½•</a><a href="javascript:void(0)" class="">æ³¨å†Œ</a></span></h4><div class="of">
+<div id="lrEleWrap" class="mt10 mb20 ml30 mr30">
+<div id="d-s-head-cont" class="lrWrap">
+    <section class="dis e-login-ele" style="display: block;">
+        <div class="mt10">
+            <p class="e-l-jy"></p>
+        </div>
+        <div>
+            <ol class="e-login-options">
+                <li>
+                    <em class="lo-ico zc-dl-ioc"> </em>
+                    <input id="focusId" type="hidden">
+                    <input id="u-email" placeholder="è¯·è¾“å…¥è´¦å·/é‚®ç®±/æ‰‹æœºå·" name="" value="" onkeyup="$(this).next().html(&#39;&#39;);" type="text">
+                    <p class="lr-tip-wrap"></p>
+                </li>
+                <li>
+                    <em class="zc-ico zc-dl-ioc"> </em>
+                    <input id="u-password" placeholder="è¯·è¾“å…¥å¯†ç " name="" value="" onkeyup="$(this).next().html(&#39;&#39;);" type="password">
+                    <p class="lr-tip-wrap"></p>
+                </li>
+            </ol>
+            <section class="hLh30 of pl10">
+                <label class="hand c-999 vam fl">
+                    <input id="autoThirty" style="vertical-align: -2px;" checked="checked" type="checkbox">
+                    è‡ªåŠ¨ç™»å½•
+                </label>
+                <a class="vam ml10 c-blue fr" title="" href="http://wxdemo.inxedu.com/front/passwordRecovery">å¿˜è®°å¯†ç ?</a>
+            </section>
+            <section class="mt20 tac mb50">
+                <a class="e-login-btn" href="javascript:void(0)" title="ç™» å½•" onclick="dialogLogin(&#39;&#39;)">ç™» å½•</a>
+            </section>
+        </div>
+    </section>
+    <section class="undis e-login-ele" style="display: none;">
+        <div class="mt10">
+            <p class="e-l-jy"></p>
+        </div>
+        <div>
+            <ol class="e-login-options">
+                <li>
+                        <em class="lo-ico zc-dl-ioc"> </em>
+                        <input id="u-name-reg" placeholder="è¯·è¾“å…¥è´¦å·" name="registerName" maxlength="24" value="" onkeyup="$(this).next().html(&#39;&#39;);" type="text">
+                        <p class="lr-tip-wrap"></p>
+                    </li>
+                <li>
+                    <em class="zc-ico zc-dl-ioc"> </em>
+                    <input id="u-password-reg" placeholder="è¯·è¾“å…¥å¯†ç " name="" maxlength="64" value="" onkeyup="$(this).next().html(&#39;&#39;);" type="password">
+                    <p class="lr-tip-wrap"></p>
+                </li>
+                <li>
+                    <input id="u-randomcode-reg" class="fl yazm-input" placeholder="è¯·è¾“å…¥éªŒè¯ç " name="" value="" onkeyup="$(this).next().next().next().html(&#39;&#39;);" maxlength="4" type="text">
+                    <a class="vam ml10 disIb fl random-pic" href="javascript:void(0)" title="">
+                        <img onclick="this.src=&#39;/ran/ajax/random?random=&#39;+Math.random()" alt="éªŒè¯ç ï¼Œç‚¹å‡»å›¾ç‰‡æ›´æ¢" src="./é¦–é¡µ-èš‚èšè¯¾å ‚æ¼”ç¤ºç«™_èš‚èšè¯¾å ‚æ•™è‚²è½¯ä»¶-ä¸ºæ‚¨æä¾›ä¸“å±åœ¨çº¿æ•™è‚²å¹³å°ç³»ç»Ÿ_files/random">
+                    </a>
+                    <span class="c-999 fl ml10">
+                        <a class="js-verify-refresh zc-yzpic" href="javascript:void(0)" title="åˆ·æ–°" onclick="$(this).parent().prev().find(&#39;img&#39;).click()">
+                            <em>
+                                <img src="./é¦–é¡µ-èš‚èšè¯¾å ‚æ¼”ç¤ºç«™_èš‚èšè¯¾å ‚æ•™è‚²è½¯ä»¶-ä¸ºæ‚¨æä¾›ä¸“å±åœ¨çº¿æ•™è‚²å¹³å°ç³»ç»Ÿ_files/yz-sxico.png">
+                            </em>
+                        </a>
+                    </span>
+                    <p class="lr-tip-wrap" style="clear: both;"></p>
+                </li>
+                </ol>
+            <section class="tac mt20">
+                <a class="e-login-btn" href="javascript: void(0)" onclick="dialogRegister(&#39;&#39;)" title="æ³¨ å†Œ">æ³¨ å†Œ</a>
+            </section>
+        </div>
+    </section>
+    <div class="mt20 sf-lr-wrap tac">
+            <h6 class="hLh20 mb15">
+                <span class="c-666 fsize14">ç¬¬ä¸‰æ–¹å¿«æ·ç™»å½•</span>
+            </h6>
+            <a class="qq-sf" href="javascript:thirdPartyLogin(&#39;QQ&#39;)" title="QQç™»å½•"> </a>
+            <a class="wb-sf" href="javascript:thirdPartyLogin(&#39;SINA&#39;)" title="å¾®åšç™»å½•"> </a>
+            <a class="wx-sf" href="javascript:thirdPartyLogin(&#39;WEIXIN&#39;)" title="å¾®ä¿¡ç™»å½•"> </a>
+            </div>
+    </div>
+</div></div></div></div> -->
+
+
+
+	<SCRIPT>
+    function isHidden(oDiv){
+      var vDiv = document.getElementById(oDiv);
+      vDiv.style.display = (vDiv.style.display == 'none')?'block':'none';
+    }
+  </SCRIPT>
+
+
+
+
+
+
+
+</body>
+</html>
