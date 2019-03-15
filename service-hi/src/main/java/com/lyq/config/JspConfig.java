@@ -20,11 +20,11 @@ public class JspConfig {
 //
 //        return (EmbeddedServletContainerFactory) factory;
 //    }
-    @Bean
-    public ConfigurableServletWebServerFactory configurableServletWebServerFactory() {
-        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
-        factory.setDocumentRoot(new File("D:\\idea-space\\mayiit\\cloud_parent\\eureka_client\\src\\main\\webapp\\"));
-        return factory;
-    }
+//   // @Bean
+//    public ConfigurableServletWebServerFactory configurableServletWebServerFactory() {
+//        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
+//        factory.setDocumentRoot(new File("D:\\idea-space\\mayiit\\cloud_parent\\eureka_client\\src\\main\\webapp\\"));
+//        return factory;
+//    }
 
 }

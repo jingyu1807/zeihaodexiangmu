@@ -7,6 +7,11 @@ server:
 spring:
   application:
     name: service-feign
+  #mvc:
+  #  view:
+      #    prefix: /WEB-INF/view/
+    #    suffix: .jsp
 feign:
   hystrix:
     enabled: true
+
