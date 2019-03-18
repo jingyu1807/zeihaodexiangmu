@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PackagasService {
     List<Packages> queryPackages();
+
+    List<Packages> queryChoice(Integer id);
 }

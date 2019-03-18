@@ -26,5 +26,15 @@ public interface SitesUserMapper {
     void checkUser(Integer id);
 
     SitesUser sitesUserLogin(SitesUser user);
+    //更改到期时间
+    void updatePri1(Integer sid);
+
+    void updatePri2(Integer sid);
+
+    void updatePri3(Integer sid);
+    //根据邀请码查询用户
+    SitesUser queryUser(String referCode);
+    //修改用户余额及次数
+    void updateSome(SitesUser s);
 }
 

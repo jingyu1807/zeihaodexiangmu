@@ -87,4 +87,18 @@ public class SitesUserController {
     public List<SitesUser> queryCommentSitesUser(){
         return sitesUserService.queryCommentSitesUser();
     }
+    //更改会员到期时间
+    @ResponseBody
+    @RequestMapping("updatePri")
+    public void updatePri(Integer id,HttpSession session){
+        sitesUserService.updatePri( id,session);
+    }
+    //根据输入的邀请码查询用户信息，并对余额进行修改
+    @ResponseBody
+    @RequestMapping("updateBal")
+    public void  updateBal(String referCode){
+        sitesUserService.updateBal(referCode);
+
+
+    }
 }

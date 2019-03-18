@@ -127,5 +127,38 @@ public class SitesUserServiceImpl implements SitesUserService {
         return "3";
     }
 
+    @Override
+    public void updatePri(Integer id, HttpSession session) {
+        SitesUser s= (SitesUser) session.getAttribute("user");
+        Integer sid=s.getId();
+
+        if(id==1){
+            sitesUserMapper.updatePri1(sid);
+        }else if(id==2){
+            sitesUserMapper.updatePri2(sid);
+        }else if(id==3){
+            sitesUserMapper.updatePri3(sid);
+        }
+    }
+
+    @Override
+    public void updateBal(String referCode) {
+        SitesUser s=sitesUserMapper.queryUser( referCode);
+        Integer count=s.getCounts()+1;
+        Integer balance=s.getBalance();
+
+        if(count<=5){
+            balance=balance+10;
+        } else if(count<=20){
+            balance=balance+15;
+        }else{
+            balance=balance+20;
+        }
+        s.setCounts(count);
+        s.setBalance(balance);
+        sitesUserMapper.updateSome(s);
+
+    }
+
 
 }

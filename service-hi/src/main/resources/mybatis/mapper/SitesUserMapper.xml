@@ -30,10 +30,10 @@
 
     <!-- 新增网站用户 -->
     <insert id="addSitesUser" parameterType="com.lyq.model.SitesUser">
-        insert into t_sites_user
-        (id,password,sites_name,sites_phone,state,sites_user_name,status)
+         insert into t_sites_user
+        (id,password,sites_name,sites_phone,state,sites_user_name,status,refer_code,balance,counts,members_id)
         values
-        (#{id},#{password},#{sitesName},#{sitesPhone},1,#{sitesUserName},0)
+        (#{id},#{password},#{sitesName},#{sitesPhone},1,#{sitesUserName},0,#{refer_code},0,0,4)
     </insert>
     <!-- 删除网站用户 逻辑删 -->
     <update id="deleteSitesUser" parameterType="com.lyq.model.SitesUser">
@@ -61,4 +61,31 @@
     <select id="queryRecycleSitesUser" resultType="com.lyq.model.SitesUser">
         select t.*,t.sites_name as sitesName,t.sites_phone as sitesPhone,t.sites_user_name as sitesUserName from t_sites_user t where t.state = 0
     </select>
+    <!-- 更改会员到期时间 -->
+    <update id="updatePri1">
+
+        update t_sites_user set priTime=now(),leverover=date_add(NOW(), interval 1 MONTH) ,members_id=1 where id=#{sid};
+    </update>
+
+    <update id="updatePri2">
+
+        update t_sites_user set priTime=now(),leverover=date_add(NOW(), interval 3 MONTH),members_id=2 where id=#{sid};
+    </update>
+
+    <update id="updatePri3">
+
+        update t_sites_user set priTime=now(),leverover=date_add(NOW(), interval 1 YEAR ),members_id=3 where id=#{sid};
+    </update>
+    <!-- 根据邀请码查询用户 -->
+    <select id="queryUser" resultType="com.lyq.model.SitesUser">
+
+        select t.id, t.balance,t.counts from t_sites_user t where refer_code=#{referCode}
+
+    </select>
+    <!-- 修改用户余额及次数-->
+    <update id="updateSome">
+        update t_sites_user set counts=#{counts},balance=#{balance} where id=#{id}
+    </update>
+
+
 </mapper>

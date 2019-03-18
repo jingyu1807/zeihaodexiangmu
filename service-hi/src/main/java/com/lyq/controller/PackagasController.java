@@ -22,4 +22,11 @@ public class PackagasController {
 
         return packagasService.queryPackages();
     }
+    //查询哪个套餐
+    @RequestMapping("queryChoice")
+    @ResponseBody
+    public List<Packages> queryChoice(Integer  id){
+
+        return packagasService.queryChoice(id);
+    }
 }
