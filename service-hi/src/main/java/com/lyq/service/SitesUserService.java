@@ -29,4 +29,8 @@ public interface SitesUserService {
 
 
     String sitesUserLogin(SitesUser user, HttpSession session);
+
+    void updatePri(Integer id, HttpSession session);
+
+    void updateBal(String referCode);
 }

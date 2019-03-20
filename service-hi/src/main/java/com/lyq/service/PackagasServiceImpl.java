@@ -20,4 +20,9 @@ public class PackagasServiceImpl implements  PackagasService {
 
         return packagasMapper.queryPackages();
     }
+
+    @Override
+    public List<Packages> queryChoice(Integer id) {
+        return  packagasMapper.queryChoice(id);
+    }
 }

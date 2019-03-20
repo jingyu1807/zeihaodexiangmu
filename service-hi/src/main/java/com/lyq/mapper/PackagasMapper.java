@@ -8,4 +8,6 @@ public interface PackagasMapper {
 
 
     List<Packages> queryPackages();
+
+    List<Packages> queryChoice(Integer id);
 }

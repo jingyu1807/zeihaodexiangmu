@@ -4,15 +4,19 @@
 <mapper namespace="com.lyq.mapper.PackagasMapper" >
 
  <select id="queryPackages"  resultType="com.lyq.model.Packages">
-      select
-        t.members_Id as membersId,
-        t.members_Name as membersName,
-        p.p_Id as  pId,
+    select
+        p.members_id as membersId,
         p.p_name as pName,
         p.price  as price
-         from t_pa p ,t_mem t
-        where
-        p.members_Id =t.members_Id
+         from t_pa p
  </select>
+    <select id="queryChoice"  resultType="com.lyq.model.Packages">
+        select
+        p.members_id as membersId,
+        p.p_name as pName,
+        p.price  as price
+         from t_pa p WHERE p.id=#{id}
+
+    </select>
 
 </mapper>
