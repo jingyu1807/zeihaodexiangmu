@@ -16,4 +16,9 @@ public class TestServiceHystric implements TestService {
     public List queryCatalog() {
         return null;
     }
+
+    @Override
+    public List queryPay() {
+        return null;
+    }
 }

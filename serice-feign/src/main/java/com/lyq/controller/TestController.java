@@ -18,8 +18,8 @@ public class TestController {
     public List hi(@RequestParam String name){
          List list =testService.queryCatalog();
 
-         return testService.queryCatalog();
-     }
+         return testService.queryPay();
+}
 
 
 }

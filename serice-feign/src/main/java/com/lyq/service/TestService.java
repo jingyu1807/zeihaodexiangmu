@@ -15,4 +15,7 @@ public interface TestService {
 
     @RequestMapping(value = "queryCatalog",method = RequestMethod.GET)
     List queryCatalog();
+
+    @RequestMapping(value = "Pay/queryPay",method = RequestMethod.GET)
+    List queryPay();
 }
