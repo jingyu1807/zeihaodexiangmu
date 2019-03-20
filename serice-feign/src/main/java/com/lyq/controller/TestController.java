@@ -16,7 +16,7 @@ public class TestController {
 
      @GetMapping(value = "/hi" )
     public List hi(@RequestParam String name){
-         List list =testService.queryCatalog();
+
 
          return testService.queryPay();
 }

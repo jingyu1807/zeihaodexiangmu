@@ -160,5 +160,11 @@ public class SitesUserServiceImpl implements SitesUserService {
 
     }
 
+    @Override
+    public SitesUser queryBalance(SitesUser s) {
+        Integer sid=s.getId();
+        return  sitesUserMapper.queryBalance(sid);
+    }
+
 
 }

@@ -36,5 +36,7 @@ public interface SitesUserMapper {
     SitesUser queryUser(String referCode);
     //修改用户余额及次数
     void updateSome(SitesUser s);
+
+    SitesUser queryBalance(Integer sid);
 }
 

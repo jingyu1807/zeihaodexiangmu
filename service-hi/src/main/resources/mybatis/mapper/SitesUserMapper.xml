@@ -79,13 +79,16 @@
     <!-- 根据邀请码查询用户 -->
     <select id="queryUser" resultType="com.lyq.model.SitesUser">
 
-        select t.id, t.balance,t.counts from t_sites_user t where refer_code=#{referCode}
+        select t.id, t.balance,t.counts from t_sites_user t where t.refer_code=#{referCode}
 
     </select>
     <!-- 修改用户余额及次数-->
     <update id="updateSome">
         update t_sites_user set counts=#{counts},balance=#{balance} where id=#{id}
     </update>
-
+    <!-- 查询用户余额-->
+    <select id="queryBalance" resultType="com.lyq.model.SitesUser">
+        select  t.balance from t_sites_user t where t.id=#{id}
+    </select>
 
 </mapper>

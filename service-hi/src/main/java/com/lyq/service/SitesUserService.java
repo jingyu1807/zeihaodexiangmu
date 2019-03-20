@@ -33,4 +33,6 @@ public interface SitesUserService {
     void updatePri(Integer id, HttpSession session);
 
     void updateBal(String referCode);
+
+    SitesUser queryBalance(SitesUser s);
 }

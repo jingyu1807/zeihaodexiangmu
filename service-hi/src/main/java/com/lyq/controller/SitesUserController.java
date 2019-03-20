@@ -101,4 +101,9 @@ public class SitesUserController {
 
 
     }
+    //查看余额
+    public  SitesUser queryBalance(HttpSession session){
+        SitesUser s= (SitesUser) session.getAttribute("user");
+        return  sitesUserService.queryBalance(s);
+    }
 }
