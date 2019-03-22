@@ -175,6 +175,38 @@ public class MenuController {
 
     }
 
+
+    //跳转课程
+    @RequestMapping("ke")
+    public String ke() {
+        return "kecheng/ke";
+    }
+
+    //跳转目录
+    @RequestMapping("mu")
+    public String mu() {
+        return "kecheng/mu";
+    }
+
+    //跳转章
+    @RequestMapping("zhang")
+    public String zhang() {
+        return "kecheng/zhang";
+    }
+
+    //跳转小节
+    @RequestMapping("jie")
+    public String jie() {
+        return "kecheng/jie";
+    }
+
+    //跳转敏感词
+    @RequestMapping("sensitive")
+    public String sensitive() {
+        return "sensitive/sensitive";
+    }
+
+
     /**
      * 前台获取验证码
      * 生成验证码

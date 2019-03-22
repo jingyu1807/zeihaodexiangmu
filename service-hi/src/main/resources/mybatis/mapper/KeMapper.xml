@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyq.mapper.KeMapper">
+
+    <!--查询课程-->
+    <select id="queryListKe" resultType="com.lyq.model.Ke">
+        select * from t_ke
+    </select>
+
+<!--查询课程总条数-->
+<select id="queryKeTotal" resultType="long">
+    select count(*) from t_ke
+</select>
+<!--查询课程-->
+<select id="queryKe" resultType="com.lyq.model.Ke">
+    select * from t_ke limit #{start},#{rows}
+</select>
+<!--新增课程-->
+<insert id="saveKe" parameterType="com.lyq.model.Ke">
+    insert into t_ke(kname,kinfo) values(#{kname},#{kinfo})
+</insert>
+<!--回显-->
+<select id="queryById" parameterType="int" resultType="com.lyq.model.Ke">
+    select k.* from t_ke k where k.kid=#{id}
+</select>
+<!--修改课程-->
+<update id="updateKe" parameterType="com.lyq.model.Ke">
+    update t_ke k set k.kname=#{kname},k.kinfo=#{kinfo} where k.kid=#{id}
+</update>
+<!--删除课程-->
+<delete id="deleteKe" parameterType="int">
+    delete from t_ke  where kid = #{id}
+</delete>
+</mapper>
