@@ -9,19 +9,19 @@ import com.lyq.utils.HttpClientUtil;
 import com.lyq.utils.MD5Util;
 import com.lyq.utils.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class SitesUserServiceImpl implements SitesUserService {
 
     @Autowired
     private SitesUserMapper sitesUserMapper;
+    @Autowired
+    private RedisTemplate<String,Object> redisTemplate;
 
     //查询网站用户列表 并分页
     public Map<String, Object> querySitesUser(Integer page, Integer rows) {
@@ -34,8 +34,54 @@ public class SitesUserServiceImpl implements SitesUserService {
     }
 
     //新增网站用户
-    public void addSitesUser(SitesUser sitesUser) {
-        sitesUserMapper.addSitesUser(sitesUser);
+    public String addSitesUser(SitesUser sitesUser) {
+
+
+        String uuid  =  UUID.randomUUID().toString().replace("-", "");
+
+        String codeKey=uuid;
+        if(redisTemplate.hasKey(codeKey)){
+            String uuids  =  UUID.randomUUID().toString().replace("-", "");
+            redisTemplate.opsForValue().set(uuids,11);
+            sitesUser.setReferCode(uuids);
+            sitesUserMapper.addSitesUser(sitesUser);
+            //发送短信
+            String url = CommonCanstant.SEND_MSG_URL;
+            HashMap<String, Object> params = new HashMap<>();
+            params.put("accountSid", CommonCanstant.SEND_MSG_ACCOUNT_ID);//开发者主账号ID
+            params.put("to",sitesUser.getSitesPhone());//短信接收端手机号码集合
+            String time = TimeUtil.format(new Date());
+            params.put("timestamp",time);//时间戳
+            String sigStr = CommonCanstant.SEND_MSG_ACCOUNT_ID+ CommonCanstant.SEND_MSG_TOKEN+time;
+            params.put("sig", MD5Util.getMd532(sigStr));//签名。MD5(ACCOUNT SID + AUTH TOKEN + timestamp)。共32位（小写）
+            params.put("templateid", "1120139740");//短信模板ID
+            String seCode= "欢迎成为本站用户哦！";
+            params.put("param", seCode+",3");//短信变量
+            String post = HttpClientUtil.post(url, params);
+
+            return "200";
+
+        }else{
+            redisTemplate.opsForValue().set(codeKey,11);
+            sitesUser.setReferCode(codeKey);
+            sitesUserMapper.addSitesUser(sitesUser);
+            //发送短信
+            String url = CommonCanstant.SEND_MSG_URL;
+            HashMap<String, Object> params = new HashMap<>();
+            params.put("accountSid", CommonCanstant.SEND_MSG_ACCOUNT_ID);//开发者主账号ID
+            params.put("to",sitesUser.getSitesPhone());//短信接收端手机号码集合
+            String time = TimeUtil.format(new Date());
+            params.put("timestamp",time);//时间戳
+            String sigStr = CommonCanstant.SEND_MSG_ACCOUNT_ID+ CommonCanstant.SEND_MSG_TOKEN+time;
+            params.put("sig", MD5Util.getMd532(sigStr));//签名。MD5(ACCOUNT SID + AUTH TOKEN + timestamp)。共32位（小写）
+            params.put("templateid", "1120139740");//短信模板ID
+            String seCode= "欢迎成为本站用户哦！";
+            params.put("param", seCode+",3");//短信变量
+            String post = HttpClientUtil.post(url, params);
+            return "200";
+        }
+
+
     }
 
     //删除网站用户 逻辑删
@@ -109,23 +155,26 @@ public class SitesUserServiceImpl implements SitesUserService {
 
     //员工登录
     public String sitesUserLogin(SitesUser user, HttpSession session) {
-        String randomcodekey = (String) session.getAttribute(RANDOMCODEKEY);
-        if(user.getVerification().equals(randomcodekey)){
+       // String randomcodekey = (String) session.getAttribute(RANDOMCODEKEY);
+
             SitesUser s = sitesUserMapper.sitesUserLogin(user);
-            if(s != null){
-                if(s.getSitesName().equals(user.getSitesName())){
-                    if(s.getPassword().equals(user.getPassword())){
-                        session.setAttribute("user",s);
-                        return "1";
-                    }
-                    return "2";
+        if(s != null){
+            if(s.getSitesName().equals(user.getSitesName())){
+                if(s.getPassword().equals(user.getPassword())){
+
+                    session.setAttribute("user",s);
+                    return "1";
                 }
-                return "2";
+                return "密码不正确";
             }
-            return "2";
+            return "s为空";
         }
-        return "3";
-    }
+        return "2";
+
+
+
+        }
+
 
     @Override
     public void updatePri(Integer id, HttpSession session) {

@@ -1,19 +1,15 @@
 package com.lyq.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 //网站用户登录注册表表
-@Entity
-@Table(name="t_sites_user")
+
 public class SitesUser implements Serializable {
 
+
     private static final long serialVersionUID = 129918259579154448L;
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id; //目录表主键Id
 
     private String sitesName;//账号 注册登录用
@@ -26,8 +22,7 @@ public class SitesUser implements Serializable {
     private  String referCode;//推荐码
     private  Integer  balance;//余额
     private  Integer  counts;//推荐次数
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+
     private Date priTime; //会员到期时间
 
 
@@ -44,7 +39,7 @@ public class SitesUser implements Serializable {
     }
 
 
-    @Transient
+
     private String verification;//验证码
 
     private Integer state;//用于查看账号是否被注销 1正常 0注销

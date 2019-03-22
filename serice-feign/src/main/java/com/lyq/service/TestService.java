@@ -1,10 +1,9 @@
 package com.lyq.service;
 
+import com.lyq.model.SitesUser;
 import com.lyq.service.impl.TestServiceHystric;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,4 +17,10 @@ public interface TestService {
 
     @RequestMapping(value = "Pay/queryPay",method = RequestMethod.GET)
     List queryPay();
+   //网站用户登录
+    @RequestMapping(value = "sitesUser/sitesUserLogin",consumes = "application/json")
+    String login( @RequestBody SitesUser user);
+    //网站用户注册
+    @RequestMapping(value = "sitesUser/addSitesUser",consumes = "application/json")
+    String regist(@RequestBody SitesUser user);
 }

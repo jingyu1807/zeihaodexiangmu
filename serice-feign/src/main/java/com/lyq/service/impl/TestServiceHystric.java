@@ -1,24 +1,35 @@
 package com.lyq.service.impl;
 
+        import com.lyq.model.SitesUser;
         import com.lyq.service.TestService;
         import org.springframework.stereotype.Component;
 
         import java.util.List;
 
-@Component
-public class TestServiceHystric implements TestService {
-    @Override
-    public String hi(String name) {
-        return "hi,"+name+",sorry,error!feign";
-    }
+    @Component
+    public class TestServiceHystric implements TestService {
+        @Override
+        public String hi(String name) {
+            return "hi,"+name+",sorry,error!feign";
+        }
 
-    @Override
-    public List queryCatalog() {
+        @Override
+        public List queryCatalog() {
+            return null;
+        }
+
+        @Override
+        public List queryPay() {
+            return null;
+        }
+
+        @Override
+    public String login(SitesUser name) {
         return null;
     }
 
-    @Override
-    public List queryPay() {
-        return null;
+        @Override
+        public String regist(SitesUser user) {
+            return null;
+        }
     }
-}

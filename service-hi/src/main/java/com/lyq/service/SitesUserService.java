@@ -10,7 +10,7 @@ public interface SitesUserService {
     //查询网站用户列表 并分页
     Map<String, Object> querySitesUser(Integer page, Integer rows);
     //新增网站用户
-    void addSitesUser(SitesUser sitesUser);
+    String addSitesUser(SitesUser sitesUser);
     //删除网站用户 逻辑删
     void deleteSitesUser(SitesUser sitesUser);
     //修改回显

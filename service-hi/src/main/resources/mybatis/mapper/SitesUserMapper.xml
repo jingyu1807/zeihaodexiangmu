@@ -15,8 +15,8 @@
 
            from t_sites_user u
             where 1=1
-            and  u.sites_name =#{user.sitesName}
-            and  u.password=#{user.password}
+            and  u.sites_name =#{sitesName}
+            and  u.password=#{password}
     </select>
 
     <!-- 查询网站用户列表 并分页 -->

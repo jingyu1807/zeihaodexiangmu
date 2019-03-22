@@ -3,7 +3,9 @@ package com.lyq.controller;
 import com.lyq.model.SitesUser;
 import com.lyq.service.SitesUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,6 +20,7 @@ public class SitesUserController {
 
     @Autowired
     private SitesUserService sitesUserService;
+
 
     //查询网站用户列表 并分页
     @ResponseBody
@@ -41,7 +44,7 @@ public class SitesUserController {
     //员工登录
     @ResponseBody
     @RequestMapping("sitesUserLogin")
-    public String sitesUserLogin(SitesUser user, HttpSession session){
+    public String sitesUserLogin(@RequestBody SitesUser user, HttpSession session){
         return sitesUserService.sitesUserLogin(user,session);
     }
 
@@ -49,8 +52,10 @@ public class SitesUserController {
     //新增网站用户
     @ResponseBody
     @RequestMapping("addSitesUser")
-    public void addSitesUser(SitesUser sitesUser){
-        sitesUserService.addSitesUser(sitesUser);
+    public String addSitesUser(@RequestBody SitesUser sitesUser){
+
+
+       return sitesUserService.addSitesUser(sitesUser);
     }
 
     //删除网站用户 逻辑删
