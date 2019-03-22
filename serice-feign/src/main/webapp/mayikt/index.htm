@@ -5,107 +5,30 @@
 <html>
 <!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
-<meta name="author" content="http://www.itmayiedu.com">
-<meta name="keywords" content="蚂蚁课堂,Java视频教程,Java高级架构师教程,SpringBoot视频教程,SpringCloud视频教程,Redis视频教程,ActivityMQ视频教程">
-<meta name="description" content="蚂蚁课堂：专属于年轻人的在线学习平台，因为年轻，所以坚持不懈！网站包含了【微服务实战】【分布式架构】【高并发与高可用】等视频课程。官方QQ群:917150497">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style"
-	content="black-translucent">
-<meta content="telephone=no" name="format-detection">
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" type="text/css"
-	href="reset.min.css" tppabs="http://static.itmayiedu.com/reset.min.css">
-<link rel="stylesheet" type="text/css"
-	href="global.css" tppabs="http://www.mayikt.com/static/css/common/global.css">
-<link rel="stylesheet" type="text/css"
-	href="web.min.css" tppabs="http://static.itmayiedu.com/web.min.css">
-	<!-- 引入EasyUI的样式文件-->
-	<link rel="stylesheet" href="easyui/themes/default/easyui.css" type="text/css"/>
-	<!-- 引入EasyUI的图标样式文件-->
-	<link rel="stylesheet"href="easyui/themes/icon.css" type="text/css"/>
-	<!-- 引入JQuery -->
-	<script type="text/javascript" src="easyui/jquery.min.js"></script>
-	<!-- 引入EasyUI -->
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<!-- 引入EasyUI的中文国际化js，让EasyUI支持中文 -->
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
-	<!-- 引入EasyUI的生成树的插件 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
+	<meta name="author" content="http://www.itmayiedu.com">
+	<meta name="keywords" content="蚂蚁课堂,Java视频教程,Java高级架构师教程,SpringBoot视频教程,SpringCloud视频教程,Redis视频教程,ActivityMQ视频教程">
+	<meta name="description" content="蚂蚁课堂：专属于年轻人的在线学习平台，因为年轻，所以坚持不懈！网站包含了【微服务实战】【分布式架构】【高并发与高可用】等视频课程。官方QQ群:917150497">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta content="telephone=no" name="format-detection">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="http://static.itmayiedu.com/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="global.css">
+	<link rel="stylesheet" type="text/css" href="http://static.itmayiedu.com/web.min.css">
 
-<link rel="stylesheet" type="text/css"
-	href="theme.min.css" tppabs="http://static.itmayiedu.com/theme.min.css">
-<link href="mw_320_768.min.css" tppabs="http://static.itmayiedu.com/mw_320_768.min.css"
-	rel="stylesheet" type="text/css"
-	media="screen and (min-width: 320px) and (max-width: 768px)">
-<title>蚂蚁课堂-专注于分布式&微服务的在线教育</title>
+	<link rel="stylesheet" type="text/css" href="http://static.itmayiedu.com/theme.min.css">
+	<link href="http://static.itmayiedu.com/mw_320_768.min.css" rel="stylesheet" type="text/css" media="screen and (min-width: 320px) and (max-width: 768px)">
+	<title>蚂蚁课堂-专注于分布式&amp;微服务的在线教育</title>
 
-<script type="text/javascript"
-	src="jquery-1.7.2.min.js" tppabs="http://static.itmayiedu.com/jquery-1.7.2.min.js"></script>
-<script type="text/javascript"
-	src="jquery.qrcode.min.js" tppabs="http://static.itmayiedu.com/jquery.qrcode.min.js"></script>
-<script type="text/javascript" src="webutils.js" tppabs="http://www.mayikt.com/static/js/common/webutils.js"></script>
-<script type="text/javascript"
-	src="headerH5SearchCommon.min.js" tppabs="http://static.itmayiedu.com/headerH5SearchCommon.min.js"></script>
-<script type="text/javascript"
-	src="header.js" tppabs="http://static.itmayiedu.com/header.js"></script>
-<script type="text/javascript"
-	src="common.min.js" tppabs="http://static.itmayiedu.com/common.min.js"></script>
-
-
-<!-- 下雪 -->
-<!-- script type="text/javascript" src="/static/js/index/snow.js"></script>
-
-
-
-<script type="text/javascript">
-(function($){
-	$.fn.snow = function(options){
-	var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html('&#10052;'),
-	documentHeight 	= $(document).height(),
-	documentWidth	= $(document).width(),
-	defaults = {
-		minSize		: 10,
-		maxSize		: 20,
-		newOn		: 1000,
-		flakeColor	: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
-	},
-	options	= $.extend({}, defaults, options);
-	var interval= setInterval( function(){
-	var startPositionLeft = Math.random() * documentWidth - 100,
-	startOpacity = 0.5 + Math.random(),
-	sizeFlake = options.minSize + Math.random() * options.maxSize,
-	endPositionTop = documentHeight - 200,
-	endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
-	durationFall = documentHeight * 10 + Math.random() * 5000;
-	$flake.clone().appendTo('body').css({
-		left: startPositionLeft,
-		opacity: startOpacity,
-		'font-size': sizeFlake,
-		color: options.flakeColor
-	}).animate({
-		top: endPositionTop,
-		left: endPositionLeft,
-		opacity: 0.2
-	},durationFall,'linear',function(){
-		$(this).remove()
-	});
-	}, options.newOn);
-    };
-})(jQuery);
-$(function(){
-    $.fn.snow({ 
-	    minSize: 5, /* 定义雪花最小尺寸 */
-	    maxSize: 50,/* 定义雪花最大尺寸 */
-	    newOn: 300  /* 定义密集程度，数字越小越密集 */
-    });
-});
-</script> -->
-
-<!-- end -->
-
+	<script src="https://hm.baidu.com/hm.js?eaa952b8610db6f155ab0febd442e89a"></script><script type="text/javascript" src="http://static.itmayiedu.com/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="http://static.itmayiedu.com/jquery.qrcode.min.js"></script>
+	<script type="text/javascript" src="webutils.js"></script>
+	<script type="text/javascript" src="http://static.itmayiedu.com/headerH5SearchCommon.min.js"></script>
+	<script type="text/javascript" src="http://static.itmayiedu.com/header.js"></script>
+	<script type="text/javascript" src="http://static.itmayiedu.com/common.min.js"></script>
 <script type="text/javascript">
 
  $(function(){
@@ -136,9 +59,9 @@ $(function(){
 
 </head>
 <body class="W-body line-mo-body">
-	
 
-	
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -147,9 +70,6 @@ $(function(){
 
 </head>
 <body>
-
-
-
 
 
 <div>
@@ -163,6 +83,7 @@ $(function(){
 	list-style: none;
 }
 
+/* 顶部图片 */
 .hvttop {
 	width: 100%;
 	height: 250px;
@@ -267,7 +188,7 @@ $(function () {
 	<div class="in-wrap">
 		<div class="h-mobile-mask"></div>
 
-		
+
 
 
 
@@ -280,7 +201,7 @@ $(function () {
 						class="userImgPhoto">
 				</div>
 				<h4 class="hLh30 txtOf mo-uc-login-name">
-				   
+
 					<li class="undis h-login-li" id="no-login"
 						style="display: list-item;"><a  href="javascript:void(0)"
 						onclick="openLoginDialog()"
@@ -299,76 +220,76 @@ $(function () {
 								<a href="" title="查看更多" class="fsize16 c-master f-fM disIb">查看更多</a>
 							</div>
 						</div></li>
-				
 
-				
-				   
-				
-				
-				
+
+
+
+
+
+
 					<!-- <span class="vam ml5 fsize16 c-ccc userNameClass"
 						style="cursor: pointer;" onclick=""  id="openLoginDialog">登录</span> -->
 				</h4>
-			
+
 				</section>
 				<nav class="mw-nav">
 				<ul class="clearfix">
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
+
+
+
+
+
+
+
+
+
+
+
+
 							<li><a href="index.htm" tppabs="http://www.mayikt.com/"
 								title="首页">首页</a></li>
-						
-					
-						
+
+
+
 							<li><a href="showcoulist.htm" tppabs="http://www.mayikt.com/front/showcoulist"
 								title="课程">课程</a></li>
-						
-					
-						
+
+
+
 							<li><a href="javascript:if(confirm('http://cn.mikecrm.com/kz8uPv0  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://cn.mikecrm.com/kz8uPv0'" tppabs="http://cn.mikecrm.com/kz8uPv0"
 								title="培训">培训</a></li>
-						
-					
-						
+
+
+
 							<li><a href="userVip.htm" tppabs="http://www.mayikt.com/user/userVip"
 								title="会员">会员</a></li>
-						
-					
-						
+
+
+
 							<li><a href="javascript:if(confirm('http://static.itmayiedu.com/2018-06-04-V3.png  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://static.itmayiedu.com/2018-06-04-V3.png'" tppabs="http://static.itmayiedu.com/2018-06-04-V3.png"
 								title="路线">路线</a></li>
-						
-					
-						
+
+
+
 							<li><a href="javascript:if(confirm('http://static.itmayiedu.com/123123sdfdsgf.jpg  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://static.itmayiedu.com/123123sdfdsgf.jpg'" tppabs="http://static.itmayiedu.com/123123sdfdsgf.jpg"
 								title="小程序">小程序</a></li>
-						
-					
-						
+
+
+
 							<li><a href="javascript:if(confirm('http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1'" tppabs="http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1"
 								title="定期直播">定期直播</a></li>
-						
-					
-						
+
+
+
 							<li><a href="javascript:if(confirm('http://ms.mayikt.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://ms.mayikt.com/'" tppabs="http://ms.mayikt.com/"
 								title="面试宝典">面试宝典</a></li>
-						
-					
-						
-					
+
+
+
+
 				</ul>
 				</nav>
-<!-- 				<section class="u-m-dd"> 
+<!-- 				<section class="u-m-dd">
 					<ul class="uM-list">
 						<li>
 							<a href="/courseList" title="我的课程">
@@ -437,7 +358,7 @@ $(function () {
 								个人资料
 							</a>
 						</li>
-						</ul> 
+						</ul>
 				<div id="mobileExitDiv" class="mt15 undis tac">
 					<a href="javascript:void(0)" title="退出" onclick="exit();"
 						class="u-loginout">退出登录</a>
@@ -445,10 +366,10 @@ $(function () {
 				</section> -->
 			</div>
 		</div>
-		
-		
-		
-		
+
+
+
+
 
 
 
@@ -465,7 +386,7 @@ $(function () {
 
 				<!-- /global header begin-->
 				<!-- 头部引入 -->
-				
+
 
 <link rel="stylesheet" type="text/css"
 	href="base.min.css" tppabs="http://static.itmayiedu.com/base.min.css">
@@ -715,65 +636,65 @@ $(function () {
 		</h1>
 		<div class="h-r-nsl">
 			<ul class="nav">
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
+
+
+
+
+
+
+
+
+
+
+
+
 						<li><a href="index.htm" tppabs="http://www.mayikt.com/"
 							title="首页" rel="nofollow" >首页</a></li>
-					
-				
-					
+
+
+
 						<li><a href="showcoulist.htm" tppabs="http://www.mayikt.com/front/showcoulist"
 							title="课程" rel="nofollow" >课程</a></li>
-					
-				
-					
+
+
+
 						<li><a href="javascript:if(confirm('http://cn.mikecrm.com/kz8uPv0  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://cn.mikecrm.com/kz8uPv0'" tppabs="http://cn.mikecrm.com/kz8uPv0"
 							title="培训" rel="nofollow" >培训</a></li>
-					
-				
-					
+
+
+
 						<li><a href="userVip.htm" tppabs="http://www.mayikt.com/user/userVip"
 							title="会员" rel="nofollow" >会员</a></li>
-					
-				
-					
+
+
+
 						<li><a href="javascript:if(confirm('http://static.itmayiedu.com/2018-06-04-V3.png  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://static.itmayiedu.com/2018-06-04-V3.png'" tppabs="http://static.itmayiedu.com/2018-06-04-V3.png"
 							title="路线" rel="nofollow" >路线</a></li>
-					
-				
-					
+
+
+
 						<li><a href="javascript:if(confirm('http://static.itmayiedu.com/123123sdfdsgf.jpg  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://static.itmayiedu.com/123123sdfdsgf.jpg'" tppabs="http://static.itmayiedu.com/123123sdfdsgf.jpg"
 							title="小程序" rel="nofollow" >小程序</a></li>
-					
-				
-					
+
+
+
 						<li><a href="javascript:if(confirm('http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1'" tppabs="http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1"
 							title="定期直播" rel="nofollow" >定期直播</a></li>
-					
-				
-					
+
+
+
 						<li><a href="javascript:if(confirm('http://ms.mayikt.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://ms.mayikt.com/'" tppabs="http://ms.mayikt.com/"
 							title="面试宝典" rel="nofollow" >面试宝典</a></li>
-					
-				
-					
-				
+
+
+
+
 
 			</ul>
 			<!-- / nav -->
 			<ul class="h-r-login clearfix">
 
-				
+
 					<li class="undis h-login-li" id="no-login"
 						style="display: list-item;"><a href="javascript:void(0)"
 						onclick="openLoginDialog()" title="登录"> <em
@@ -792,11 +713,11 @@ $(function () {
 								<a href="" title="查看更多" class="fsize16 c-master f-fM disIb">查看更多</a>
 							</div>
 						</div></li>
-				
 
-				
 
-				
+
+
+
 				<!-- /未登录显示第1 li；登录后显示第2，3 li -->
 			</ul>
 			<aside class="h-r-search">
@@ -941,7 +862,7 @@ $(function () {
 									<p class="lr-tip-wrap"></p></li>
 
 
-								
+
 								</li>
 							</ol>
 						</div>
@@ -1062,7 +983,7 @@ $(function () {
 }
 </style>
 				<!--录播图引入 banner  -->
-				
+
 
 
 
@@ -1071,13 +992,10 @@ $(function () {
     <section>
         <!-- 如果需要导航按钮 -->
         <!-- 图片位置 -->
+		<!-- io本地写图片 -->
         <div class="swiper-container">
             <div class="swiper-wrapper"
                  style="border-radius: 9px; transform: translate3d(-3726px, 0px, 0px); transition-duration: 0.3s;  ">
-                
-
-                    
-
                         <div class="swiper-slide"
                              style="width: 1180px; height: 450px; ">
                             <a target="_blank"
@@ -1087,13 +1005,6 @@ $(function () {
                                      src="000000000001.jpg" tppabs="http://static.itmayiedu.com/000000000001.jpg" alt="1">
                             </a>
                         </div>
-                    
-
-
-                
-
-                    
-
                         <div class="swiper-slide"
                              style="width: 1180px; height: 450px; ">
                             <a target="_blank"
@@ -1103,13 +1014,6 @@ $(function () {
                                      src="000000000002.jpg" tppabs="http://static.itmayiedu.com/000000000002.jpg" alt="1">
                             </a>
                         </div>
-                    
-
-
-                
-
-                    
-
                         <div class="swiper-slide"
                              style="width: 1180px; height: 450px; ">
                             <a target="_blank"
@@ -1119,13 +1023,6 @@ $(function () {
                                      src="0000000003.jpg" tppabs="http://static.itmayiedu.com/0000000003.jpg" alt="1">
                             </a>
                         </div>
-                    
-
-
-                
-
-                    
-
                         <div class="swiper-slide"
                              style="width: 1180px; height: 450px; ">
                             <a target="_blank"
@@ -1135,87 +1032,6 @@ $(function () {
                                      src="20190228094327001.jpg" tppabs="http://static.itmayiedu.com/20190228094327001.jpg" alt="1">
                             </a>
                         </div>
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-                    
-
-
-                
-
-
             </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -1224,15 +1040,8 @@ $(function () {
                 class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span>
         </div>
     </section>
-</div> 
-
-				
-				<!-- /index slide -->
+</div>
 				<div id="aCoursesList" class="of index-bg">
-					<!-- /为你推荐 开始 -->
-					
-
-
 <script type="text/javascript">
 	function huanYiHuan() {
 		var xmlHttp;
@@ -1309,7 +1118,7 @@ $(function () {
 		</header>
 		<article class="comm-course-list">
 			<ul class="of  " id="weinituijian0">
-				
+
 
 
 
@@ -1338,26 +1147,26 @@ $(function () {
 								</h3>
 								<section class="mt10 hLh20 of">
 									<span class="fr"> <tt class="c-master fsize14 f-fM">
-											
-												
-												
+
+
+
 													<span style="color: #4CAF50">免费</span>
-												
-											
+
+
 										</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 											class="c-999 f-fA mr10">604402人学习</tt>
 									</span>
 								</section>
 
 								<div class="coures-jbicon">
-									
+
 								</div>
 							</div>
 						</div>
 					</li>
 
 
-				
+
 
 
 
@@ -1386,26 +1195,26 @@ $(function () {
 								</h3>
 								<section class="mt10 hLh20 of">
 									<span class="fr"> <tt class="c-master fsize14 f-fM">
-											
-												
-												
+
+
+
 													<span style="color: #4CAF50">免费</span>
-												
-											
+
+
 										</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 											class="c-999 f-fA mr10">41547人学习</tt>
 									</span>
 								</section>
 
 								<div class="coures-jbicon">
-									
+
 								</div>
 							</div>
 						</div>
 					</li>
 
 
-				
+
 
 
 
@@ -1434,26 +1243,26 @@ $(function () {
 								</h3>
 								<section class="mt10 hLh20 of">
 									<span class="fr"> <tt class="c-master fsize14 f-fM">
-											
-												
-												
+
+
+
 													<span style="color: #4CAF50">免费</span>
-												
-											
+
+
 										</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 											class="c-999 f-fA mr10">706108人学习</tt>
 									</span>
 								</section>
 
 								<div class="coures-jbicon">
-									
+
 								</div>
 							</div>
 						</div>
 					</li>
 
 
-				
+
 
 
 
@@ -1482,26 +1291,26 @@ $(function () {
 								</h3>
 								<section class="mt10 hLh20 of">
 									<span class="fr"> <tt class="c-master fsize14 f-fM">
-											
-												
-												
+
+
+
 													<span style="color: #4CAF50">免费</span>
-												
-											
+
+
 										</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 											class="c-999 f-fA mr10">22974人学习</tt>
 									</span>
 								</section>
 
 								<div class="coures-jbicon">
-									
+
 								</div>
 							</div>
 						</div>
 					</li>
 
 
-				
+
 
 			</ul>
 			<div class="clear"></div>
@@ -1511,7 +1320,7 @@ $(function () {
 					<!-- /为你推荐 结束 -->
 
 					<!-- 精品录播 开始 -->
-					
+
 
 
 <div class="of bg-f8">
@@ -1527,7 +1336,7 @@ $(function () {
 			<article class="comm-course-list">
 				<ul id="goodCourse" class="current">
 
-					
+
 
 						<li>
 							<div class="cc-l-wrap">
@@ -1551,14 +1360,14 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
-													
-															会员
-													
-													
-													
 
-												
+
+															会员
+
+
+
+
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">10006人学习</tt>
 											<!-- 												<tt class="c-999 f-fA span-2">1301浏览</tt>
@@ -1567,15 +1376,15 @@ $(function () {
 									</section>
 
 									<div class="coures-jbicon">
-										
+
 											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
-										
+
 									</div>
 								</div>
 							</div>
 						</li>
 
-					
+
 
 						<li>
 							<div class="cc-l-wrap">
@@ -1599,14 +1408,14 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
-													
-													
-																<span style="color:#4CAF50 ">免费</span>
-													
-													
 
-												
+
+
+																<span style="color:#4CAF50 ">免费</span>
+
+
+
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">41547人学习</tt>
 											<!-- 												<tt class="c-999 f-fA span-2">1301浏览</tt>
@@ -1615,13 +1424,13 @@ $(function () {
 									</section>
 
 									<div class="coures-jbicon">
-										
+
 									</div>
 								</div>
 							</div>
 						</li>
 
-					
+
 
 						<li>
 							<div class="cc-l-wrap">
@@ -1645,14 +1454,14 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
-													
-															会员
-													
-													
-													
 
-												
+
+															会员
+
+
+
+
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">11960人学习</tt>
 											<!-- 												<tt class="c-999 f-fA span-2">1301浏览</tt>
@@ -1661,15 +1470,15 @@ $(function () {
 									</section>
 
 									<div class="coures-jbicon">
-										
+
 											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
-										
+
 									</div>
 								</div>
 							</div>
 						</li>
 
-					
+
 
 						<li>
 							<div class="cc-l-wrap">
@@ -1693,14 +1502,14 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
-													
-															会员
-													
-													
-													
 
-												
+
+															会员
+
+
+
+
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">14923人学习</tt>
 											<!-- 												<tt class="c-999 f-fA span-2">1301浏览</tt>
@@ -1709,15 +1518,15 @@ $(function () {
 									</section>
 
 									<div class="coures-jbicon">
-										
+
 											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
-										
+
 									</div>
 								</div>
 							</div>
 						</li>
 
-					
+
 
 						<li>
 							<div class="cc-l-wrap">
@@ -1741,14 +1550,14 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
-													
-													
-																<span style="color:#4CAF50 ">免费</span>
-													
-													
 
-												
+
+
+																<span style="color:#4CAF50 ">免费</span>
+
+
+
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">19167人学习</tt>
 											<!-- 												<tt class="c-999 f-fA span-2">1301浏览</tt>
@@ -1757,13 +1566,13 @@ $(function () {
 									</section>
 
 									<div class="coures-jbicon">
-										
+
 									</div>
 								</div>
 							</div>
 						</li>
 
-					
+
 
 						<li>
 							<div class="cc-l-wrap">
@@ -1787,14 +1596,14 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
-													
-															会员
-													
-													
-													
 
-												
+
+															会员
+
+
+
+
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">14697人学习</tt>
 											<!-- 												<tt class="c-999 f-fA span-2">1301浏览</tt>
@@ -1803,15 +1612,15 @@ $(function () {
 									</section>
 
 									<div class="coures-jbicon">
-										
+
 											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
-										
+
 									</div>
 								</div>
 							</div>
 						</li>
 
-					
+
 
 						<li>
 							<div class="cc-l-wrap">
@@ -1835,14 +1644,14 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
-													
-													
-																<span style="color:#4CAF50 ">免费</span>
-													
-													
 
-												
+
+
+																<span style="color:#4CAF50 ">免费</span>
+
+
+
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">29394人学习</tt>
 											<!-- 												<tt class="c-999 f-fA span-2">1301浏览</tt>
@@ -1851,13 +1660,13 @@ $(function () {
 									</section>
 
 									<div class="coures-jbicon">
-										
+
 									</div>
 								</div>
 							</div>
 						</li>
 
-					
+
 
 						<li>
 							<div class="cc-l-wrap">
@@ -1881,14 +1690,14 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
-													
-															会员
-													
-													
-													
 
-												
+
+															会员
+
+
+
+
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">14350人学习</tt>
 											<!-- 												<tt class="c-999 f-fA span-2">1301浏览</tt>
@@ -1897,15 +1706,15 @@ $(function () {
 									</section>
 
 									<div class="coures-jbicon">
-										
+
 											<img src="c-vip-jb.png" tppabs="http://www.mayikt.com/static/images/course/c-vip-jb.png">
-										
+
 									</div>
 								</div>
 							</div>
 						</li>
 
-					
+
 
 				</ul>
 				<ul id="newCourseList" style="display: none">
@@ -1931,7 +1740,7 @@ $(function () {
 </div>
 
 					<!-- 微服务课程 -->
-					
+
 
 
 <div class="of bg-f8" style="background-color: #ffffff">
@@ -1968,18 +1777,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">409048人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -1987,7 +1796,7 @@ $(function () {
 
 
 				</ul>
-				
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2011,18 +1820,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">524419人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2030,9 +1839,9 @@ $(function () {
 
 
 				</ul>
-				
-				
-				
+
+
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2056,18 +1865,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">13230人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2075,8 +1884,8 @@ $(function () {
 
 
 				</ul>
-				
-				
+
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2100,18 +1909,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">13231人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2119,14 +1928,14 @@ $(function () {
 
 
 				</ul>
-			
+
 			</article>
 		</div>
 	</section>
 </div>
 
 					<!-- 分布式解决方案课程 -->
-					
+
 
 
 <div class="of bg-f8">
@@ -2163,18 +1972,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">20255人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2182,7 +1991,7 @@ $(function () {
 
 
 				</ul>
-				
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2206,18 +2015,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">23656人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2225,9 +2034,9 @@ $(function () {
 
 
 				</ul>
-				
-				
-				
+
+
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2251,18 +2060,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">12996人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2270,8 +2079,8 @@ $(function () {
 
 
 				</ul>
-				
-				
+
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2296,18 +2105,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">12650人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2315,14 +2124,14 @@ $(function () {
 
 
 				</ul>
-			
+
 			</article>
 		</div>
 	</section>
 </div>
 
 					<!-- 源码分析课程  -->
-					
+
 
 
 
@@ -2360,18 +2169,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">24667人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2379,7 +2188,7 @@ $(function () {
 
 
 				</ul>
-				
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2403,18 +2212,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">17119人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2422,9 +2231,9 @@ $(function () {
 
 
 				</ul>
-				
-				
-				
+
+
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2448,18 +2257,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">17405人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2467,8 +2276,8 @@ $(function () {
 
 
 				</ul>
-				
-				
+
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2489,23 +2298,23 @@ $(function () {
 										<a href="0-20.htm" tppabs="http://www.mayikt.com/front/couinfo/127/0"
 											title="SpringCloud"
 											class="course-title fsize16 c-333">纯手写HashMap集合
-											
+
 											</a>
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">24987人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2513,14 +2322,14 @@ $(function () {
 
 
 				</ul>
-			
+
 			</article>
 		</div>
 	</section>
 </div>
 
 					<!-- 数据库课程  -->
-					
+
 
 
 
@@ -2558,18 +2367,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">会员</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">24667人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2577,7 +2386,7 @@ $(function () {
 
 
 				</ul>
-				
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2601,18 +2410,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">17119人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2620,9 +2429,9 @@ $(function () {
 
 
 				</ul>
-				
-				
-				
+
+
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2646,18 +2455,18 @@ $(function () {
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">17405人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2665,8 +2474,8 @@ $(function () {
 
 
 				</ul>
-				
-				
+
+
 					<ul id="goodCourse" class="current">
 						<li>
 							<div class="cc-l-wrap">
@@ -2687,23 +2496,23 @@ $(function () {
 										<a href="0-24.htm" tppabs="http://www.mayikt.com/front/couinfo/171/0"
 											title="SpringCloud"
 											class="course-title fsize16 c-333">MySQL主从复制与数据备份
-											
+
 											</a>
 									</h3>
 									<section class="mt10 hLh20 of">
 										<span class="fr"> <tt class="c-master fsize14 f-fM">
-												
+
 																<span style="color:#4CAF50 ">免费</span>
-													
+
 											</tt></span> <span class="fl jgAttr c-ccc f-fA"> <tt
 												class="c-999 f-fA mr10">24987人学习</tt>
 										</span>
 									</section>
 
 									<div class="coures-jbicon">
-									
+
 											<!-- <img src="/static/images/course/c-vip-jb.png"> -->
-										
+
 									</div>
 								</div>
 							</div>
@@ -2711,18 +2520,13 @@ $(function () {
 
 
 				</ul>
-			
+
 			</article>
 		</div>
 	</section>
 </div>
 
 
-
-
-					<!-- /精品录播 结束 -->
-					<!--直播课程开始  -->
-					
 
 
 
@@ -2740,7 +2544,7 @@ $(function () {
 
 		<article class="comm-course-list">
 			<ul class="of  " id="weinituijian0">
-				
+
 					<li style="height: 400px;">
 						<div class="cc-l-wrap">
 							<section class="course-img">
@@ -2761,7 +2565,7 @@ $(function () {
 										title="互联网java构架公开课"  target="_blank"
 										class="course-title fsize16 c-333">互联网java构架公开课</a>
 								</h3>
-				
+
 							</div>
 						</div>
 					</li>
@@ -2776,7 +2580,7 @@ $(function () {
 							<section class="course-img">
 								<section class="course-img">
 																<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548">
-								
+
 										<img src="e21d8c44921acd60c98906c59064258.jpg" tppabs="http://static.itmayiedu.com/e21d8c44921acd60c98906c59064258.jpg">
 									</a>
 									<div class="cc-mask">
@@ -2792,19 +2596,6 @@ $(function () {
 										title="人工智能机器学习学习公开课"  target="_blank"
 										class="course-title fsize16 c-333">人工智能机器学习学习公开课</a>
 								</h3>
-							<!-- 	<section class="mt10 hLh20 of">
-									<span class="fr"> <tt class="c-master fsize14 f-fM" style="color: #69a4d2;">
-							
-										公开课
-										</tt></span>
-									<span class="fl jgAttr c-ccc f-fA">
-										<tt class="c-999 f-fA mr10">99999+人学习</tt>
-									</span>
-								</section> -->
-
-								<!-- <div class="coures-jbicon">
-										<img src="/static/images/course/c-vip-jb.png">
-								</div> -->
 							</div>
 						</div>
 					</li>
@@ -2815,7 +2606,7 @@ $(function () {
 							<section class="course-img">
 								<section class="course-img">
 																<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548">
-								
+
 										<img src="ef8d437ca7c819e242963c967718c7a.jpg" tppabs="http://static.itmayiedu.com/ef8d437ca7c819e242963c967718c7a.jpg">
 									</a>
 									<div class="cc-mask">
@@ -2831,19 +2622,6 @@ $(function () {
 										title="大数据与云计算公开课"  target="_blank"
 										class="course-title fsize16 c-333">大数据与云计算公开课</a>
 								</h3>
-						<!-- 		<section class="mt10 hLh20 of">
-									<span class="fr"> <tt class="c-master fsize14 f-fM" style="color: #69a4d2;">
-							
-										公开课
-										</tt></span>
-									<span class="fl jgAttr c-ccc f-fA">
-										<tt class="c-999 f-fA mr10">99999+人学习</tt>
-									</span>
-								</section> -->
-
-								<!-- <div class="coures-jbicon">
-										<img src="/static/images/course/c-vip-jb.png">
-								</div> -->
 							</div>
 						</div>
 					</li>
@@ -2854,7 +2632,6 @@ $(function () {
 							<section class="course-img">
 								<section class="course-img">
 																<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548">
-								
 										<img src="7cf32f885e0574fdacf217a6db2d59a.jpg" tppabs="http://static.itmayiedu.com/7cf32f885e0574fdacf217a6db2d59a.jpg">
 									</a>
 									<div class="cc-mask">
@@ -2870,24 +2647,11 @@ $(function () {
 										title="区块链比特币公开课"  target="_blank"
 										class="course-title fsize16 c-333">区块链比特币公开课</a>
 								</h3>
-						<!-- 		<section class="mt10 hLh20 of">
-									<span class="fr"> <tt class="c-master fsize14 f-fM" style="color: #69a4d2;">
-							
-										公开课
-										</tt></span>
-									<span class="fl jgAttr c-ccc f-fA">
-										<tt class="c-999 f-fA mr10">99999+人学习</tt>
-									</span>
-								</section> -->
-
-								<!-- <div class="coures-jbicon">
-										<img src="/static/images/course/c-vip-jb.png">
-								</div> -->
 							</div>
 						</div>
 					</li>
 
-					
+
 
 			</ul>
 			<div class="clear"></div>
@@ -2897,24 +2661,11 @@ $(function () {
 
 	</section>
 </div>
-					<!--直播课程结束  -->
 
-					<!-- /班级 开始 -->
-					<!-- /无数据提示 开始-->
-					<!-- /无数据提示 结束-->
-					<!-- /班级 结束 -->
-
-					<!-- /网校名师 开始 -->
-					
-					<!-- /网校名师 结束 -->
-					<!-- 资讯列表 -->
-					
 <div class="bg-fff of" style="background-color: #ffffff; margin-top: 10px;">
 	<section class="container">
 	<div style="width: 620px;">
 		<header class="comm-title">
-			<!-- <span class="fr mt15 mr10 hyh"><a href="#"   title="更多"
-				class="c-master fsize14">更多 &gt;</a></span> -->
 			<h2 class="fl tac tit-header">
 				<span class="c-333">学员薪资</span>
 			</h2>
@@ -2924,7 +2675,7 @@ $(function () {
 				<article class="w50pre fl">
 					<div class="mr30 i-article-list in-new-box-list">
 						<ul>
-							
+
 <style>
     table,tbody,tfoot,thead,tr,th,td {
         margin:0;
@@ -2979,200 +2730,9 @@ $(function () {
 		 		<th>学员学历</th>
 		 		<th>培训前薪资</th>
 				<th>培训后薪资</th>
-		 
-				
             </tr>
         </thead>
         <tbody id="payId">
-		<script>
-
-
-
-
-
-		</script>
-        <!--  <tr>
-                <td>name</td>
-                <td>北京</td>
-			    <td>本科</td>
-				<td>12000</td>
-				<td>26000</td>
-				
-				
-				
-            </tr>
-            <tr>
-                <td>小我</td>
-                <td>北京</td>
-			    <td>本科</td>
-				<td>15000</td>
-				<td>25000</td>
-				
-				
-				
-            </tr><tr>
-                <td>小佳佳</td>
-                <td>上海</td>
-			    <td>本科</td>
-				<td>8000</td>
-				<td>25000</td>
-				
-				
-				
-            </tr><tr>
-                <td>小钱</td>
-                <td>上海</td>
-			    <td>本科</td>
-				<td>12000</td>
-				<td>22000</td>
-				
-				
-				
-            </tr><tr>
-                <td>醉酒</td>
-                <td>上海</td>
-			    <td>本科</td>
-				<td>12000</td>
-				<td>20500</td>
-				
-				
-				
-            </tr><tr>
-                <td>小荣</td>
-                <td>广州</td>
-			    <td>本科</td>
-				<td>&#45;&#45;&#45;&#45;</td>
-				<td>20000</td>
-				
-				
-				
-            </tr><tr>
-                <td>独家记忆</td>
-                <td>上海</td>
-			    <td>本科</td>
-				<td>8500</td>
-				<td>18000</td>
-				
-				
-				
-            </tr><tr>
-                <td>小涛涛</td>
-                <td>上海</td>
-			    <td>高中</td>
-				<td>10000</td>
-				<td>19000</td>
-				
-				
-				
-            </tr><tr>
-                <td>小白</td>
-                <td>上海</td>
-			    <td>高中</td>
-				<td>8000</td>
-				<td>18000</td>
-				
-				
-				
-            </tr><tr>
-                <td>流星</td>
-                <td>西安</td>
-			    <td>本科</td>
-				<td>6000</td>
-				<td>14000</td>
-				
-				
-				
-            </tr><tr>
-                <td>一凡</td>
-                <td>上海</td>
-			    <td>本科</td>
-				<td>10000</td>
-				<td>17500</td>
-				
-				
-				
-            </tr><tr>
-                <td>HL</td>
-                <td>上海</td>
-			    <td>大专</td>
-				<td>12000</td>
-				<td>17000</td>
-				
-				
-				
-            </tr><tr>
-                <td>小鹰</td>
-                <td>深圳</td>
-			    <td>大专</td>
-				<td>12000</td>
-				<td>17000</td>
-				
-				
-				
-            </tr><tr>
-                <td>张*松</td>
-                <td>上海</td>
-			    <td>本科</td>
-				<td>8000</td>
-				<td>17000</td>
-				
-				
-				
-            </tr><tr>
-                <td>jetty</td>
-                <td>上海</td>
-			    <td>高中</td>
-				<td>9000</td>
-				<td>16000</td>
-				
-				
-				
-            </tr><tr>
-                <td>康</td>
-                <td>上海</td>
-			    <td>大专</td>
-				<td>8000</td>
-				<td>16000</td>
-				
-				
-				
-            </tr><tr>
-                <td>小*荣</td>
-                <td>深圳</td>
-			    <td>初中</td>
-				<td>5000</td>
-				<td>16000</td>
-				
-				
-				
-            </tr><tr>
-                <td>*松</td>
-                <td>上海</td>
-			    <td>本科</td>
-				<td>12000</td>
-				<td>15500</td>
-				
-				
-				
-            </tr><tr>
-                <td>小*鱼</td>
-                <td>上海</td>
-			    <td>大专</td>
-				<td>7000</td>
-				<td>16000</td>
-				
-				
-				
-            </tr><tr>
-                <td>*思儒</td>
-                <td>上海</td>
-			    <td>本科</td>
-				<td>0</td>
-				<td>16000</td>	
-				
-            </tr>
-           -->
-				
     </tbody></table>
 </div>
 
@@ -3184,7 +2744,6 @@ $(function () {
              url:'/hi',
              data:{name:"name"},
              success:function(data){
-                 alert(data)
                 var str="";
                 for(var i=0;i<data.length;i++ ){
                     str+= "<tr>\n" +
@@ -3277,18 +2836,18 @@ function tableScroll(tableid, hei, speed, len) {
 </body>
 </html>
 
-							
+
 						</ul>
 					</div>
 				</article>
-			
+
 			</div>
 		</section>
 		</div>
-		
-		
-		
-		<div style="width: 550px; float: right; margin-top: -442px;  
+
+
+
+		<div style="width: 550px; float: right; margin-top: -442px;
 white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -3302,17 +2861,17 @@ white-space: nowrap;
 		</header>
 		<section class="in-new-box clerfix">
 			<div class="clearfix">
-		
+
 
 			<article class="w50pre fl" >
 					<div class="ml30 i-article-list in-new-box-list" style="display:inline-block;" >
 							<section class="i-article-list r-art-wrap">
-		
-									
 
-    
-    
-    
+
+
+
+
+
     <ul  >
 			<li class="lt2" >
 						<aside class="orderNum"><span>1</span></aside>
@@ -3350,20 +2909,20 @@ white-space: nowrap;
 							<a href="javascript:if(confirm('https://ke.qq.com/course/273548  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://ke.qq.com/course/273548'" tppabs="https://ke.qq.com/course/273548" target="_blank" title="蚂蚁课堂会员充值须知.上海每特教育科技有限公司.." class="i-art-title">97后互联网架构师腾讯课堂分享Java架构成精之路</a>
 						</h3>
 						</li>
-				
-			
+
+
 				</ul>
-		
-		
+
+
 	</section>
 					</div>
-				</article> 
-			
+				</article>
+
 			</div>
 		</section>
 		</div>
-		
-		
+
+
 	</section>
 </div>
 
@@ -3384,9 +2943,9 @@ white-space: nowrap;
 	</div>
 
 	<!--对联广告-->
-	
-		
-	
+
+
+
 	<!--End对联广告-->
 
 
@@ -3409,12 +2968,12 @@ white-space: nowrap;
 }
 </style>
 		<script type="text/javascript"
-			src="footer.min.js" tppabs="http://static.itmayiedu.com/footer.min.js"></script>
+			src="footer.js" tppabs="http://static.itmayiedu.com/footer.min.js"></script>
 
 
 
 
-		
+
 
 
 <link rel="stylesheet" type="text/css" href="base.min.css" tppabs="http://static.itmayiedu.com/base.min.css">
@@ -3430,45 +2989,45 @@ white-space: nowrap;
 						<h4 class="hLh30 txtOf">
 							<span class="fsize18 f-fM c-fff" style="color:#6c6c6c">友情链接</span></h4>
 						<ul class="flink-list clearfix">
-						
-						
+
+
 							<li><a href="javascript:if(confirm('http://www.itresource.org/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.itresource.org/'" tppabs="http://www.itresource.org/" title="Java视频教程" target="_blank">Java视频教程</a></li>
-						
-							
-						
+
+
+
 							<li><a href="javascript:if(confirm('https://ms.meitedu.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://ms.meitedu.com/'" tppabs="https://ms.meitedu.com/" title="Java面试宝典" target="_blank">Java面试宝典</a></li>
-						
-							
-						
+
+
+
 							<li><a href="javascript:if(confirm('http://www.meitedu.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.meitedu.com/'" tppabs="http://www.meitedu.com/" title="每特公司" target="_blank">每特公司</a></li>
-						
-							
-						
+
+
+
 							<li><a href="javascript:if(confirm('http://mini.eastday.com/a/170618074857596.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mini.eastday.com/a/170618074857596.html'" tppabs="http://mini.eastday.com/a/170618074857596.html" title="媒体报道" target="_blank">媒体报道</a></li>
-						
-							
-						
+
+
+
 							<li><a href="javascript:if(confirm('http://www.itresource.org/plugin.php?id=qgroup:qgroup  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.itresource.org/plugin.php?id=qgroup:qgroup'" tppabs="http://www.itresource.org/plugin.php?id=qgroup:qgroup" title="粉丝群" target="_blank">粉丝群</a></li>
-						
-							
-						
-							
-						
-							
-						
-							
-						
-							
-						
-							
-						
-							
-						
-							
-						
-							
-						
-							
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 							</ul>
 						<div class="clear"></div>
 					</div>
@@ -3502,22 +3061,12 @@ white-space: nowrap;
 </footer>
 
 
-<!-- <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?b43c1c82b09cda6b125e6981fbde442c";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script> -->
-
 <script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "hm.js-eaa952b8610db6f155ab0febd442e89a"/*tpa=https://hm.baidu.com/hm.js?eaa952b8610db6f155ab0febd442e89a*/;
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
@@ -3540,9 +3089,9 @@ var _hmt = _hmt || [];
 		</div>
 
 
-		
-			
-		
+
+
+
 		<!-- end -->
 
 
@@ -3578,26 +3127,6 @@ var _hmt = _hmt || [];
 					<li id="goTopBtn" class="undis"><a href="javascript: void(0)"
 						title="返回顶部" class="bg-orange"> <em class="r-f-icon-3">&nbsp;</em><span>返回顶部</span>
 					</a></li>
-					<!-- <li class="foot-zixun" id="shopCart">
-				<a href="javascript:shopCartHtml()" title="查看详情" class="bg-orange pr" id="v-nav-first">
-					<em class="r-f-icon-4">&nbsp;</em><span>查看详情</span>
-					<tt class="shop-car-num" id="shopCartNum">0</tt>
-				</a>
-			</li>
-			<li class="foot-zixun">
-				<a href="" target="_blank" title="在线咨询" class="bg-orange">
-					<em class="r-f-icon-1">&nbsp;</em><span>在线咨询</span>
-				</a>
-			</li>
-			<li class="foot-zixun">
-				<a href="JavaScript:void(0)" title="扫描关注" class="bg-orange">
-					<em class="r-f-icon-2">&nbsp;</em><span>扫描关注</span>
-					<div class="smgz-pic">
-						<img src="/static/images/userInfo/1481617339900.jpg" width="150" height="150" class="dis">
-						<p class=" fsize14 f-fM c-666 tac">扫一扫，关注我们</p>
-					</div>
-				</a>
-			</li> -->
 				</ul>
 				<div class="shopcar-box fr" id="shopcarthtml"></div>
 			</div>
@@ -3615,7 +3144,7 @@ var _hmt = _hmt || [];
 			</ul>
 		</div>
 		<!--手机端 footer开始-->
-		
+
 
 <section class="mo-foot">
 	<article class="mo-f-warp">
@@ -3769,89 +3298,6 @@ var _hmt = _hmt || [];
 
 
 
-
-	<!-- 打开登录 -->
-	<!-- <div class="dialogWrap" style="position: absolute; overflow-x: hidden; overflow-y: auto; top: 248.5px; margin-left: -193px;  ">
-<div class="dialog-ele new-loigin"><h4 class="d-s-head pr new-header" style="width: 380px;"><a id="dClose" href="javascript:void(0)" title="关闭" class="dClose icon16 pa new-close">&nbsp;</a>
-<span id="d-s-head-tab" class="d-s-head-tab"><a href="javascript:void(0)" class="current">登录</a><a href="javascript:void(0)" class="">注册</a></span></h4><div class="of">
-<div id="lrEleWrap" class="mt10 mb20 ml30 mr30">
-<div id="d-s-head-cont" class="lrWrap">
-    <section class="dis e-login-ele" style="display: block;">
-        <div class="mt10">
-            <p class="e-l-jy"></p>
-        </div>
-        <div>
-            <ol class="e-login-options">
-                <li>
-                    <em class="lo-ico zc-dl-ioc"> </em>
-                    <input id="focusId" type="hidden">
-                    <input id="u-email" placeholder="请输入账号/邮箱/手机号" name="" value="" onkeyup="$(this).next().html(&#39;&#39;);" type="text">
-                    <p class="lr-tip-wrap"></p>
-                </li>
-                <li>
-                    <em class="zc-ico zc-dl-ioc"> </em>
-                    <input id="u-password" placeholder="请输入密码" name="" value="" onkeyup="$(this).next().html(&#39;&#39;);" type="password">
-                    <p class="lr-tip-wrap"></p>
-                </li>
-            </ol>
-            <section class="hLh30 of pl10">
-                <label class="hand c-999 vam fl">
-                    <input id="autoThirty" style="vertical-align: -2px;" checked="checked" type="checkbox">
-                    自动登录
-                </label>
-                <a class="vam ml10 c-blue fr" title="" href="http://wxdemo.inxedu.com/front/passwordRecovery">忘记密码?</a>
-            </section>
-            <section class="mt20 tac mb50">
-                <a class="e-login-btn" href="javascript:void(0)" title="登 录" onclick="dialogLogin(&#39;&#39;)">登 录</a>
-            </section>
-        </div>
-    </section>
-    <section class="undis e-login-ele" style="display: none;">
-        <div class="mt10">
-            <p class="e-l-jy"></p>
-        </div>
-        <div>
-            <ol class="e-login-options">
-                <li>
-                        <em class="lo-ico zc-dl-ioc"> </em>
-                        <input id="u-name-reg" placeholder="请输入账号" name="registerName" maxlength="24" value="" onkeyup="$(this).next().html(&#39;&#39;);" type="text">
-                        <p class="lr-tip-wrap"></p>
-                    </li>
-                <li>
-                    <em class="zc-ico zc-dl-ioc"> </em>
-                    <input id="u-password-reg" placeholder="请输入密码" name="" maxlength="64" value="" onkeyup="$(this).next().html(&#39;&#39;);" type="password">
-                    <p class="lr-tip-wrap"></p>
-                </li>
-                <li>
-                    <input id="u-randomcode-reg" class="fl yazm-input" placeholder="请输入验证码" name="" value="" onkeyup="$(this).next().next().next().html(&#39;&#39;);" maxlength="4" type="text">
-                    <a class="vam ml10 disIb fl random-pic" href="javascript:void(0)" title="">
-                        <img onclick="this.src=&#39;/ran/ajax/random?random=&#39;+Math.random()" alt="验证码，点击图片更换" src="./首页-蚂蚁课堂演示站_蚂蚁课堂教育软件-为您提供专属在线教育平台系统_files/random">
-                    </a>
-                    <span class="c-999 fl ml10">
-                        <a class="js-verify-refresh zc-yzpic" href="javascript:void(0)" title="刷新" onclick="$(this).parent().prev().find(&#39;img&#39;).click()">
-                            <em>
-                                <img src="./首页-蚂蚁课堂演示站_蚂蚁课堂教育软件-为您提供专属在线教育平台系统_files/yz-sxico.png">
-                            </em>
-                        </a>
-                    </span>
-                    <p class="lr-tip-wrap" style="clear: both;"></p>
-                </li>
-                </ol>
-            <section class="tac mt20">
-                <a class="e-login-btn" href="javascript: void(0)" onclick="dialogRegister(&#39;&#39;)" title="注 册">注 册</a>
-            </section>
-        </div>
-    </section>
-    <div class="mt20 sf-lr-wrap tac">
-            <h6 class="hLh20 mb15">
-                <span class="c-666 fsize14">第三方快捷登录</span>
-            </h6>
-            <a class="qq-sf" href="javascript:thirdPartyLogin(&#39;QQ&#39;)" title="QQ登录"> </a>
-            <a class="wb-sf" href="javascript:thirdPartyLogin(&#39;SINA&#39;)" title="微博登录"> </a>
-            <a class="wx-sf" href="javascript:thirdPartyLogin(&#39;WEIXIN&#39;)" title="微信登录"> </a>
-            </div>
-    </div>
-</div></div></div></div> -->
 
 
 
