@@ -6,7 +6,9 @@
  <select id="queryPackages"  resultType="com.lyq.model.Packages">
     select
         p.members_id as membersId,
+        p.p_id as pId,
         p.p_name as pName,
+        p.another as another,
         p.price  as price
          from t_pa p
  </select>
@@ -15,7 +17,7 @@
         p.members_id as membersId,
         p.p_name as pName,
         p.price  as price
-         from t_pa p WHERE p.id=#{id}
+         from t_pa p WHERE p.p_id=#{pId}
 
     </select>
 

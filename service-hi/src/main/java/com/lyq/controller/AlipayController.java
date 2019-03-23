@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lyq.config.AlipayConfig;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,7 +41,7 @@ public class AlipayController {
      * @throws Exception
      */
     @RequestMapping("/pay")
-    public void pay(HttpServletRequest request, HttpServletResponse response,String money) throws Exception {
+    public void pay(HttpServletRequest request, HttpServletResponse response,   String money) throws Exception {
         // 模拟从前台传来的数据
         String orderNo = new Date()+"123"; // 生成订单号
         String totalAmount = money; // 支付总金额
@@ -94,7 +95,7 @@ public class AlipayController {
         // 返回界面
         if (signVerified) {
             System.out.println("前往支付成功页面");
-            mav.setViewName("index");
+            mav.setViewName("index.htm");
         } else {
             System.out.println("前往支付失败页面");
             mav.setViewName("failReturn");

@@ -130,43 +130,55 @@
 
     <div class="scent">
         <div class="scent-order">
-            <div class="scent-order-info">
-                <strong>商品订单：</strong>
-                <span style="color: #b7b0b0;">MYKT20190321110802455</span>
-            </div>
+            <!--<div class="scent-order-info">-->
+                <!--<strong>商品订单：</strong>-->
+                <!--<span style="color: #b7b0b0;">MYKT20190321110802455</span>-->
+            <!--</div>-->
 
-            <div class="scent-order-info">
-                <strong>支付宝支付：</strong>
-                <span style="color: #0ac265;font-size: 15px;"></span><span style="color: red;font-size: 24px;">￥1299</span><br/>
-            </div>
-            <div class="scent-order-info"  >
-                <strong>订单详情：</strong>
+            <!--<div class="scent-order-info">-->
+                <!--<strong>支付宝支付：</strong>-->
+                <!--<span style="color: #0ac265;font-size: 15px;"></span><span style="color: red;font-size: 24px;">￥1299</span><br/>-->
+            <!--</div>-->
+            <div class="scent-order-info" id="pa"  >
+                <strong>套餐详情：</strong>
+                <table id="tableId" border="1"  cellpadding="0" width="500px" height="100px" align="center" background="111.jpg">
+                    <thead>
+                    <tr>
+                        <th>套餐</th>
+                        <th>时间</th>
+                        <th>价格</th>
+                        <th>付款</th>
+
+                    </tr>
+                    </thead>
+                    <tbody id="taocan">
+                    </tbody></table>
                 <hr />
                 <div class="scent-order-info-desc">
                     <span>商品名称：蚂蚁课堂-会员充值</span>
                 </div>
-                <div class="scent-order-info-desc">
-                    <span>支付订单：MYKT20190321110802455</span>
-                </div>
-                <div class="scent-order-info-desc">
-                    <span>应付金额：￥1299</span>
-                </div>
-                <div class="scent-order-info-desc">
-                    <span>购买时间：2019-3-21</span>
-                </div>
+                <!--<div class="scent-order-info-desc">-->
+                    <!--<span>支付订单：MYKT20190321110802455</span>-->
+                <!--</div>-->
+                <!--<div class="scent-order-info-desc">-->
+                    <!--<span>应付金额：￥1299</span>-->
+                <!--</div>-->
+                <!--<div class="scent-order-info-desc">-->
+                    <!--<span>购买时间：2019-3-21</span>-->
+                <!--</div>-->
             </div>
         </div>
 
         <div class="scent-pay">
-            <div class="scent-pay-way">
-                <strong>支付方式</strong>
-            </div>
+            <!--<div class="scent-pay-way">-->
+                <!--<strong>支付方式</strong>-->
+            <!--</div>-->
             <hr />
             <div class="scent-pay-type">
                 <!-- <button class="layui-btn layui-btn-primary layui-btn-lg"><i class="layui-icon layui-icon-login-wechat" style="color: #5FB878;"></i>微信支付
             </button> -->
-                <a href="/alipay?paymentInfoToekn=MYKT20190321110802703"><button class="layui-btn layui-btn-primary layui-btn-lg"><i class="layui-icon layui-icon-rmb" style="color: #1E9FFF"></i>支付宝
-                </button></a>
+                <!--<a href="/alipay"><button class="layui-btn layui-btn-primary layui-btn-lg"><i class="layui-icon layui-icon-rmb" style="color: #1E9FFF"></i>支付宝-->
+                <!--</button></a>-->
             </div>
 
         </div>
@@ -228,7 +240,32 @@
         setInterval("orderStatus()",3000);
          */
 
+  $(function(){
+      $.ajax({
+          url:'/queryPa',
 
+          success:function(data){
+              var str="";
+
+              for(var i=0;i<data.length;i++ ){
+                  str+= "<tr>\n" +
+                      "                <td align=\"center\">"+data[i].another+"</td>\n " +
+
+                      "                <td align=\"center\">"+data[i].pName+"</td>\n " +
+                      "             \t\t\t    <td align=\"center\">"+data[i].price+"</td>\n" +
+                      "\t\t\t\t<td align=\"center\"><a   runat=\"server\"   target=\"_self\" href='/pay?money="+data[i].price+"'>支付</a></td>\n" +
+                      "\t\t\t\t\n" +
+                      "\t\t\t\t\n" +
+                      "\t\t\t\t\n" +
+                      "            </tr>"
+              }
+              $("#taocan").html(str)
+
+          }
+
+      })
+
+  })
 
 
 </script>

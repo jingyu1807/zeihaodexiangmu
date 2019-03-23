@@ -32,4 +32,14 @@ package com.lyq.service.impl;
         public String regist(SitesUser user) {
             return null;
         }
+
+        @Override
+        public void alipay(String money) {
+
+        }
+
+        @Override
+        public List queryPa() {
+            return null;
+        }
     }
