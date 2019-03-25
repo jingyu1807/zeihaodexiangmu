@@ -11,6 +11,7 @@ public class Packages {
     private Integer pId;   //套餐Id
 
     private String  pName;//套餐名称
+    private String  another;//套餐别名
 
     private Integer  price;//价格
 
@@ -57,5 +58,13 @@ public class Packages {
 
     public void setMembersId(Integer membersId) {
         this.membersId = membersId;
+    }
+
+    public String getAnother() {
+        return another;
+    }
+
+    public void setAnother(String another) {
+        this.another = another;
     }
 }

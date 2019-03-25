@@ -31,9 +31,9 @@
     <!-- 新增网站用户 -->
     <insert id="addSitesUser" parameterType="com.lyq.model.SitesUser">
          insert into t_sites_user
-        (id,password,sites_name,sites_phone,state,sites_user_name,status,refer_code,balance,counts,members_id)
+        (password,sites_name,sites_phone,state,status,refer_code,balance,counts,members_id)
         values
-        (#{id},#{password},#{sitesName},#{sitesPhone},1,#{sitesUserName},0,#{refer_code},0,0,4)
+        (#{password},#{sitesName},#{sitesPhone},1,0,#{referCode},0,0,4)
     </insert>
     <!-- 删除网站用户 逻辑删 -->
     <update id="deleteSitesUser" parameterType="com.lyq.model.SitesUser">

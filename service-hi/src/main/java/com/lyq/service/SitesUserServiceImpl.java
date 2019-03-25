@@ -37,13 +37,35 @@ public class SitesUserServiceImpl implements SitesUserService {
     public String addSitesUser(SitesUser sitesUser) {
 
 
-        String uuid  =  UUID.randomUUID().toString().replace("-", "");
+        Set<String> set = new HashSet<String>();
+        int n = 10;
+        for (int i = 0; i < n; i++) {
+            //math.random()随机产生0-1之间的小数
+            Double random = Math.random();
+            String  str = random.toString().substring(2, 11);
+            set.add(str);
+        }
 
-        String codeKey=uuid;
+        Iterator<String> it = set.iterator();
+       String codeKey= it.next();
+
+
+
         if(redisTemplate.hasKey(codeKey)){
-            String uuids  =  UUID.randomUUID().toString().replace("-", "");
-            redisTemplate.opsForValue().set(uuids,11);
-            sitesUser.setReferCode(uuids);
+            Set<String> set1 = new HashSet<String>();
+            int n1 = 10;
+            for (int i = 0; i < n; i++) {
+                //math.random()随机产生0-1之间的小数
+                Double random = Math.random();
+                String  str = random.toString().substring(2, 11);
+                set.add(str);
+            }
+
+            Iterator<String> it1 = set.iterator();
+            String uuid1= it.next();
+
+            redisTemplate.opsForValue().set(uuid1,11);
+            sitesUser.setReferCode(uuid1);
             sitesUserMapper.addSitesUser(sitesUser);
             //发送短信
             String url = CommonCanstant.SEND_MSG_URL;
@@ -158,8 +180,23 @@ public class SitesUserServiceImpl implements SitesUserService {
        // String randomcodekey = (String) session.getAttribute(RANDOMCODEKEY);
 
             SitesUser s = sitesUserMapper.sitesUserLogin(user);
+<<<<<<< HEAD
              session.setAttribute("user",s);
         return s;
+=======
+        if(s != null){
+            if(s.getSitesName().equals(user.getSitesName())){
+                if(s.getPassword().equals(user.getPassword())){
+
+                    session.setAttribute("user",s);
+                    return "1";
+                }
+                return "500";
+            }
+            return "s为空";
+        }
+        return "2";
+>>>>>>> origin/master
 
 
 

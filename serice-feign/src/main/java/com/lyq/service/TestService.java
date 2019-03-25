@@ -23,4 +23,10 @@ public interface TestService {
     //网站用户注册
     @RequestMapping(value = "sitesUser/addSitesUser",consumes = "application/json")
     String regist(@RequestBody SitesUser user);
+    @RequestMapping(value = "/pay",consumes = "application/json")
+    void alipay(@RequestBody String money);
+    @RequestMapping(value = "pack/queryPackages",method = RequestMethod.GET)
+    List queryPa();
+    @RequestMapping(value = "sitesUser/sendMessage",method = RequestMethod.GET)
+    void sendMessage();
 }
