@@ -180,25 +180,9 @@ public class SitesUserServiceImpl implements SitesUserService {
        // String randomcodekey = (String) session.getAttribute(RANDOMCODEKEY);
 
             SitesUser s = sitesUserMapper.sitesUserLogin(user);
-<<<<<<< HEAD
+
              session.setAttribute("user",s);
         return s;
-=======
-        if(s != null){
-            if(s.getSitesName().equals(user.getSitesName())){
-                if(s.getPassword().equals(user.getPassword())){
-
-                    session.setAttribute("user",s);
-                    return "1";
-                }
-                return "500";
-            }
-            return "s为空";
-        }
-        return "2";
->>>>>>> origin/master
-
-
 
         }
 
