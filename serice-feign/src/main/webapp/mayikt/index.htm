@@ -590,6 +590,7 @@ $(function () {
                 }
                 ;
                 if (json.rtnCode == 500) {
+                    alert("密码错误")
                     var data = json.msg;
                     document.getElementById("loginInfo").innerHTML = data;
                 }

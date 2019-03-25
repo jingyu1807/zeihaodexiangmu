@@ -2,6 +2,10 @@ package com.lyq.controller;
 
 import com.lyq.model.SitesUser;
 import com.lyq.service.SitesUserService;
+import com.lyq.utils.CommonCanstant;
+import com.lyq.utils.HttpClientUtil;
+import com.lyq.utils.MD5Util;
+import com.lyq.utils.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -10,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 //网站用户登录控制层
 @Controller
@@ -41,11 +44,18 @@ public class SitesUserController {
         sitesUserService.checkUser(id);
     }
 
-    //员工登录
+    //网站用户登录
     @ResponseBody
     @RequestMapping("sitesUserLogin")
     public String sitesUserLogin(@RequestBody SitesUser user, HttpSession session){
         return sitesUserService.sitesUserLogin(user,session);
+    }
+
+    //注销
+    @RequestMapping("remove")
+    public void remove(HttpSession session){
+        session.removeAttribute("user");
+
     }
 
 
@@ -107,8 +117,34 @@ public class SitesUserController {
 
     }
     //查看余额
+    @ResponseBody
+    @RequestMapping("queryBalance")
     public  SitesUser queryBalance(HttpSession session){
         SitesUser s= (SitesUser) session.getAttribute("user");
         return  sitesUserService.queryBalance(s);
     }
+    //定时器
+    @ResponseBody
+    @RequestMapping("sendMessage")
+    public static void timer1() {
+          Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+       public void run() {
+           String url = CommonCanstant.SEND_MSG_URL;
+           String phone="15135303996";
+           HashMap<String, Object> params = new HashMap<>();
+           params.put("accountSid", CommonCanstant.SEND_MSG_ACCOUNT_ID);//开发者主账号ID
+           params.put("to",phone);//短信接收端手机号码集合
+           String time = TimeUtil.format(new Date());
+           params.put("timestamp",time);//时间戳
+           String sigStr = CommonCanstant.SEND_MSG_ACCOUNT_ID+ CommonCanstant.SEND_MSG_TOKEN+time;
+           params.put("sig", MD5Util.getMd532(sigStr));//签名。MD5(ACCOUNT SID + AUTH TOKEN + timestamp)。共32位（小写）
+           params.put("templateid", "1120139740");//短信模板ID
+           String seCode= "欢迎成为vip用户哦！";
+           params.put("param", seCode+",3");//短信变量
+           String post = HttpClientUtil.post(url, params);
+
+                   }
+    }, 2000);// 设定指定的时间time,此处为2000毫秒
+         }
 }

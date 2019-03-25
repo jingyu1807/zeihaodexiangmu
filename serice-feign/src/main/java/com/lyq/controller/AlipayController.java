@@ -1,5 +1,6 @@
 package com.lyq.controller;
 
+import ch.qos.logback.core.util.TimeUtil;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.domain.AlipayTradePayModel;
@@ -7,19 +8,22 @@ import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 
 import com.lyq.controller.config.AlipayConfig;
+
+import com.lyq.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class AlipayController {
+    @Resource
+    private TestService testService;
 
     // 获取配置文件的信息
     String app_id = AlipayConfig.app_id;
@@ -76,6 +80,8 @@ public class AlipayController {
      */
     @RequestMapping("/returnUrl")
     public ModelAndView returnUrl(HttpServletRequest request) throws Exception {
+
+
         ModelAndView mav = new ModelAndView();
 
         // 获取支付宝GET过来反馈信息（官方固定代码）
@@ -95,7 +101,11 @@ public class AlipayController {
         // 返回界面
         if (signVerified) {
             System.out.println("前往支付成功页面");
+            testService.sendMessage();
             mav.setViewName("index.htm");
+
+
+
         } else {
             System.out.println("前往支付失败页面");
             mav.setViewName("failReturn");

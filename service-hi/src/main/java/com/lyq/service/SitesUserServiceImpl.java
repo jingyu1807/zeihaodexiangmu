@@ -165,7 +165,7 @@ public class SitesUserServiceImpl implements SitesUserService {
                     session.setAttribute("user",s);
                     return "1";
                 }
-                return "密码不正确";
+                return "500";
             }
             return "s为空";
         }

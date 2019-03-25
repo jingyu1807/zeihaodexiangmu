@@ -27,12 +27,17 @@ public class LoginController {
     public String regist(SitesUser user){
         return testService.regist(user);
     }
-
+  //套餐查询
     @RequestMapping(value = "/queryPa" )
     public List queryPa(){
         return testService.queryPa();
     }
+ //发送手机短信
+ @RequestMapping(value = "/sendMessage" )
+ public void sendMessage(){
 
+      testService.sendMessage();
+ }
 
 
 }

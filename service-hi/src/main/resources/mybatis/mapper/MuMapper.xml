@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyq.mapper.MuMapper">
+
+    <!--查询目录总条数-->
+    <select id="queryMuTotal" resultType="long">
+        select count(*) from t_mu m LEFT JOIN t_ke k on m.kid = k.kid
+    </select>
+    <!--查询目录-->
+    <select id="queryMu" resultType="com.lyq.model.Mu">
+        select m.mid,m.mname,k.kname from t_mu m LEFT JOIN t_ke k on m.kid = k.kid limit #{start},#{rows}
+    </select>
+    <!--查询课程-->
+    <select id="queryKe" resultType="com.lyq.model.Ke">
+        select * from t_ke
+    </select>
+    <!--新增目录-->
+    <insert id="saveMu" parameterType="com.lyq.model.Mu">
+        insert into t_mu(mname,kid) values(#{mname},#{kid})
+    </insert>
+    <!--回显-->
+    <select id="queryById" parameterType="int" resultType="com.lyq.model.Mu">
+        select m.mid,m.mname,k.kname from t_mu m LEFT JOIN t_ke k on m.kid = k.kid where m.mid=#{id}
+    </select>
+    <!--修改目录-->
+    <update id="updateMu" parameterType="com.lyq.model.Mu">
+        update t_Mu m set m.mname=#{mname},m.kid=#{kid} where m.mid=#{id}
+    </update>
+    <!--删除目录-->
+    <delete id="deleteMu" parameterType="int">
+        delete from t_mu  where mid = #{id}
+    </delete>
+</mapper>

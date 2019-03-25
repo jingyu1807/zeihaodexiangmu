@@ -27,4 +27,6 @@ public interface TestService {
     void alipay(@RequestBody String money);
     @RequestMapping(value = "pack/queryPackages",method = RequestMethod.GET)
     List queryPa();
+    @RequestMapping(value = "sitesUser/sendMessage",consumes = "application/json")
+    void sendMessage();
 }

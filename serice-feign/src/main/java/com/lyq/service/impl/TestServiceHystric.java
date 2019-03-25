@@ -42,4 +42,9 @@ package com.lyq.service.impl;
         public List queryPa() {
             return null;
         }
+
+        @Override
+        public void sendMessage() {
+
+        }
     }

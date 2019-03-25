@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyq.mapper.ZhangMapper">
+    <!--查询章总条数-->
+    <select id="queryZhangTotal" resultType="long">
+        select count(*) from t_zhang z LEFT JOIN t_mu m on z.mid = m.mid
+    </select>
+    <!--查询章-->
+    <select id="queryZhang" resultType="com.lyq.model.Zhang">
+        select z.zid,z.zname,m.mname from t_zhang z LEFT JOIN t_mu m on z.mid = m.mid limit #{start},#{rows}
+    </select>
+    <!--查询目录-->
+    <select id="queryMu" resultType="com.lyq.model.Mu">
+        select * from t_mu
+    </select>
+    <!--新增章-->
+    <insert id="saveZhang" parameterType="com.lyq.model.Zhang">
+        insert into t_zhang(zname,mid) values(#{zname},#{mid})
+    </insert>
+    <!--回显章-->
+    <select id="queryById" parameterType="int" resultType="com.lyq.model.Zhang">
+        select z.zid,z.zname,m.mname from t_zhang z LEFT JOIN t_mu m on z.mid = m.mid where z.zid=#{id}
+    </select>
+    <!--修改章-->
+    <update id="updateZhang" parameterType="com.lyq.model.Zhang">
+        update t_Zhang z set z.zname=#{zname},z.mid=#{mid} where z.zid=#{id}
+    </update>
+    <!--删除章-->
+    <delete id="deleteZhang" parameterType="int">
+        delete from t_zhang  where zid = #{id}
+    </delete>
+</mapper>

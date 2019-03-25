@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyq.mapper.JieMapper">
+    <!--查询节总条数-->
+    <select id="queryJieTotal" resultType="long">
+        select count(*) from t_jie j LEFT JOIN t_zhang z on j.zid = z.zid
+    </select>
+    <!--查询节-->
+    <select id="queryJie" resultType="com.lyq.model.Jie">
+        select j.jid,j.jname,z.zname,j.ynvip from t_jie j LEFT JOIN t_zhang z on j.zid = z.zid limit #{start},#{rows}
+    </select>
+    <!--查询章-->
+    <select id="queryZhang" resultType="com.lyq.model.Zhang">
+        select * from t_zhang
+    </select>
+    <!--新增小节-->
+    <insert id="saveJie" parameterType="com.lyq.model.Jie">
+        insert into t_jie(jname,zid) values(#{jname},#{zid})
+    </insert>
+    <!--回显-->
+    <select id="queryById" parameterType="int" resultType="com.lyq.model.Jie">
+        select j.jid,j.jname,z.zname from t_jie j LEFT JOIN t_zhang z on j.zid = z.zid where j.jid=#{id}
+    </select>
+    <!--修改节-->
+    <update id="updateJie" parameterType="com.lyq.model.Zhang">
+        update t_jie j set j.jname=#{jname},j.zid=#{zid} where j.jid=#{id}
+    </update>
+    <!--删除节-->
+    <delete id="deleteJie" parameterType="int">
+        delete from t_jie  where jid = #{id}
+    </delete>
+</mapper>
