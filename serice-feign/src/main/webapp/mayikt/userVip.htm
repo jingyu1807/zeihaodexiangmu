@@ -115,12 +115,12 @@
 	function toMayiMemberPage() {
 		var userId = $("#userId").val();
 		var qqerror = $("#qqerror").val();
-		if (userId == "") {
-			document.getElementById("loginInfo").innerHTML = qqerror;
-            openLoginDialog();
-		} else {
+//		if (userId == "") {
+//			document.getElementById("loginInfo").innerHTML = qqerror;
+////            openLoginDialog();
+//		} else {
 			window.location.href = "vippay.html";
-		}
+	//	}
 
 	}
 </script>
@@ -555,16 +555,16 @@
 
 <script>
 
-    //错误代开登录 qq
-    window.onload = function () {
-
-        var qqerror = $("#qqerror").val();
-        if (qqerror != "") {
-            document.getElementById("loginInfo").innerHTML = qqerror;
-
-            openLoginDialog();
-        }
-    };
+//    //错误代开登录 qq
+//    window.onload = function () {
+//
+//        var qqerror = $("#qqerror").val();
+//        if (qqerror != "") {
+//            document.getElementById("loginInfo").innerHTML = qqerror;
+//
+//          //  openLoginDialog();
+//        }
+//    };
 
 </script>
 
@@ -1006,7 +1006,7 @@
 														<div class="tac u-m-c-b-warp">
 															<a href="javascript:void(0);"
 																onclick="toMayiMemberPage()" title="开通会员"
-																class="u-m-c-btn f-fM tac"> 马上开通 </a>
+																class="u-m-c-btn f-fM tac" color="#7FFFD4"> 马上开通 </a>
 														</div>
 													
 													
