@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
 <!--<![endif]-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -555,16 +555,16 @@
 
 <script>
 
-    //错误代开登录 qq
-    window.onload = function () {
-
-        var qqerror = $("#qqerror").val();
-        if (qqerror != "") {
-            document.getElementById("loginInfo").innerHTML = qqerror;
-
-            openLoginDialog();
-        }
-    };
+    // //错误代开登录 qq
+    // window.onload = function () {
+	//
+    //     var qqerror = $("#qqerror").val();
+    //     if (qqerror != "") {
+    //         document.getElementById("loginInfo").innerHTML = qqerror;
+	//
+    //         openLoginDialog();
+    //     }
+    // };
 
 </script>
 
@@ -975,7 +975,8 @@
 								<div class="u-r-cont">
 									<section>
 										<div class="">
-											<input type="hidden" value="" id="userId" th:value="${session.user}"> <input
+
+											<input type="text" id="userId" th:value="${}"> <input
 												type="hidden" value="请先登录！再购买会员" id="qqerror"> <input
 												type="hidden" value="" id="userVip">
 

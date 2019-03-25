@@ -154,22 +154,12 @@ public class SitesUserServiceImpl implements SitesUserService {
     public static final String RANDOMCODEKEY = "RANDOMVALIDATECODEKEY";//放到session中的key
 
     //员工登录
-    public String sitesUserLogin(SitesUser user, HttpSession session) {
+    public SitesUser sitesUserLogin(SitesUser user, HttpSession session) {
        // String randomcodekey = (String) session.getAttribute(RANDOMCODEKEY);
 
             SitesUser s = sitesUserMapper.sitesUserLogin(user);
-        if(s != null){
-            if(s.getSitesName().equals(user.getSitesName())){
-                if(s.getPassword().equals(user.getPassword())){
-
-                    session.setAttribute("user",s);
-                    return "1";
-                }
-                return "密码不正确";
-            }
-            return "s为空";
-        }
-        return "2";
+             session.setAttribute("user",s);
+        return s;
 
 
 

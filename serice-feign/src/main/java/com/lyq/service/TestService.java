@@ -19,7 +19,7 @@ public interface TestService {
     List queryPay();
    //网站用户登录
     @RequestMapping(value = "sitesUser/sitesUserLogin",consumes = "application/json")
-    String login( @RequestBody SitesUser user);
+    SitesUser login( @RequestBody SitesUser user);
     //网站用户注册
     @RequestMapping(value = "sitesUser/addSitesUser",consumes = "application/json")
     String regist(@RequestBody SitesUser user);

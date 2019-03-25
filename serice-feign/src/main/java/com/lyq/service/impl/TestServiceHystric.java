@@ -24,7 +24,7 @@ package com.lyq.service.impl;
         }
 
         @Override
-    public String login(SitesUser name) {
+    public SitesUser login(SitesUser name) {
         return null;
     }
 

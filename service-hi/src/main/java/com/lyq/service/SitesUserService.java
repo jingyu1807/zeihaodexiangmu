@@ -28,7 +28,7 @@ public interface SitesUserService {
     void checkUser(Integer id);
 
 
-    String sitesUserLogin(SitesUser user, HttpSession session);
+    SitesUser sitesUserLogin(SitesUser user, HttpSession session);
 
     void updatePri(Integer id, HttpSession session);
 

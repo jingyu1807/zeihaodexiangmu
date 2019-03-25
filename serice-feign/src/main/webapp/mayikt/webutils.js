@@ -7,8 +7,8 @@ var staticServer="";//静态服务器地址
 var mydomain =$("#mydomain").val();//主站域
 /**
  * 获取登录学员
- * @returns User
- */
+* @returns User
+*/
 function getLoginUser(){
 	var user = null;
 	$.ajax({
@@ -55,7 +55,7 @@ function getVipInfo() {
 }
 /**
  * 学员退出登录
- */
+*/
 function exit(){
 	$.ajax({
 		url:baselocation+'/uc/exit',

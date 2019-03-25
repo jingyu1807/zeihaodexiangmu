@@ -555,6 +555,22 @@ $(function () {
         });
     }
 
+
+	$(function(){
+
+		$.ajax({
+			async:true,
+			dataType:"json",
+			type:"POST",
+			url:"/checkUser",
+			success:function(data){
+				alert(data)
+				console.log(data);
+			}
+		});
+	});
+
+
     // sso多端登录
     function login() {
         var courseId = $("#courseId").val();

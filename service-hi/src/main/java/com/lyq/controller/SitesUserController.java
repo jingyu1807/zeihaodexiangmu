@@ -44,7 +44,7 @@ public class SitesUserController {
     //员工登录
     @ResponseBody
     @RequestMapping("sitesUserLogin")
-    public String sitesUserLogin(@RequestBody SitesUser user, HttpSession session){
+    public SitesUser sitesUserLogin(@RequestBody SitesUser user, HttpSession session){
         return sitesUserService.sitesUserLogin(user,session);
     }
 
