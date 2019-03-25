@@ -435,10 +435,10 @@ $(function () {
     function reginDialog() {
         document.getElementById("u-email-reg").value = "";
         document.getElementById("u-mobile-reg").value = "";
-        document.getElementById("u-zhucecode-reg").value = "";
+//        document.getElementById("u-zhucecode-reg").value = "";
         document.getElementById("u-password-reg").value = "";
         document.getElementById("u-passwordl-reg").value = "";
-        document.getElementById("imageCode").value = "";
+//        document.getElementById("imageCode").value = "";
 
         $("#dialogLogin").removeClass('current');
         $("#reginDialog").addClass('current');
@@ -471,7 +471,7 @@ $(function () {
 
     //
         function Register() {
-            alert("这是注册")
+
         var emailRegisterZz = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
 
 
@@ -481,7 +481,7 @@ $(function () {
 
         var sitesName = $("#u-email-reg").val();
         var sitesPhone = $("#u-mobile-reg").val();
-        var zhucecodeRegister = $("#u-zhucecode-reg").val();
+       var zhucecodeRegister = $("#u-zhucecode-reg").val();
         var password = $("#u-password-reg").val();
         var passwordlRegister = $("#u-passwordl-reg").val();
 
@@ -519,7 +519,7 @@ $(function () {
             return;
         }
 
-       alert(sitesName)
+
         $.ajax({
             //几个参数需要注意一下
             type: "POST",//方法类型
@@ -534,7 +534,8 @@ $(function () {
             },
             success: function (result) {
                 var json = eval(result);
-                if (json.rtnCode == 200) {
+
+                if (json== 200) {
                     document.getElementById("registeInfo").innerHTML = "注册成功！";
                     if (courseId != "") {
                         window.location.href = "http://www.mayikt.com/front/couinfo/" + courseId+"/0";
@@ -836,13 +837,13 @@ $(function () {
 										width="100" height="100"
 										style="border: 2px solid #4CAF50; border-radius: 7px; margin-top: 10px;" />
 								</div>
-								<div
-									style="text-align: center; font-size: 14px; color: #FF5722;">关注微信公众号,发送手机号码可获得注册码
-								</div>
-								<li><em class="lo-ico zc-dl-ioc"> </em> <input
-									id="u-zhucecode-reg" placeholder="请输入注册码" name="zhucecode"
-									maxlength="4" type="text">
-									<p class="lr-tip-wrap"></p></li>
+								<!--<div-->
+									<!--style="text-align: center; font-size: 14px; color: #FF5722;">关注微信公众号,发送手机号码可获得注册码-->
+								<!--</div>-->
+								<!--<li><em class="lo-ico zc-dl-ioc"> </em> <input-->
+									<!--id="u-zhucecode-reg" placeholder="请输入注册码" name="zhucecode"-->
+									<!--maxlength="4" type="text">-->
+									<!--<p class="lr-tip-wrap"></p></li>-->
 
 								<li><em class="lo-ico zc-dl-ioc"> </em> <input
 									id="u-password-reg" placeholder="请输入密码" name="password"
@@ -854,13 +855,13 @@ $(function () {
 									maxlength="16" type="password">
 									<p class="lr-tip-wrap"></p></li>
 
-								<li><input id="imageCode" placeholder="请输入验证码"
-									name="imageCode" maxlength="4" type="text"
-									style="width: 110px; float: left; padding-left: 15px;">
-									<input type="button" onclick="loadimage()" name="randImage"
-									id="randImage"
-									style="height: 40px; width: 100px; font-size: 20px; background: #E6E6E6; padding-left: 1px; margin-left: 1px; margin-left: 40px;">
-									<p class="lr-tip-wrap"></p></li>
+								<!--<li><input id="imageCode" placeholder="请输入验证码"-->
+									<!--name="imageCode" maxlength="4" type="text"-->
+									<!--style="width: 110px; float: left; padding-left: 15px;">-->
+									<!--<input type="button" onclick="loadimage()" name="randImage"-->
+									<!--id="randImage"-->
+									<!--style="height: 40px; width: 100px; font-size: 20px; background: #E6E6E6; padding-left: 1px; margin-left: 1px; margin-left: 40px;">-->
+									<!--<p class="lr-tip-wrap"></p></li>-->
 
 
 
