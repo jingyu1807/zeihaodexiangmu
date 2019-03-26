@@ -49,6 +49,7 @@ package com.lyq.service.impl;
         }
 
         @Override
+<<<<<<< HEAD
         public SitesUser queryBalance(Integer id) {
             return null;
         }
@@ -59,4 +60,9 @@ package com.lyq.service.impl;
         }
 
 
+=======
+        public List ke() {
+            return null;
+        }
+>>>>>>> origin/master
     }

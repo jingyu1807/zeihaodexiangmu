@@ -2,8 +2,10 @@ package com.lyq.service;
 
 import com.lyq.mapper.KeMapper;
 import com.lyq.model.Ke;
+import com.lyq.utils.OSSClientUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +15,11 @@ public class KeServiceImpl implements KeService {
 
     @Autowired
     private KeMapper keMapper;
+
+
+
+    @Autowired
+    private OSSClientUtil ossClient;
 
     //查询课程
     @Override
@@ -29,17 +36,29 @@ public class KeServiceImpl implements KeService {
         return hashMap;
     }
 
+
+
     //新增修改课程
     @Override
-    public void saveKe(Ke ke) {
+    public String saveKe(Ke ke, MultipartFile file) {
+        if (file == null || file.getSize() <= 0) {
+            System.out.println("头像不能为空");
+        }
+
+        String name = ossClient.uploadImg2Oss(file);
+        String imgUrl = ossClient.getImgUrl(name);
         Integer id = ke.getKid();
         if(id!=null) {
-            //修改课程
+            ke.setKimg(imgUrl);
+            //修改
             keMapper.updateKe(ke);
         }else {
-            //新增课程
+            //新增
+            ke.setKimg(imgUrl);
             keMapper.saveKe(ke);
         }
+        return imgUrl;
+
     }
 
     //回显课程

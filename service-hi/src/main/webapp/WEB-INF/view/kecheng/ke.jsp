@@ -32,12 +32,25 @@
                 </td>
             </tr>
             <tr>
+                <td>课程图片</td>
+                <td>
+                    <input type="file" name="file">
+                    <input class="easyui-textbox" name="kimg" >
+                </td>
+            </tr>
+            <tr>
                 <td>课程内容</td>
                 <td>
                     <input type="easyui-textbox" name="kinfo">
                 </td>
             </tr>
-
+            <tr>
+                <td>vip</td>
+                <td>
+                    <input type="radio" value="1" name="kvip">vip
+                    <input type="radio" value="2" name="kvip">非vip
+                </td>
+            </tr>
 
         </table>
     </form>
@@ -137,6 +150,19 @@
                 {field:"kid",title:"id"},
                 {field:"kname",title:"课程名称"},
                 {field:"kinfo",title:"课程内容"},
+                {field:"kvip",title:"是否vip",formatter:function(value,row,index){
+                    if(value == 1){
+                        return "是";
+                    }else if (value == 2){
+                        return "不是";
+                    }else if(value == ""){
+                        return "";
+                    }
+
+                }},
+                {field:"kimg",title:"图片",formatter:function(value,row,index){
+                    return "<img src="+row.kimg+" width='60px' height='60px' >";
+                }},
                 {field:"tools",title:"操作",formatter:function(value,row,index){
                     return "<a href='javascript:openUpdate("+row.kid+")'>修改</a>"+"||<a href='javascript:deleteKe("+row.kid+")'>删除</a>";
                 }}

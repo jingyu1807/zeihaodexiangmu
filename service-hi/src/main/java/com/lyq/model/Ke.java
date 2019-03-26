@@ -11,9 +11,30 @@ public class Ke {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer kid; //主键Id
 
+    private Integer kvip; //VIP
+
+    private String kimg; //图片
+
     private String kname;//课程名称
 
     private String kinfo; //课程信息
+
+
+    public Integer getKvip() {
+        return kvip;
+    }
+
+    public void setKvip(Integer kvip) {
+        this.kvip = kvip;
+    }
+
+    public String getKimg() {
+        return kimg;
+    }
+
+    public void setKimg(String kimg) {
+        this.kimg = kimg;
+    }
 
     public Integer getKid() {
         return kid;
