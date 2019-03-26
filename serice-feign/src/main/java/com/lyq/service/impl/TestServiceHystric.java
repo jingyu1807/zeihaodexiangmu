@@ -47,4 +47,9 @@ package com.lyq.service.impl;
         public void sendMessage() {
 
         }
+
+        @Override
+        public List ke() {
+            return null;
+        }
     }

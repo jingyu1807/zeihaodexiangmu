@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //课程管理
 @Controller
@@ -38,8 +40,16 @@ public class KeController {
     //新增修改课程
     @RequestMapping("saveKe")
     @ResponseBody
-    public void saveKe(Ke ke){
-        keService.saveKe(ke);
+    public void saveKe(Ke ke, MultipartFile file){
+
+        Map<String, Object> value = new HashMap<String, Object>();
+        value.put("success", true);
+        value.put("errorCode", 0);
+        value.put("errorMsg", "");
+
+        String head =  keService.saveKe(ke,file);
+        value.put("data", head);
+
     }
 
     //回显课程

@@ -29,4 +29,7 @@ public interface TestService {
     List queryPa();
     @RequestMapping(value = "sitesUser/sendMessage",method = RequestMethod.GET)
     void sendMessage();
+
+    @RequestMapping(value = "ke/queryListKe",method = RequestMethod.GET)
+    List ke();
 }

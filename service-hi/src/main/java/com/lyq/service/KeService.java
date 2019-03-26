@@ -1,6 +1,7 @@
 package com.lyq.service;
 
 import com.lyq.model.Ke;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +11,7 @@ public interface KeService {
     HashMap<String,Object> queryKe(Integer page, Integer rows);
 
     //新增修改课程
-    void saveKe(Ke ke);
+    String saveKe(Ke ke, MultipartFile file);
 
     //回显课程
     Ke queryById(Integer id);
