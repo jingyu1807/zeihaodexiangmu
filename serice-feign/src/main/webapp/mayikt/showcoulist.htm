@@ -1076,43 +1076,83 @@
                                             success:function(data){
                                                 var str="";
                                                 for(i=0;i<data.length;i++){
-                                                    str+="<li>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t<div class=\"cc-l-wrap\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t<section class=\"course-img\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\" target=\"_blank\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t<img xsrc=\"http://static.itmayiedu.com/5638e006c812d13fab515000ca13e31.jpg\" src=\""+data[i].kimg+"\" tppabs=\"http://static.itmayiedu.com/5638e006c812d13fab515000ca13e31.jpg\" class=\"img-responsive\" alt=\"\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t</a>\n" +
-                                                        "                                             <div class=\"cc-mask\">\n" +
-                                                        "                                                     <a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\"\n" +
-                                                        "                                                       title=\"\" class=\"comm-btn c-btn-1\">开始学习</a>\n" +
-                                                        "                                               </div> \n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t</section>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"hLh30 txtOf mt10\" style=\"margin-left: 7px;\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\" target=\"_blank\" title=\"ELK+Kafka实现分布式日志收集\" class=\"course-title fsize18 c-333\">"+data[i].kname+"</a>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t</h3>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t<section class=\"mt10 hLh20 of\" style=\"margin-left: 7px;\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t    <tt class=\"c-green fsize12 f-fM\" style=\"color: #fb8b05;font-size: 14px;\" >会员</tt>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"fl jgAttr c-ccc f-fM\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tt class=\"c-999 f-fM mr10\" style=\"font-size: 14px\">10006人学习</tt>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t</section>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t<div class=\"coures-jbicon\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"c-vip-jb.png\" tppabs=\"http://www.mayikt.com/static/images/course/c-vip-jb.png\">\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t\t</div>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t\t\t</div>\n" +
-                                                        "\t\t\t\t\t\t\t\t\t</li>"
+                                                    if(data[i].kvip==1){
+                                                        str+="<li>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t<div class=\"cc-l-wrap\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t<section class=\"course-img\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\" target=\"_blank\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t<img xsrc=\"http://static.itmayiedu.com/5638e006c812d13fab515000ca13e31.jpg\" src=\""+data[i].kimg+"\" tppabs=\"http://static.itmayiedu.com/5638e006c812d13fab515000ca13e31.jpg\" class=\"img-responsive\" alt=\"\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t</a>\n" +
+                                                            "                                             <div class=\"cc-mask\">\n" +
+                                                            "                                                     <a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\"\n" +
+                                                            "                                                       title=\"\" class=\"comm-btn c-btn-1\">开始学习</a>\n" +
+                                                            "                                               </div> \n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t</section>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"hLh30 txtOf mt10\" style=\"margin-left: 7px;\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\" target=\"_blank\" title=\"ELK+Kafka实现分布式日志收集\" class=\"course-title fsize18 c-333\">"+data[i].kname+"</a>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t</h3>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t<section class=\"mt10 hLh20 of\" style=\"margin-left: 7px;\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t    <tt class=\"c-green fsize12 f-fM\" style=\"color: #fb8b05;font-size: 14px;\" >会员</tt>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"fl jgAttr c-ccc f-fM\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tt class=\"c-999 f-fM mr10\" style=\"font-size: 14px\">10006人学习</tt>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t</section>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t<div class=\"coures-jbicon\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"c-vip-jb.png\" tppabs=\"http://www.mayikt.com/static/images/course/c-vip-jb.png\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t</div>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t</div>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t</li>"
+													}
+													else if(data[i].kvip==2){
+                                                        str+="<li>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t<div class=\"cc-l-wrap\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t<section class=\"course-img\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\" target=\"_blank\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t<img xsrc=\"http://static.itmayiedu.com/5638e006c812d13fab515000ca13e31.jpg\" src=\""+data[i].kimg+"\" tppabs=\"http://static.itmayiedu.com/5638e006c812d13fab515000ca13e31.jpg\" class=\"img-responsive\" alt=\"\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t</a>\n" +
+                                                            "                                             <div class=\"cc-mask\">\n" +
+                                                            "                                                     <a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\"\n" +
+                                                            "                                                       title=\"\" class=\"comm-btn c-btn-1\">开始学习</a>\n" +
+                                                            "                                               </div> \n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t</section>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"hLh30 txtOf mt10\" style=\"margin-left: 7px;\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"0-5.htm\" tppabs=\"http://www.mayikt.com/front/couinfo/190/0\" target=\"_blank\" title=\"ELK+Kafka实现分布式日志收集\" class=\"course-title fsize18 c-333\">"+data[i].kname+"</a>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t</h3>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t<section class=\"mt10 hLh20 of\" style=\"margin-left: 7px;\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t    <tt class=\"c-green fsize12 f-fM\" style=\"color: #fb8b05;font-size: 14px;\" >会员</tt>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"fl jgAttr c-ccc f-fM\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tt class=\"c-999 f-fM mr10\" style=\"font-size: 14px\">10006人学习</tt>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t</section>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t<div class=\"coures-jbicon\">\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t\t</div>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t\t\t</div>\n" +
+                                                            "\t\t\t\t\t\t\t\t\t</li>"
+													}
                                                 }
                                                 $("#theKe").append(str)
                                             }
