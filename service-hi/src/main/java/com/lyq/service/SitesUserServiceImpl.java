@@ -182,6 +182,7 @@ public class SitesUserServiceImpl implements SitesUserService {
             SitesUser s = sitesUserMapper.sitesUserLogin(user);
 
              session.setAttribute("user",s);
+             System.out.println(session.getAttribute("user"));
         return s;
 
         }
@@ -221,9 +222,13 @@ public class SitesUserServiceImpl implements SitesUserService {
     }
 
     @Override
-    public SitesUser queryBalance(SitesUser s) {
-        Integer sid=s.getId();
-        return  sitesUserMapper.queryBalance(sid);
+    public SitesUser queryBalance(Integer id) {
+        return  sitesUserMapper.queryBalance(id);
+    }
+
+    @Override
+    public void updateMem(Integer id) {
+        sitesUserMapper.updateMem( id);
     }
 
 

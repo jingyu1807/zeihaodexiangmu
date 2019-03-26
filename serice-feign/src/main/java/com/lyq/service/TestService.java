@@ -2,6 +2,7 @@ package com.lyq.service;
 
 import com.lyq.model.SitesUser;
 import com.lyq.service.impl.TestServiceHystric;
+import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,4 +30,10 @@ public interface TestService {
     List queryPa();
     @RequestMapping(value = "sitesUser/sendMessage",method = RequestMethod.GET)
     void sendMessage();
+  //查询余额queryBalance()
+  @RequestMapping(value = "sitesUser/queryBalance",method = RequestMethod.GET)
+    SitesUser queryBalance(@Param(value="id") Integer id);
+   //更改是否是会员状态
+   @RequestMapping(value = "sitesUser/updateMem",method = RequestMethod.GET)
+    void updateMem(@Param(value = "id") Integer ids);
 }

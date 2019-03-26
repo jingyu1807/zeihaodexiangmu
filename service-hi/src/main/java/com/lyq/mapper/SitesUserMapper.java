@@ -37,6 +37,8 @@ public interface SitesUserMapper {
     //修改用户余额及次数
     void updateSome(SitesUser s);
 
-    SitesUser queryBalance(Integer sid);
+    SitesUser queryBalance(Integer id);
+  //更改是否会员
+    void updateMem(Integer id);
 }
 

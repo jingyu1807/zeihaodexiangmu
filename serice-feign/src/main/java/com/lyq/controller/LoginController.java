@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.util.List;
 
 
 @RestController
@@ -55,5 +56,25 @@ public class LoginController {
 
         return user;
     }
+    //查询余额
+    @RequestMapping("/queryBalance")
+    public  SitesUser  queryBalance(HttpServletRequest request){
+        SitesUser s= (SitesUser) request.getSession().getAttribute("user");
+        Integer id=s.getId();
+        return testService.queryBalance(id);
+    }
+    //套餐查询
+    @RequestMapping(value = "/queryPa")
+    public List queryPa () {
+        return testService.queryPa();
+    }
+    //更改是否会员
+    @RequestMapping(value = "/updateMem")
+    public void updateMem(Integer id,HttpServletRequest request){
+        SitesUser s= (SitesUser) request.getSession().getAttribute("user");
+        Integer ids=s.getId();
+        testService.updateMem( ids);
+    }
+
 
 }

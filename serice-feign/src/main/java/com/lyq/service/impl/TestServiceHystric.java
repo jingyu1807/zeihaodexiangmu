@@ -47,4 +47,16 @@ package com.lyq.service.impl;
         public void sendMessage() {
 
         }
+
+        @Override
+        public SitesUser queryBalance(Integer id) {
+            return null;
+        }
+
+        @Override
+        public void updateMem(Integer ids) {
+
+        }
+
+
     }

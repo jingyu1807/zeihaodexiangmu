@@ -34,5 +34,7 @@ public interface SitesUserService {
 
     void updateBal(String referCode);
 
-    SitesUser queryBalance(SitesUser s);
+    SitesUser queryBalance(Integer id);
+
+    void updateMem(Integer id);
 }

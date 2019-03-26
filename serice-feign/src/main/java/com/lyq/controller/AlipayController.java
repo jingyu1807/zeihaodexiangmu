@@ -9,6 +9,7 @@ import com.alipay.api.request.AlipayTradePagePayRequest;
 
 import com.lyq.controller.config.AlipayConfig;
 
+import com.lyq.model.SitesUser;
 import com.lyq.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,6 +66,7 @@ public class AlipayController {
         model.setBody(body); // 设置商品描述
         alipayRequest.setBizModel(model);
 
+
         String form = client.pageExecute(alipayRequest).getBody(); // 生成表单
 
         response.setContentType("text/html;charset=" + charset);
@@ -102,14 +104,18 @@ public class AlipayController {
         if (signVerified) {
             System.out.println("前往支付成功页面");
             testService.sendMessage();
+            SitesUser s= (SitesUser) request.getSession().getAttribute("user");
+            Integer ids=s.getId();
+            testService.updateMem( ids);
+
             mav.setViewName("index.htm");
 
 
 
-        } else {
-            System.out.println("前往支付失败页面");
-            mav.setViewName("failReturn");
-        }
+    } else {
+        System.out.println("前往支付失败页面");
+        mav.setViewName("failReturn");
+    }
         return mav;
     }
 
