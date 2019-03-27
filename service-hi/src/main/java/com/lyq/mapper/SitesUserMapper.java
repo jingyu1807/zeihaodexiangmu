@@ -38,5 +38,9 @@ public interface SitesUserMapper {
     void updateSome(SitesUser s);
 
     SitesUser queryBalance(Integer sid);
+
+    void updateMem(Integer id);
+
+    SitesUser querySitesUserIds(Integer userId);
 }
 

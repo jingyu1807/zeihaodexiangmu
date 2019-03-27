@@ -32,4 +32,6 @@ public interface TestService {
 
     @RequestMapping(value = "ke/queryListKe",method = RequestMethod.GET)
     List ke();
+    @RequestMapping(value = "sitesUser/querySitesUserIds",method = RequestMethod.GET)
+    SitesUser queryUser(@RequestParam(value = "userId")Integer userId);
 }
