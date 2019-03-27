@@ -24,6 +24,12 @@ public class SitesUserController {
     @Autowired
     private SitesUserService sitesUserService;
 
+    //查询当前用户
+    @ResponseBody
+    @RequestMapping("querySitesUserIds")
+    public SitesUser querySitesUserIds(Integer userId){
+        return sitesUserService.querySitesUserIds(userId);
+    }
 
     //查询网站用户列表 并分页
     @ResponseBody

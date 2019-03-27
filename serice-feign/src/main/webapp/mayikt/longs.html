@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--直播-->
+    <link href="http://vjs.zencdn.net/5.5.3/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/5.5.3/video.js"></script>
+    <!--弹幕-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="dist/css/barrager.css">
+    <link rel="stylesheet" type="text/css" href="pick-a-color/css/pick-a-color-1.2.3.min.css">
+    <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.css"/>
+    <!-- JS dependencies -->
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/tinycolor-0.9.15.min.js"></script>
+    <script type="text/javascript" src="dist/js/jquery.barrager.min.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript" src="pick-a-color/js/pick-a-color-1.2.3.min.js"></script>
+
+</head>
+<style type="text/css">
+    #sendDiv{
+        text-align: center;
+    }
+    .SendP{
+        text-align: right;
+    }
+    .send{
+        background-color: green;
+        color: white;
+        font-size: 24px;
+        border-radius: 8px;
+        padding: 2px 5px;
+    }
+    .rightXjt{
+        color: green;
+        margin-left: -5px;
+    }
+    .lefttXjt{
+        color: blue;
+        margin-right: -5px;
+    }
+    .receive{
+        background-color: blue;
+        font-size: 24px;
+        color: white;
+        border-radius: 5px;
+        padding: 2px 5px;
+    }
+    .text{
+        width: 300px;
+        height: 30px;
+        border:none;
+        border-radius:5px;
+        font-size: 20px;
+        margin-left:60px;
+    }
+    .btn{
+        width: 60px;
+        height: 30px;
+        color: #ffffff;
+        background-color: red;
+        border:none;
+        font-size:16px;
+    }
+    .string {
+        width: 300px;
+        height: 40px;
+        margin-top: 20px;
+        position: absolute;
+        color: #000;
+        font-size: 20px;
+        font-family: "微软雅黑";
+    }
+</style>
+<body>
+    <div style="width:1890px;height:1000px;float:left">
+        <div style="width:1300px;height:960px;float:left;margin-left:20px;margin-top:20px" id="enableFlash">
+            <embed src='dgPortal.swf'></embed>
+        </div>
+        <div style="margin-left:20px;margin-top:20px;width:490px;height:960px;float:left">
+            <div style="width:490px;height:900px;float:left;background-color:rgba(253,255,246,0)" id="mass">
+
+            </div>
+            <div style="width:490px;height:60px;float:left;background-color:#fefff7">
+                <div style="width:360px;height:30px;float:left;margin-left:20px;margin-top:15px">
+                    <input type = "text" class = "text"/>
+                </div>
+                <div style="width:80px;height:30px;float:left;margin-top:15px">
+                    <input type="button" value="发送" id = "btn" class = "btn">
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="userid">
+    <script>
+        $(function(){
+            telecast();
+            userid();
+        });
+        (function longPolling() {
+            $.ajax({
+                url: "/ajax",
+                dataType: "text",
+                timeout: 5000,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    if (textStatus == "timeout") { // 请求超时
+                        longPolling(); // 递归调用
+                        // 其他错误，如网络错误等
+                    } else {
+                        longPolling();
+                    }
+                },
+                success: function (data, textStatus) {
+                    var arr = data.split(",");
+                    if(arr[0] != null && arr[0] != ''){
+                        $.ajax({
+                            url:"/queryUser",
+                            data:{userId:arr[0]},
+                            type: 'post',
+                            success:function(data){
+                                if(data != '' && data != null){
+                                    var name = data.sitesUserName;
+                                    var send = '<font>'+name+':'+arr[1]+"<br>";
+                                    $("#mass").append(send);
+                                    $("#mass").scrollTop($("#mass")[0].scrollHeight);
+                                }
+                            },
+                            error:function(){
+                            }
+                        })
+                    }
+                    auto(arr[1]);
+                    if (textStatus == "success") { // 请求成功
+                        longPolling();
+                    }
+                }
+            });
+        })();
+        $("#btn").bind("click",addRedis);//按钮绑定方法
+        //按下回车
+        document.onkeydown = function(){
+            if(event.keyCode == 13){
+                addRedis();
+            }
+        }
+        function nullid(){
+            var id = $("#userid").val();
+            if(id == null || id == ''){
+                $("#btn").attr("disabled",true);
+            }else{
+                $("#btn").attr("disabled",false);
+            }
+        }
+        function userid(){
+            $.ajax({
+                url: "/checkUser",
+                dataType: "text",
+                success: function (data) {
+                    if(data != '' && data != null){
+                        var ob=JSON.parse(data)
+                        var id = ob.id;
+                        $("#userid").val(id);
+                    }
+                    if($("#userid").val() == null || $("#userid").val() == ''){
+                        $("#btn").attr("disabled",true);
+                    }else{
+                        $("#btn").attr("disabled",false);
+                    }
+                }
+            });
+        }
+        //新增
+        function addRedis(){
+            $.ajax({
+                url: "/addRedis",
+                data: {"userId": $("#userid").val(),"message":$(".text").val()},
+                dataType: "text",
+                success: function (data) {
+                    //为了页面友好，清空刚刚输入的值
+                    $(".text").val("");
+                }
+            });
+        }
+        function auto(data){
+            var boxDom = $("#enableFlash");
+            var top, right;
+            var pageWidth = parseInt(boxDom.width());
+            var pageHeight =parseInt(boxDom.height());
+            //点击按钮
+            //1.获取输入的字符串
+            // var str = $(".text").val();
+            //2.生成一个元素
+            var createSpan = $("<span class = 'string' ></span>");
+            //3.给生成的元素赋值
+            createSpan.text(data);
+            //生成元素一个随机的位置，为了使每条弹幕都出现在屏幕上不同的位置
+            top = Math.floor(Math.random()*pageHeight/4);
+            createSpan.css({"top":top, "right": 400, "color": getRandomColor()});
+            boxDom.append(createSpan);
+            //4.设置元素的动画效果，animate(css样式值，时间， 执行完动画调用的方法)
+            //页面上有N个span，只让最后一个动起来
+            var spandom = $("#enableFlash>span:last-child");//找到最后一个span
+            spandom.animate({"right":pageWidth+300},4000,function(){
+                //移除元素
+                $(this).remove();
+            });
+        }
+        //定义一个可以生成随机颜色的方法,可以使每条弹幕的颜色不同
+        function getRandomColor(){
+            var colorArr = ['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+            var color = "";
+            for(var i = 0; i < 6; i++){
+                color += colorArr[Math.floor(Math.random()*16)];
+            }
+            return "#"+color;
+        }
+        function telecast(){
+            var flag = false;
+            // 判断客户端是否启动flash，是则添加视频模块，否则添加启动flash模块
+            if(window.ActiveXObject){
+                try{
+                    var swf = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+                    if(swf){
+                        flag = true;
+                    }
+                }catch(e){
+                }
+            }else{
+                try{
+                    var swf = navigator.plugins['Shockwave Flash'];
+                    if(swf){
+                        flag = true;
+                    }
+                }catch(e){
+                }
+            }
+            if(flag){
+                $("#enableFlash").html("<video id='my-video' class='video-js'></video>"+'<canvas id="canvasBarrage"></canvas>');
+                var str = "123456";
+                var player = videojs('my-video',{
+                    width: '1300px',
+                    height: '960px',
+                    controls: true,
+                    'autoplay': true,
+                    sources: [{
+                        src: 'rtmp://127.0.0.1/live/' + str,
+                        type: 'rtmp/flv'
+                    }]
+                },function(){
+                });
+            }else{
+            }
+        }
+    </script>
+</body>
+</html>

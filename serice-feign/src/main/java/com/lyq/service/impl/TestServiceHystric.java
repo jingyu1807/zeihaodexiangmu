@@ -52,4 +52,9 @@ package com.lyq.service.impl;
         public List ke() {
             return null;
         }
+
+        @Override
+        public SitesUser queryUser(Integer userid) {
+            return null;
+        }
     }

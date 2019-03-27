@@ -256,8 +256,6 @@ $(function () {
 
 
 
-							<li><a href="javascript:if(confirm('http://cn.mikecrm.com/kz8uPv0  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://cn.mikecrm.com/kz8uPv0'" tppabs="http://cn.mikecrm.com/kz8uPv0"
-								title="培训">培训</a></li>
 
 
 
@@ -276,8 +274,7 @@ $(function () {
 
 
 
-							<li><a href="javascript:if(confirm('http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1'" tppabs="http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1"
-								title="定期直播">定期直播</a></li>
+							<li><a href="longs.html" title="定期直播">定期直播</a></li>
 
 
 
@@ -577,18 +574,15 @@ $(function () {
         var courseId = $("#courseId").val();
         var userVip = $("#userVip").val();
         var pageActionUrl = $("#pageActionUrl").val();
-        alert($("#u-email").val())
         $.ajax({
             //几个参数需要注意一下
             type: "POST",//方法类型
-
             url: "/login",//url
             data: {
                 "sitesName": $("#u-email").val(),
                 "password": $("#u-password").val()
             },
             success: function (result) {
-
                 var json = eval(result);
                 console.log(json); //打印服务端返回的数据(调试用)
                 if (json == 1) {
@@ -676,8 +670,7 @@ $(function () {
 
 
 
-						<li><a href="javascript:if(confirm('http://cn.mikecrm.com/kz8uPv0  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://cn.mikecrm.com/kz8uPv0'" tppabs="http://cn.mikecrm.com/kz8uPv0"
-							title="培训" rel="nofollow" >培训</a></li>
+
 
 
 
@@ -694,15 +687,11 @@ $(function () {
 						<li><a href="javascript:if(confirm('http://static.itmayiedu.com/123123sdfdsgf.jpg  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://static.itmayiedu.com/123123sdfdsgf.jpg'" tppabs="http://static.itmayiedu.com/123123sdfdsgf.jpg"
 							title="小程序" rel="nofollow" >小程序</a></li>
 
+                        <li><a href="/javacv" title="开启直播" rel="nofollow" >开启直播</a></li>
+
+						<li><a href="longs.html" title="查看直播" rel="nofollow" >查看直播</a></li>
 
 
-						<li><a href="javascript:if(confirm('http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1'" tppabs="http://ke.qq.com/course/273548?term_id=100323286&from=41&enter_room=1"
-							title="定期直播" rel="nofollow" >定期直播</a></li>
-
-
-
-						<li><a href="javascript:if(confirm('http://ms.mayikt.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://ms.mayikt.com/'" tppabs="http://ms.mayikt.com/"
-							title="面试宝典" rel="nofollow" >面试宝典</a></li>
 
 
 

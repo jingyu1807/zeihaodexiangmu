@@ -91,4 +91,15 @@
         select  t.balance from t_sites_user t where t.id=#{id}
     </select>
 
+    <select id="querySitesUserIds" resultType="com.lyq.model.SitesUser">
+        select
+            u.id as id,
+            u.password as password,
+            u.sites_name as sitesName,
+            u.sites_phone as sitesPhone,
+            u.sites_user_name as sitesUserName,
+            u.state as state
+           from t_sites_user u
+            where u.id = #{userId}
+    </select>
 </mapper>

@@ -7,8 +7,21 @@ server:
 spring:
   application:
     name: service-feign
-
-
+#  mongodb 配置
+data:
+  mongodb:
+    uri: mongodb://127.0.0.1:27017/hell
+redis:
+  database: 0
+  host: 127.0.0.1
+  jedis:
+    pool:
+      max-active: 8
+      max-idle: 8
+      max-wait: -1
+      min-idle: 0
+  port: 6379
+  timeout: 5000
   #mvc:
   #  view:
       #    prefix: /WEB-INF/view/

@@ -227,4 +227,8 @@ public class SitesUserServiceImpl implements SitesUserService {
     }
 
 
+    @Override
+    public SitesUser querySitesUserIds(Integer userId) {
+        return sitesUserMapper.querySitesUserIds(userId);
+    }
 }
