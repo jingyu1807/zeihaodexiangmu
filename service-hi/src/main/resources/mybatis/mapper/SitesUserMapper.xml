@@ -90,6 +90,10 @@
     <select id="queryBalance" resultType="com.lyq.model.SitesUser">
         select  t.balance from t_sites_user t where t.id=#{id}
     </select>
+    <!-- 更改是否是会员-->
+    <update id="updateMem">
+         update t_sites_user set members_id=2 where id=#{id}
+      </update>
 
     <select id="querySitesUserIds" resultType="com.lyq.model.SitesUser">
         select

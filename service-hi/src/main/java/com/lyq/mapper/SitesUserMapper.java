@@ -1,7 +1,6 @@
 package com.lyq.mapper;
 
 import com.lyq.model.SitesUser;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -39,7 +38,5 @@ public interface SitesUserMapper {
     void updateSome(SitesUser s);
 
     SitesUser queryBalance(Integer sid);
-
-    SitesUser querySitesUserIds(@Param("userId") Integer userId);
 }
 

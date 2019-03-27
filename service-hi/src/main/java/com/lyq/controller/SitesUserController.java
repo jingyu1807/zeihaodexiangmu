@@ -6,6 +6,7 @@ import com.lyq.utils.CommonCanstant;
 import com.lyq.utils.HttpClientUtil;
 import com.lyq.utils.MD5Util;
 import com.lyq.utils.TimeUtil;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
@@ -125,9 +127,10 @@ public class SitesUserController {
     //查看余额
     @ResponseBody
     @RequestMapping("queryBalance")
-    public  SitesUser queryBalance(HttpSession session){
-        SitesUser s= (SitesUser) session.getAttribute("user");
-        return  sitesUserService.queryBalance(s);
+    public  SitesUser queryBalance(@RequestBody Integer id) {
+
+
+        return  sitesUserService.queryBalance(id);
     }
     //定时器
     @ResponseBody
@@ -153,4 +156,10 @@ public class SitesUserController {
                    }
     }, 2000);// 设定指定的时间time,此处为2000毫秒
          }
+    //更改是否会员
+    @RequestMapping("updateMem")
+    @ResponseBody
+    public void updateMem(@RequestBody Integer id){
+        sitesUserService. updateMem( id);
+    }
 }

@@ -114,13 +114,14 @@
 	//前往支付界面 
 	function toMayiMemberPage() {
 		var userId = $("#userId").val();
-		var qqerror = $("#qqerror").val();
-		if (userId == "") {
-			document.getElementById("loginInfo").innerHTML = qqerror;
-            openLoginDialog();
-		} else {
+
+//		var qqerror = $("#qqerror").val();
+//		if (userId == "") {
+//			document.getElementById("loginInfo").innerHTML = qqerror;
+//           openLoginDialog();
+//		} else {
 			window.location.href = "vippay.html";
-		}
+	//	}
 
 	}
 </script>
@@ -674,7 +675,7 @@
 				<div class="pr h-r-s-box-cx">
 					<form method="post" id="headerformSearch"
 						onsubmit="return toSearch()" action="http://www.mayikt.com/ajax/saveSearchWords">
-						<label class="h-r-s-box"><input type="text" value=""
+						<label class="h-r-s-box"><input type="hiddenen" value=""
 							style="color: #5a5a5a" id="courseName" name="courseName"
 							placeholder="搜索...">
 							<button class="s-btn" type="submit">
@@ -690,7 +691,7 @@
 		<aside class="mw-nav-seach mw-nav-seach-d1">
 			<form method="post" id="headerformSearch"
 				onsubmit="return toSearch()" action="http://www.mayikt.com/ajax/saveSearchWords">
-				<label class="h-r-s-box"><input type="text" value=""
+				<label class="h-r-s-box"><input type="hidden" value=""
 					style="color: #5a5a5a" id="courseName" name="courseName"
 					placeholder="搜索...">
 					<button class="s-btn" type="submit">
@@ -890,22 +891,24 @@
 		<div class="hLh20 txtOf mt10 tac current">
 			<a href="" class="fsize14 c-333 userNameClass"></a>
 		</div>
-		<div class="mt5 of tac">
-					<span class="u-tit-vip" style="display: none">
-						<em class="vip-pic">
-							<img src="vip.png" tppabs="http://www.mayikt.com/static/images/userInfo/vip.png">
-						</em>
-						<tt class="vam c-fff fsize14 f-fM" style="color:#ffffff;font-family:"微软雅黑"">已开通vip</tt>
-					</span>
-					<a href="#" class="u-tit-vip-gq" style="" title="立即开通vip">
-						<em class="vip-pic">
-							<img src="vip.png" tppabs="http://www.mayikt.com/static/images/userInfo/vip.png">
-						</em>
+		<div class="mt5 of tac" >
 
-						<tt class="vam c-fff fsize14 f-fM" style="color:#a2a2a2;font-family:"微软雅黑"">未开通vip</tt>
+			账户余额：<span id="balan" style="color:red"></span>元
+					<!--<span class="u-tit-vip" style="display: none">-->
+						<!--<em class="vip-pic">-->
+							<!--<img src="vip.png" tppabs="http://www.mayikt.com/static/images/userInfo/vip.png">-->
+						<!--</em>-->
+						<!--<tt class="vam c-fff fsize14 f-fM" style="color:#ffffff;font-family:"微软雅黑"">已开通vip</tt>-->
+					<!--</span>-->
+					<!--<a href="#" class="u-tit-vip-gq" style="" title="立即开通vip">-->
+						<!--<em class="vip-pic">-->
+							<!--<img src="vip.png" tppabs="http://www.mayikt.com/static/images/userInfo/vip.png">-->
+						<!--</em>-->
 
+						<!--<tt class="vam c-fff fsize14 f-fM" style="color:#a2a2a2;font-family:"微软雅黑"">未开通vip</tt>-->
 
-					</a>f
+					<!--</a>-->
+
 
 			</div>
 		<div class="clear"></div>
@@ -976,7 +979,7 @@
 									<section>
 										<div class="">
 
-											<input type="text" id="userId" th:value="${}"> <input
+											<input type="hidden" id="userId" > <input
 												type="hidden" value="请先登录！再购买会员" id="qqerror"> <input
 												type="hidden" value="" id="userVip">
 
@@ -1143,6 +1146,26 @@ var _hmt = _hmt || [];
 </script> -->
 
 <script>
+
+    $(function(){
+        $.ajax({
+            url:'/queryBalance',
+
+            success:function(data){
+
+                var ba=data.balance;
+
+
+                $("#balan").append(ba);
+                $("#userId").val(ba);
+            }
+
+        })
+
+    })
+
+
+
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
